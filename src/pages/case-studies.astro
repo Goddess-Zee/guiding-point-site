@@ -1,0 +1,45 @@
+---
+import Layout from "../components/Layout.astro";
+const studies = [
+  {
+    title: "Guiding Point Consulting — Brand + Services Site",
+    role: "Strategy, UX/content structure, Astro build, SEO foundations",
+    deliverables: ["Sitemap/IA", "Page templates", "Lead capture", "Performance + tracking setup"],
+    outcome: "Built to convert inbound consulting leads; structured for future capability statement content.",
+  },
+  {
+    title: "Project #2 — (Add your title)",
+    role: "Role summary",
+    deliverables: ["Deliverable", "Deliverable", "Deliverable"],
+    outcome: "Result/metric or qualitative outcome",
+  },
+  {
+    title: "Project #3 — (Add your title)",
+    role: "Role summary",
+    deliverables: ["Deliverable", "Deliverable", "Deliverable"],
+    outcome: "Result/metric or qualitative outcome",
+  },
+];
+---
+<Layout title="Case Studies | Guiding Point Consulting" path="/case-studies">
+  <section class="py-14">
+    <h1 class="text-4xl font-semibold">Case Studies</h1>
+    <p class="mt-3 max-w-2xl text-white/70">
+      A consistent format—context, role, deliverables, and outcomes.
+    </p>
+
+    <div class="mt-10 grid gap-6">
+      {studies.map((s) => (
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h2 class="text-xl font-semibold">{s.title}</h2>
+          <p class="mt-2 text-sm text-white/70"><span class="text-white/85 font-semibold">Role:</span> {s.role}</p>
+          <p class="mt-4 text-white/85 font-semibold">Deliverables</p>
+          <ul class="mt-2 list-disc pl-5 text-sm text-white/75 space-y-1">
+            {s.deliverables.map((d) => <li>{d}</li>)}
+          </ul>
+          <p class="mt-4 text-sm text-white/70"><span class="text-white/85 font-semibold">Outcome:</span> {s.outcome}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>

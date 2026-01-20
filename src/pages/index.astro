@@ -1,11 +1,98 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../components/Layout.astro";
 ---
+<Layout
+  title="Guiding Point Consulting"
+  path="/"
+  description="Human-centered web + AI content systems. Modernize your website and content ops while keeping the human touch."
+>
+  <section class="relative py-16 sm:py-24">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(16,185,129,0.18),transparent_55%)]"></div>
 
-<Layout>
-	<Welcome />
+    <p class="text-emerald-300/90 font-semibold tracking-wide">
+      Human-centered web + AI content systems
+    </p>
+
+    <h1 class="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
+      Modernize your website and content ops—without losing the human touch.
+    </h1>
+
+    <p class="mt-6 max-w-2xl text-lg text-white/70">
+      I modernize websites and build AI-enabled content operations so teams publish faster, stay consistent,
+      and improve measurable outcomes—while serving as the liaison between leadership and technical teams.
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="/contact"
+        class="rounded-full bg-emerald-400 px-5 py-3 font-semibold text-slate-950 hover:bg-emerald-300 transition">
+        Request a Website Audit
+      </a>
+      <a href="/case-studies"
+        class="rounded-full border border-white/15 px-5 py-3 font-semibold text-white/90 hover:bg-white/5 transition">
+        View Case Studies
+      </a>
+    </div>
+
+    <div class="mt-12 grid gap-4 sm:grid-cols-3">
+      {[
+        ["Website Audit + Roadmap", "Clarity on what to fix first and why."],
+        ["AI Content Ops Setup", "SOPs, prompts, QA, and workflows that scale."],
+        ["Fractional Strategy Lead", "A steady hand bridging leadership + delivery."]
+      ].map(([t, d]) => (
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/7 transition">
+          <p class="font-semibold">{t}</p>
+          <p class="mt-2 text-sm text-white/65">{d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+    <div class="grid gap-4 sm:grid-cols-3">
+      <div>
+        <p class="text-3xl font-semibold text-emerald-300">+28%</p>
+        <p class="text-white/70">ROAS lift</p>
+      </div>
+      <div>
+        <p class="text-3xl font-semibold text-emerald-300">+42%</p>
+        <p class="text-white/70">traffic growth</p>
+      </div>
+      <div>
+        <p class="text-3xl font-semibold text-emerald-300">-15%</p>
+        <p class="text-white/70">time-to-publish</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-16">
+    <h2 class="text-2xl font-semibold">How I work</h2>
+    <p class="mt-2 max-w-2xl text-white/70">
+      Strategy first, clean execution, and systems that make publishing easier.
+    </p>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-black">
+      <div class="relative aspect-video">
+        <iframe
+          class="absolute inset-0 h-full w-full"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="Guiding Point Consulting overview"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <p class="mt-3 text-xs text-white/50">Replace this embed with your real video link.</p>
+  </section>
+
+  <section class="mt-16 mb-24 rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-8">
+    <h2 class="text-2xl font-semibold">Ready to modernize?</h2>
+    <p class="mt-2 max-w-2xl text-white/70">
+      I’ll review your site and content workflow, identify quick wins, and map a practical modernization plan.
+    </p>
+    <a href="/contact"
+      class="mt-6 inline-block rounded-full bg-emerald-400 px-5 py-3 font-semibold text-slate-950 hover:bg-emerald-300 transition">
+      Request an Audit
+    </a>
+  </section>
 </Layout>

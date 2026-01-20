@@ -1,0 +1,40 @@
+---
+import Layout from "../components/Layout.astro";
+---
+<Layout title="About | Guiding Point Consulting" path="/about">
+  <section class="py-14">
+    <h1 class="text-4xl font-semibold">About</h1>
+    <p class="mt-4 max-w-3xl text-white/70">
+      I bridge tech, creativity, and human connection—translating goals into clear systems and execution.
+      I work best as the liaison between leadership and technical teams: aligning priorities, improving workflows,
+      and delivering modern, measurable outcomes.
+    </p>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="font-semibold">What you can expect</h2>
+        <ul class="mt-3 space-y-2 text-sm text-white/75 list-disc pl-5">
+          <li>Clear scope and communication</li>
+          <li>Human-centered UX and messaging</li>
+          <li>Systems thinking (not just pages)</li>
+          <li>Practical AI workflows with QA</li>
+        </ul>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="font-semibold">Tools & strengths</h2>
+        <ul class="mt-3 space-y-2 text-sm text-white/75 list-disc pl-5">
+          <li>Web strategy, IA, and content structure</li>
+          <li>Static sites (Astro), performance-first delivery</li>
+          <li>Analytics + SEO foundations</li>
+          <li>AI content ops (SOPs, prompts, governance)</li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="/contact"
+      class="mt-10 inline-block rounded-full bg-emerald-400 px-5 py-3 font-semibold text-slate-950 hover:bg-emerald-300 transition">
+      Work with me
+    </a>
+  </section>
+</Layout>

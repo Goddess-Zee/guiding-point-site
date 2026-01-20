@@ -1,0 +1,30 @@
+---
+import Layout from "../components/Layout.astro";
+---
+<Layout title="Services | Guiding Point Consulting" path="/services">
+  <section class="py-14">
+    <h1 class="text-4xl font-semibold">Services</h1>
+    <p class="mt-3 max-w-2xl text-white/70">
+      Three offers, designed to meet you where you are—diagnose, build, or lead.
+    </p>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-3">
+      {[
+        ["Website Audit + Modernization Roadmap", "A clear plan you can execute with confidence.", ["UX + IA review", "Performance + SEO quick wins", "Prioritized roadmap + next steps"]],
+        ["AI Content Ops Setup", "Systems that help teams publish faster and stay consistent.", ["SOPs + workflows", "Prompt library + QA", "Governance + templates"]],
+        ["Fractional Digital Strategy Lead", "Ongoing leadership + alignment across teams.", ["Weekly strategy + reporting", "Stakeholder alignment", "Execution oversight + handoffs"]],
+      ].map(([title, desc, bullets]) => (
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h2 class="text-lg font-semibold">{title}</h2>
+          <p class="mt-2 text-white/70 text-sm">{desc}</p>
+          <ul class="mt-4 space-y-2 text-sm text-white/75 list-disc pl-5">
+            {(Array.isArray(bullets) ? bullets : [bullets]).map((b) => <li>{b}</li>)}
+          </ul>
+          <a href="/contact" class="mt-5 inline-block text-emerald-300 hover:text-emerald-200 font-semibold">
+            Request details →
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

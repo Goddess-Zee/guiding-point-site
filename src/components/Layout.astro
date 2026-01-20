@@ -1,0 +1,68 @@
+---
+const {
+  title = "Guiding Point Consulting",
+  description = "Web + AI consulting that bridges tech, creativity, and human connection.",
+  path = "/",
+} = Astro.props;
+
+const site = Astro.site?.toString().replace(/\/$/, "") || "";
+const canonical = site ? `${site}${path}` : path;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Basic social sharing -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <style>
+      /* Small helper for smooth scroll + nicer selection */
+      html { scroll-behavior: smooth; }
+      ::selection { background: rgba(16,185,129,.25); }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-slate-50 antialiased">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <a href="/" class="font-semibold tracking-tight">
+          Guiding Point <span class="text-emerald-300">Consulting</span>
+        </a>
+        <div class="hidden items-center gap-5 text-sm sm:flex">
+          <a class="text-white/70 hover:text-white" href="/services">Services</a>
+          <a class="text-white/70 hover:text-white" href="/case-studies">Case Studies</a>
+          <a class="text-white/70 hover:text-white" href="/about">About</a>
+          <a class="rounded-full bg-emerald-400 px-4 py-2 font-semibold text-slate-950 hover:bg-emerald-300"
+             href="/contact">Request an Audit</a>
+        </div>
+        <a class="sm:hidden rounded-full border border-white/15 px-3 py-1 text-sm text-white/80 hover:bg-white/5"
+           href="/contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4">
+      <slot />
+    </main>
+
+    <footer class="mx-auto mt-24 max-w-6xl px-4 pb-12 text-sm text-white/60">
+      <div class="border-t border-white/10 pt-8">
+        <p>Web + AI consulting that bridges tech, creativity, and human connection.</p>
+        <div class="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+          <a class="hover:text-white" href="/services">Services</a>
+          <a class="hover:text-white" href="/case-studies">Case Studies</a>
+          <a class="hover:text-white" href="/about">About</a>
+          <a class="hover:text-white" href="/contact">Contact</a>
+        </div>
+        <p class="mt-4">© {new Date().getFullYear()} Guiding Point Consulting, LLC</p>
+      </div>
+    </footer>
+  </body>
+</html>
