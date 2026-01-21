@@ -10,32 +10,27 @@ import Layout from "../components/Layout.astro";
 
     <div class="mt-10 grid gap-6 sm:grid-cols-2">
       <form
-        class="rounded-2xl border border-white/10 bg-white/5 p-6"
-        method="POST"
-        action="https://formspree.io/f/YOUR_FORM_ID"
-      >
-        <label class="block text-sm font-semibold">Name</label>
-        <input name="name" required class="mt-2 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 outline-none focus:border-emerald-300" />
+  class="rounded-2xl border border-white/10 bg-white/5 p-6"
+  method="POST"
+  action="https://formspree.io/f/xqeeylwv"
+>
+  <label class="block text-sm font-semibold">Name</label>
+  <input name="name" required class="mt-2 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 outline-none focus:border-emerald-300" />
 
-        <label class="mt-4 block text-sm font-semibold">Email</label>
-        <input type="email" name="email" required class="mt-2 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 outline-none focus:border-emerald-300" />
+  <label class="mt-4 block text-sm font-semibold">Email</label>
+  <input type="email" name="email" required class="mt-2 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 outline-none focus:border-emerald-300" />
 
-        <label class="mt-4 block text-sm font-semibold">Message</label>
-        <textarea name="message" required rows="5"
-          class="mt-2 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 outline-none focus:border-emerald-300"></textarea>
-
-        <button
-          class="mt-5 w-full rounded-full bg-emerald-400 px-5 py-3 font-semibold text-slate-950 hover:bg-emerald-300 transition"
-          type="submit"
-        >
-          Send
-        </button>
-
-        <p class="mt-3 text-xs text-white/50">
-          Replace <code>YOUR_FORM_ID</code> after you create a Formspree form.
-        </p>
-      </form>
-
+  <label class="mt-4 block text-sm font-semibold">Message</label>
+  <textarea name="message" required rows="5"
+    class="mt-2 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 outline-none focus:border-emerald-300"></textarea>
+  <input type="hidden" name="_redirect" value="https://guidingpointconsults.com/thanks" />
+  <button
+    class="mt-5 w-full rounded-full bg-emerald-400 px-5 py-3 font-semibold text-slate-950 hover:bg-emerald-300 transition"
+    type="submit"
+  >
+    Send
+  </button>
+</form>
       <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
         <h2 class="font-semibold">Prefer a quick call?</h2>
         <p class="mt-2 text-sm text-white/70">
