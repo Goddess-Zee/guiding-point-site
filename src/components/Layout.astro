@@ -29,22 +29,56 @@ const canonical = site ? `${site}${path}` : path;
       html { scroll-behavior: smooth; }
       ::selection { background: rgba(16,185,129,.25); }
     </style>
+
+    <!-- Reveal animation styles (global) -->
+    <style is:inline>
+      .reveal {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        will-change: opacity, transform;
+      }
+      .reveal--in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Respect reduced motion settings */
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+    </style>
   </head>
+
   <body class="bg-slate-950 text-slate-50 antialiased">
     <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur">
       <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         <a href="/" class="font-semibold tracking-tight">
           Guiding Point <span class="text-emerald-300">Consulting</span>
         </a>
+
         <div class="hidden items-center gap-5 text-sm sm:flex">
           <a class="text-white/70 hover:text-white" href="/services">Services</a>
           <a class="text-white/70 hover:text-white" href="/case-studies">Case Studies</a>
           <a class="text-white/70 hover:text-white" href="/about">About</a>
-          <a class="rounded-full bg-emerald-400 px-4 py-2 font-semibold text-slate-950 hover:bg-emerald-300"
-             href="/contact">Request an Audit</a>
+          <a
+            class="rounded-full bg-emerald-400 px-4 py-2 font-semibold text-slate-950 hover:bg-emerald-300 transition"
+            href="/contact"
+          >
+            Request an Audit
+          </a>
         </div>
-        <a class="sm:hidden rounded-full border border-white/15 px-3 py-1 text-sm text-white/80 hover:bg-white/5"
-           href="/contact">Contact</a>
+
+        <a
+          class="sm:hidden rounded-full border border-white/15 px-3 py-1 text-sm text-white/80 hover:bg-white/5"
+          href="/contact"
+        >
+          Contact
+        </a>
       </nav>
     </header>
 
@@ -64,5 +98,25 @@ const canonical = site ? `${site}${path}` : path;
         <p class="mt-4">© {new Date().getFullYear()} Guiding Point Consulting, LLC</p>
       </div>
     </footer>
+
+    <!-- Reveal observer script (global, runs once per page load) -->
+    <script is:inline>
+      const els = document.querySelectorAll(".reveal");
+      if (els.length) {
+        const obs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("reveal--in");
+                obs.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        els.forEach((el) => obs.observe(el));
+      }
+    </script>
   </body>
 </html>
