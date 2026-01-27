@@ -16,10 +16,10 @@ import Layout from "../layouts/Layout.astro";
     
     <div class="container hero-content">
       <p class="eyebrow">Human-centered web + AI content systems</p>
-      <h1>Modernize your website and content ops—without losing the human touch.</h1>
+      <h1>Modernize your website and content ops without losing the human touch.</h1>
       <p class="hero-text">
-        I modernize websites and build AI-enabled content operations so teams publish faster, stay consistent,
-        and improve measurable outcomes—while serving as the liaison between leadership and technical teams.
+        We modernize websites and build AI-enabled content operations so teams publish faster, stay consistent,
+        and improve measurable outcomes while serving as the liaison between leadership and technical teams.
       </p>
       <div class="cta-group">
         <a href="/contact" class="btn btn-primary">Request a Website Audit</a>
@@ -91,7 +91,7 @@ import Layout from "../layouts/Layout.astro";
   <!-- How I Work Section -->
   <section class="how-i-work">
     <div class="container">
-      <h2>How I work</h2>
+      <h2>How We Work</h2>
       <p class="section-intro">Strategy first. Then clean execution. Then systems that help your team keep moving after launch.</p>
       
       <div class="process-grid">
@@ -118,8 +118,8 @@ import Layout from "../layouts/Layout.astro";
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Ready to modernize?</h2>
-        <p>I'll review your site and content workflow, identify quick wins, and map a practical modernization plan.</p>
+        <h2>Ready to Modernize?</h2>
+        <p>We'll review your site and content workflow, identify quick wins, and map a practical modernization plan.</p>
         <a href="/contact" class="btn btn-primary">Request an Audit</a>
       </div>
     </div>
@@ -129,12 +129,13 @@ import Layout from "../layouts/Layout.astro";
 <style>
   /* Parallax Hero Styles */
   .parallax-section {
-    position: relative;
-    overflow: hidden;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+  position: relative;
+  overflow: hidden;
+  min-height: auto;  /* Remove fixed height */
+  display: flex;
+  align-items: center;
+  padding: var(--space-2xl) 0 var(--space-xl);  /* Less padding */
+}
 
   .parallax-bg {
     position: absolute;
@@ -229,10 +230,49 @@ import Layout from "../layouts/Layout.astro";
     border-radius: 20px;
   }
 
-  .hero h1 {
-    max-width: 900px;
-    margin: 0 auto var(--space-lg);
+  /* Animated Gradient Text */
+.hero h1 {
+  max-width: 900px;
+  margin: 0 auto var(--space-lg);
+  background: linear-gradient(
+    90deg,
+    var(--indigo) 0%,
+    var(--rust) 50%,
+    var(--indigo) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% center;
   }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
 
   .hero-text {
     max-width: 700px;

@@ -334,8 +334,13 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .parallax-section {
-      min-height: auto;
-    }
+  position: relative;
+  overflow: hidden;
+  min-height: auto;  /* Remove fixed height */
+  display: flex;
+  align-items: center;
+  padding: var(--space-2xl) 0 var(--space-xl);  /* Less padding */
+}
   }
 </style>
 

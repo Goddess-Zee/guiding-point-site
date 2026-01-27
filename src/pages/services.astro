@@ -8,16 +8,15 @@ import Layout from "../layouts/Layout.astro";
 >
   <!-- Page Header with Parallax -->
   <section class="page-header parallax-section">
-    <div class="parallax-bg" data-speed="0.5">
-      <div class="gradient-orb orb-1"></div>
-      <div class="gradient-orb orb-2"></div>
-    </div>
-    <div class="container header-content">
-      <h1>Services</h1>
-      <p class="page-intro">Three offers designed to meet you where you are—diagnose, build, or lead.</p>
-    </div>
-  </section>
-
+  <div class="parallax-bg" data-speed="0.5">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+  </div>
+  <div class="container header-content">
+    <h1>Services</h1>
+    <p class="page-intro">Three offers designed to meet you where you are—diagnose, build, or lead.</p>
+  </div>
+</section>
   <!-- Services Detail -->
   <section class="services-detail">
     <div class="container">
@@ -30,7 +29,7 @@ import Layout from "../layouts/Layout.astro";
         
         <div class="service-content">
           <div class="service-description">
-            <h3>Who it's for</h3>
+            <h3>Who it's For</h3>
             <p>Teams with an outdated or underperforming site who want a clear plan before spending on a rebuild.</p>
             
             <h3>What you get</h3>
@@ -103,7 +102,7 @@ import Layout from "../layouts/Layout.astro";
             </ul>
             
             <h3>Outcome</h3>
-            <p>Momentum, clarity, and measurable progress—without hiring full-time.</p>
+            <p>Momentum, clarity, and measurable progress.</p>
           </div>
           
           <div class="service-cta">
@@ -131,13 +130,13 @@ import Layout from "../layouts/Layout.astro";
 <style>
   /* Parallax Header */
   .parallax-section {
-    position: relative;
-    overflow: hidden;
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    padding: var(--space-3xl) 0;
-  }
+  position: relative;
+  overflow: hidden;
+  min-height: auto;  /* Remove fixed height */
+  display: flex;
+  align-items: center;
+  padding: var(--space-2xl) 0 var(--space-xl);  /* Less padding */
+}
 
   .parallax-bg {
     position: absolute;
@@ -198,16 +197,21 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .page-header {
-    text-align: center;
-    border-bottom: 1px solid var(--gray-200);
-  }
+  text-align: center;
+  border-bottom: 1px solid var(--gray-200);
+}
 
-  .page-intro {
-    max-width: 700px;
-    margin: var(--space-md) auto 0;
-    font-size: 1.25rem;
-    color: var(--gray-600);
-  }
+.page-header h1 {
+  margin-bottom: var(--space-md);
+}
+
+.page-intro {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
 
   .services-detail {
     padding: var(--space-3xl) 0;
