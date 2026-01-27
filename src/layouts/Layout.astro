@@ -1,32 +1,73 @@
 ---
-import "../styles/global.css";
+import "../styles/modern.css";
 
 const {
   title = "Guiding Point Consulting",
   description = "Web + AI consulting that bridges tech, creativity, and human connection.",
-  path = "/",
 } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container">
+        <div class="header-content">
+          <a href="/" class="logo-link">
+            <img src="/logo.png" alt="Guiding Point Consulting" class="logo" />
+          </a>
+          <nav class="main-nav">
+            <a href="/services">Services</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/about">About</a>
+            <a href="/contact" class="nav-cta">Request Audit</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <img src="/logo.png" alt="Guiding Point Consulting" class="footer-logo" />
+            <p>Web + AI consulting that bridges tech, creativity, and human connection.</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-col">
+              <h4>Services</h4>
+              <a href="/services#audit">Website Audit</a>
+              <a href="/services#content-ops">Content Ops</a>
+              <a href="/services#strategy">Strategy Lead</a>
+            </div>
+            <div class="footer-col">
+              <h4>Company</h4>
+              <a href="/about">About</a>
+              <a href="/case-studies">Case Studies</a>
+              <a href="/contact">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© {new Date().getFullYear()} Guiding Point Consulting, LLC. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
-

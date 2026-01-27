@@ -1,51 +1,351 @@
 ---
-import Layout from "../components/Layout.astro";
+import Layout from "../layouts/Layout.astro";
 ---
-<Layout title="Contact | Guiding Point Consulting" path="/contact">
-  <section class="py-14">
-    <h1 class="text-4xl font-semibold">Contact</h1>
-    <p class="mt-3 max-w-2xl text-white/70">
-      Tell me what you’re trying to improve. I’ll reply with next steps and options.
-    </p>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-2">
-      <form
-  class="rounded-2xl border border-white/10 bg-white/5 p-6"
-  method="POST"
-  action="https://formspree.io/f/xqeeylwv"
+<Layout
+  title="Contact - Guiding Point Consulting"
+  description="Tell me what you're trying to improve. I'll reply with next steps and options."
 >
-  <label class="block text-sm font-semibold">Name</label>
-  <input name="name" required class="mt-2 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 outline-none focus:border-emerald-300" />
+  <!-- Hero with Parallax -->
+  <section class="contact-hero parallax-section">
+    <div class="parallax-bg" data-speed="0.5">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+    </div>
+    <div class="container hero-content">
+      <h1>Contact</h1>
+      <p class="hero-text">
+        Tell me what you're trying to improve. I'll reply with next steps and options.
+      </p>
+    </div>
+  </section>
 
-  <label class="mt-4 block text-sm font-semibold">Email</label>
-  <input type="email" name="email" required class="mt-2 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 outline-none focus:border-emerald-300" />
+  <!-- Contact Form Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden">
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </p>
 
-  <label class="mt-4 block text-sm font-semibold">Message</label>
-  <textarea name="message" required rows="5"
-    class="mt-2 w-full rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 outline-none focus:border-emerald-300"></textarea>
-  <input type="hidden" name="_redirect" value="https://guidingpointconsults.com/thanks" />
-  <button
-    class="mt-5 w-full rounded-full bg-emerald-400 px-5 py-3 font-semibold text-slate-950 hover:bg-emerald-300 transition"
-    type="submit"
-  >
-    Send
-  </button>
-</form>
-      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-        <h2 class="font-semibold">Prefer a quick call?</h2>
-        <p class="mt-2 text-sm text-white/70">
-          Add your Calendly link here (or any booking tool).
-        </p>
-        <a class="mt-4 inline-block text-emerald-300 hover:text-emerald-200 font-semibold"
-           href="https://calendly.com/YOUR-LINK" target="_blank" rel="noreferrer">
-          Book time →
-        </a>
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
 
-        <div class="mt-8">
-          <h3 class="font-semibold">Email</h3>
-          <p class="mt-2 text-sm text-white/70">you@yourdomain.com</p>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company / Organization</label>
+              <input type="text" id="company" name="company" />
+            </div>
+
+            <div class="form-group">
+              <label for="website">Website URL</label>
+              <input type="url" id="website" name="website" placeholder="https://" />
+            </div>
+
+            <div class="form-group">
+              <label for="service">Interested In</label>
+              <select id="service" name="service">
+                <option value="">Select a service...</option>
+                <option value="audit">Website Audit + Roadmap</option>
+                <option value="content-ops">AI Content Ops Setup</option>
+                <option value="strategy">Fractional Strategy Lead</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Tell me about your project *</label>
+              <textarea id="message" name="message" rows="6" required placeholder="Include your goals, timeline, and any specific challenges you're facing..."></textarea>
+              <p class="form-helper">If helpful, include your site link, goals, and timeline.</p>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          </form>
+
+          <p class="response-time">I respond within 1–2 business days.</p>
         </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <div class="info-card">
+            <h3>Prefer a quick call?</h3>
+            <p>Book time and I'll come prepared with questions and recommendations.</p>
+            <a href="#" class="btn btn-secondary">Book a Consultation</a>
+          </div>
+
+          <div class="info-card">
+            <h3>Email</h3>
+            <p><a href="mailto:hello@guidingpointconsults.com" class="contact-link">hello@guidingpointconsults.com</a></p>
+          </div>
+
+          <div class="info-card">
+            <h3>Based in</h3>
+            <p>Tampa, Florida</p>
+            <p class="small-text">Working with clients nationwide</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+
 </Layout>
+
+<style>
+  /* Parallax Hero */
+  .parallax-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-3xl) 0 var(--space-2xl);
+    background: var(--gray-50);
+  }
+
+  .parallax-bg {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    right: 0;
+    bottom: -50%;
+    z-index: 0;
+    will-change: transform;
+  }
+
+  .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: float 15s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #ac3430 20%, #ff6b6b 40%, transparent 70%);
+    top: -150px;
+    left: -150px;
+    z-index: 0;
+    animation-delay: 0s;
+  }
+
+  .orb-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #dcceaa 20%, #f5e6c8 40%, transparent 70%);
+    top: 50px;
+    right: -100px;
+    z-index: 0;
+    animation-delay: -7s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(30px, -30px) scale(1.05);
+    }
+    50% {
+      transform: translate(-20px, 20px) scale(0.95);
+    }
+    75% {
+      transform: translate(20px, 30px) scale(1.02);
+    }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .contact-hero h1 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-text {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--gray-700);
+  }
+
+  .contact-section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-3xl);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-form-wrapper {
+    background: white;
+    padding: var(--space-2xl);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group label {
+    font-weight: 600;
+    color: var(--indigo);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.875rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: var(--font-main);
+    transition: border-color 0.2s ease;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--rust);
+    box-shadow: 0 0 0 3px rgba(172, 52, 48, 0.1);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-helper {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+  }
+
+  .btn-full {
+    width: 100%;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .response-time {
+    margin-top: var(--space-lg);
+    text-align: center;
+    color: var(--gray-600);
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .info-card {
+    background: var(--gray-50);
+    padding: var(--space-lg);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+  }
+
+  .info-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+    color: var(--indigo);
+  }
+
+  .info-card p {
+    color: var(--gray-700);
+    margin-bottom: var(--space-md);
+  }
+
+  .info-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .small-text {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+  }
+
+  .contact-link {
+    color: var(--rust);
+    font-weight: 600;
+  }
+
+  .contact-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 968px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .contact-form-wrapper {
+      padding: var(--space-lg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-text {
+      font-size: 1.25rem;
+    }
+
+    .gradient-orb {
+      width: 300px;
+      height: 300px;
+    }
+
+    .parallax-section {
+      min-height: auto;
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallaxBg = document.querySelector('.parallax-bg') as HTMLElement;
+    
+    if (parallaxBg && scrolled < window.innerHeight) {
+      parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+  });
+</script>

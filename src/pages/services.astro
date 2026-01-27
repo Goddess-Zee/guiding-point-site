@@ -1,30 +1,337 @@
 ---
-import Layout from "../components/Layout.astro";
+import Layout from "../layouts/Layout.astro";
 ---
-<Layout title="Services | Guiding Point Consulting" path="/services">
-  <section class="py-14">
-    <h1 class="text-4xl font-semibold">Services</h1>
-    <p class="mt-3 max-w-2xl text-white/70">
-      Three offers, designed to meet you where you are—diagnose, build, or lead.
-    </p>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-3">
-      {[
-        ["Website Audit + Modernization Roadmap", "A clear plan you can execute with confidence.", ["UX + IA review", "Performance + SEO quick wins", "Prioritized roadmap + next steps"]],
-        ["AI Content Ops Setup", "Systems that help teams publish faster and stay consistent.", ["SOPs + workflows", "Prompt library + QA", "Governance + templates"]],
-        ["Fractional Digital Strategy Lead", "Ongoing leadership + alignment across teams.", ["Weekly strategy + reporting", "Stakeholder alignment", "Execution oversight + handoffs"]],
-      ].map(([title, desc, bullets]) => (
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-          <h2 class="text-lg font-semibold">{title}</h2>
-          <p class="mt-2 text-white/70 text-sm">{desc}</p>
-          <ul class="mt-4 space-y-2 text-sm text-white/75 list-disc pl-5">
-            {(Array.isArray(bullets) ? bullets : [bullets]).map((b) => <li>{b}</li>)}
-          </ul>
-          <a href="/contact" class="mt-5 inline-block text-emerald-300 hover:text-emerald-200 font-semibold">
-            Request details →
-          </a>
-        </div>
-      ))}
+<Layout
+  title="Services - Guiding Point Consulting"
+  description="Three offers designed to meet you where you are—diagnose, build, or lead."
+>
+  <!-- Page Header with Parallax -->
+  <section class="page-header parallax-section">
+    <div class="parallax-bg" data-speed="0.5">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+    </div>
+    <div class="container header-content">
+      <h1>Services</h1>
+      <p class="page-intro">Three offers designed to meet you where you are—diagnose, build, or lead.</p>
     </div>
   </section>
+
+  <!-- Services Detail -->
+  <section class="services-detail">
+    <div class="container">
+      
+      <!-- Service 1 -->
+      <div class="service-detail-card" id="audit">
+        <div class="service-badge">01</div>
+        <h2>Website Audit + Modernization Roadmap</h2>
+        <p class="service-tagline">Clarity on what to fix first and why.</p>
+        
+        <div class="service-content">
+          <div class="service-description">
+            <h3>Who it's for</h3>
+            <p>Teams with an outdated or underperforming site who want a clear plan before spending on a rebuild.</p>
+            
+            <h3>What you get</h3>
+            <ul>
+              <li>UX + content structure review (clarity, navigation, messaging)</li>
+              <li>Performance + accessibility quick wins</li>
+              <li>SEO fundamentals check (metadata, indexability, on-page issues)</li>
+              <li>Conversion review (CTAs, flow, friction points)</li>
+              <li>A prioritized roadmap (quick wins → larger upgrades), with effort/impact notes</li>
+            </ul>
+            
+            <h3>Outcome</h3>
+            <p>A practical, sequenced plan you can execute—either with me or your existing team.</p>
+          </div>
+          
+          <div class="service-cta">
+            <a href="/contact" class="btn btn-primary">Request an Audit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-detail-card" id="content-ops">
+        <div class="service-badge">02</div>
+        <h2>AI Content Ops Setup</h2>
+        <p class="service-tagline">SOPs, prompt library, QA, and workflows that scale.</p>
+        
+        <div class="service-content">
+          <div class="service-description">
+            <h3>Who it's for</h3>
+            <p>Teams creating content regularly who want speed and consistency without sacrificing quality.</p>
+            
+            <h3>What you get</h3>
+            <ul>
+              <li>Content workflow mapping (roles, approvals, publishing cadence)</li>
+              <li>SOPs for drafting, editing, publishing, and repurposing</li>
+              <li>Prompt library tailored to your brand voice + content types</li>
+              <li>QA checklist (facts, tone, accessibility, compliance-friendly checks)</li>
+              <li>Templates for briefs, outlines, and production-ready drafts</li>
+            </ul>
+            
+            <h3>Outcome</h3>
+            <p>A repeatable content system that helps your team publish faster and stay aligned.</p>
+          </div>
+          
+          <div class="service-cta">
+            <a href="/contact" class="btn btn-primary">Build Content Ops</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-detail-card" id="strategy">
+        <div class="service-badge">03</div>
+        <h2>Fractional Digital Strategy Lead</h2>
+        <p class="service-tagline">A steady hand bridging leadership + delivery.</p>
+        
+        <div class="service-content">
+          <div class="service-description">
+            <h3>Who it's for</h3>
+            <p>Leaders who need an ongoing partner to translate goals into execution across vendors/technical teams.</p>
+            
+            <h3>What you get</h3>
+            <ul>
+              <li>Weekly/biweekly strategy + priority alignment</li>
+              <li>Roadmap management (what ships next, what matters most)</li>
+              <li>Stakeholder coordination (leadership ↔ technical ↔ creative)</li>
+              <li>Performance tracking and iteration loops</li>
+              <li>Guardrails for brand consistency + content quality</li>
+            </ul>
+            
+            <h3>Outcome</h3>
+            <p>Momentum, clarity, and measurable progress—without hiring full-time.</p>
+          </div>
+          
+          <div class="service-cta">
+            <a href="/contact" class="btn btn-primary">Discuss a Retainer</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Not Sure CTA -->
+  <section class="not-sure-section">
+    <div class="container">
+      <div class="not-sure-content">
+        <h2>Not sure which offer fits?</h2>
+        <p>Send a quick note and I'll recommend the best starting point.</p>
+        <a href="/contact" class="btn btn-primary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+  /* Parallax Header */
+  .parallax-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-3xl) 0;
+  }
+
+  .parallax-bg {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    right: 0;
+    bottom: -50%;
+    z-index: 0;
+    will-change: transform;
+  }
+
+  .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: float 15s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #ac3430 20%, #ff6b6b 40%, transparent 70%);
+    top: -150px;
+    left: -150px;
+    z-index: 0;
+    animation-delay: 0s;
+  }
+
+  .orb-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #dcceaa 20%, #f5e6c8 40%, transparent 70%);
+    top: 50px;
+    right: -100px;
+    z-index: 0;
+    animation-delay: -7s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(30px, -30px) scale(1.05);
+    }
+    50% {
+      transform: translate(-20px, 20px) scale(0.95);
+    }
+    75% {
+      transform: translate(20px, 30px) scale(1.02);
+    }
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-header {
+    text-align: center;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .page-intro {
+    max-width: 700px;
+    margin: var(--space-md) auto 0;
+    font-size: 1.25rem;
+    color: var(--gray-600);
+  }
+
+  .services-detail {
+    padding: var(--space-3xl) 0;
+  }
+
+  .service-detail-card {
+    max-width: 900px;
+    margin: 0 auto var(--space-3xl);
+    padding: var(--space-2xl);
+    background: var(--gray-50);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+  }
+
+  .service-badge {
+    display: inline-block;
+    background: var(--rust);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .service-detail-card h2 {
+    margin-bottom: var(--space-sm);
+    font-size: 2.5rem;
+  }
+
+  .service-tagline {
+    font-size: 1.25rem;
+    color: var(--gray-600);
+    margin-bottom: var(--space-xl);
+  }
+
+  .service-content {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .service-description h3 {
+    font-size: 1.25rem;
+    margin: var(--space-lg) 0 var(--space-sm);
+    color: var(--indigo);
+  }
+
+  .service-description h3:first-child {
+    margin-top: 0;
+  }
+
+  .service-description ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .service-description li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+    color: var(--gray-700);
+  }
+
+  .service-description li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--rust);
+    font-weight: bold;
+  }
+
+  .service-cta {
+    text-align: center;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .not-sure-section {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, rgba(172, 52, 48, 0.05) 0%, rgba(50, 52, 90, 0.05) 100%);
+  }
+
+  .not-sure-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .not-sure-content h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .not-sure-content p {
+    margin-bottom: var(--space-lg);
+    font-size: 1.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .service-detail-card {
+      padding: var(--space-lg);
+    }
+
+    .service-detail-card h2 {
+      font-size: 2rem;
+    }
+
+    .gradient-orb {
+      width: 300px;
+      height: 300px;
+    }
+
+    .parallax-section {
+      min-height: auto;
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallaxBg = document.querySelector('.parallax-bg') as HTMLElement;
+    
+    if (parallaxBg && scrolled < window.innerHeight) {
+      parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+  });
+</script>

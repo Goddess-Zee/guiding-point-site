@@ -1,0 +1,617 @@
+/* ========================================
+   Modern Design System - Guiding Point
+======================================== */
+
+:root {
+  /* Brand Colors */
+  --indigo: #32345a;
+  --rust: #ac3430;
+  --beige: #dcceaa;
+  --white: #ffffff;
+  --off-white: #fdfbfb;
+  
+  /* Grays */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  
+  /* Typography */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 80px;
+}
+
+/* Add inside your <style> tags */
+
+.parallax-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: -50%;
+  left: 0;
+  right: 0;
+  bottom: -50%;
+  z-index: 0;
+  will-change: transform;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(0px);  /* NO BLUR */
+  opacity: 1;  /* FULLY VISIBLE */
+  animation: float 20s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: red;  /* BRIGHT RED */
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: blue;  /* BRIGHT BLUE */
+  top: 10%;
+  right: 10%;
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(20px, 30px) scale(1.02);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   Reset & Base
+======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--white);
+  color: var(--gray-900);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+/* ========================================
+   Typography
+======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--indigo);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  color: var(--gray-700);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+/* ========================================
+   Layout
+======================================== */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+}
+
+/* ========================================
+   Header
+======================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--gray-200);
+  height: var(--header-height);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 250px;
+  width: auto;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.main-nav a {
+  font-weight: 500;
+  color: var(--gray-700);
+  font-size: 0.95rem;
+}
+
+.main-nav a:hover {
+  color: var(--rust);
+}
+
+.nav-cta {
+  background: var(--rust);
+  color: white !important;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.nav-cta:hover {
+  background: #8b2a26;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(172, 52, 48, 0.2);
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    gap: var(--space-sm);
+  }
+  
+  .main-nav a:not(.nav-cta) {
+    display: none;
+  }
+}
+
+/* ========================================
+   Hero Section
+======================================== */
+
+.hero {
+  padding: var(--space-3xl) 0;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--rust);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-md);
+  padding: 0.5rem 1rem;
+  background: rgba(172, 52, 48, 0.08);
+  border-radius: 20px;
+}
+
+.hero h1 {
+  max-width: 900px;
+  margin: 0 auto var(--space-lg);
+}
+
+.hero-text {
+  max-width: 700px;
+  margin: 0 auto var(--space-xl);
+  font-size: 1.25rem;
+  color: var(--gray-600);
+}
+
+.cta-group {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ========================================
+   Buttons
+======================================== */
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--rust);
+  color: white;
+  box-shadow: 0 2px 8px rgba(172, 52, 48, 0.2);
+}
+
+.btn-primary:hover {
+  background: #8b2a26;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(172, 52, 48, 0.3);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--indigo);
+  border: 2px solid var(--gray-300);
+}
+
+.btn-secondary:hover {
+  border-color: var(--rust);
+  color: var(--rust);
+}
+
+/* ========================================
+   Services Section
+======================================== */
+
+.services {
+  padding: var(--space-3xl) 0;
+  background: var(--gray-50);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+}
+
+.service-card {
+  background: white;
+  padding: var(--space-xl);
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: var(--rust);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.service-number {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--rust);
+  background: rgba(172, 52, 48, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-bottom: var(--space-md);
+}
+
+.service-card h3 {
+  margin-bottom: var(--space-sm);
+  font-size: 1.5rem;
+}
+
+.service-card > p {
+  color: var(--gray-600);
+  margin-bottom: var(--space-md);
+}
+
+.service-card ul {
+  list-style: none;
+  color: var(--gray-600);
+}
+
+.service-card li {
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.service-card li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-weight: bold;
+}
+
+/* ========================================
+   Stats Section
+======================================== */
+
+.stats {
+  padding: var(--space-3xl) 0;
+  background: var(--indigo);
+  color: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-xl);
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: var(--space-sm);
+  text-shadow: 0 0 30px rgba(172, 52, 48, 0.5);
+}
+
+.stat-label {
+  font-size: 1.125rem;
+  color: var(--beige);
+  font-weight: 500;
+}
+
+/* ========================================
+   How I Work Section
+======================================== */
+
+.how-i-work {
+  padding: var(--space-3xl) 0;
+}
+
+.how-i-work h2 {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--space-xl);
+  font-size: 1.25rem;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+
+.process-step {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: var(--rust);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.process-step h4 {
+  margin-bottom: var(--space-sm);
+  font-size: 1.25rem;
+}
+
+.process-step p {
+  color: var(--gray-600);
+}
+
+/* ========================================
+   CTA Section
+======================================== */
+
+.cta-section {
+  padding: var(--space-3xl) 0;
+  background: linear-gradient(135deg, rgba(172, 52, 48, 0.05) 0%, rgba(50, 52, 90, 0.05) 100%);
+}
+
+.cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-content h2 {
+  margin-bottom: var(--space-md);
+}
+
+.cta-content p {
+  margin-bottom: var(--space-lg);
+  font-size: 1.25rem;
+}
+
+/* ========================================
+   Footer
+======================================== */
+
+.site-footer {
+  background: var(--gray-50);
+  padding: var(--space-3xl) 0 var(--space-lg);
+  border-top: 1px solid var(--gray-200);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-xl);
+}
+
+.footer-brand {
+  max-width: 400px;
+}
+
+.footer-logo {
+  height: 250px;
+  width: auto;
+  margin-bottom: var(--space-md);
+}
+
+.footer-brand p {
+  color: var(--gray-600);
+  font-size: 1rem;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.footer-col h4 {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-md);
+  color: var(--indigo);
+}
+
+.footer-col a {
+  display: block;
+  color: var(--gray-600);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-col a:hover {
+  color: var(--rust);
+}
+
+.footer-bottom {
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--gray-200);
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+}
+
+/* ========================================
+   Responsive
+======================================== */
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .stats-grid,
+  .services-grid,
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero {
+    padding: var(--space-2xl) 0;
+  }
+  
+  .stat-number {
+    font-size: 3rem;
+  }
+}
