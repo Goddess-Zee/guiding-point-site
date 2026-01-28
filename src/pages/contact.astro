@@ -27,13 +27,8 @@ import Layout from "../layouts/Layout.astro";
         
         <!-- Contact Form -->
         <div class="contact-form-wrapper">
-          <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true" action="/thanks">
+          <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="/thanks">
             <input type="hidden" name="form-name" value="contact" />
-            <p class="hidden">
-              <label>
-                Don't fill this out if you're human: <input name="bot-field" />
-              </label>
-            </p>
 
             <div class="form-group">
               <label for="name">Name *</label>
@@ -92,13 +87,8 @@ import Layout from "../layouts/Layout.astro";
             </button>
             
             <div class="call-form-content">
-              <form class="quick-call-form" name="quick-call" method="POST" data-netlify="true" netlify-honeypot="bot-field-call" data-netlify-recaptcha="true" action="/thanks">
+              <form class="quick-call-form" name="quick-call" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="/thanks">
                 <input type="hidden" name="form-name" value="quick-call" />
-                <p class="hidden">
-                  <label>
-                    Don't fill this out: <input name="bot-field-call" />
-                  </label>
-                </p>
 
                 <div class="form-group-small">
                   <label for="call-name">Name *</label>
@@ -302,6 +292,12 @@ import Layout from "../layouts/Layout.astro";
 
   .btn-full {
     width: 100%;
+  }
+
+  /* Ensure reCAPTCHA is visible */
+  [data-netlify-recaptcha="true"] {
+    margin: var(--space-md) 0 var(--space-lg);
+    display: block !important;
   }
 
   .hidden {
