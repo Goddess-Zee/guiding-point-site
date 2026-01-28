@@ -1,1 +1,369 @@
-<input type="hidden" name="_subject" value="New inquiry from guidingpointconsults.com" />
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Thank You - Guiding Point Consulting"
+  description="Thank you for reaching out. We'll be in touch soon."
+>
+  <!-- Hero with Parallax -->
+  <section class="thank-you-hero parallax-section">
+    <div class="parallax-bg" data-speed="0.5">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="checkmark">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="38" stroke="var(--rust)" stroke-width="4"/>
+          <path d="M25 40L35 50L55 30" stroke="var(--rust)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1>Thank You!</h1>
+      <p class="hero-text">
+        Your message has been received. I'll review it and respond within 1-2 business days.
+      </p>
+    </div>
+  </section>
+
+  <!-- What's Next Section -->
+  <section class="next-steps">
+    <div class="container">
+      <div class="steps-content">
+        <h2>What happens next?</h2>
+        
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-icon">1</div>
+            <h3>Review</h3>
+            <p>I'll carefully review your message and any details you've shared about your project.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon">2</div>
+            <h3>Research</h3>
+            <p>If you included a website URL, I'll take a quick look to better understand your needs.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon">3</div>
+            <h3>Respond</h3>
+            <p>I'll reply with initial thoughts, next steps, or questions within 1-2 business days.</p>
+          </div>
+        </div>
+
+        <div class="alternative-section">
+          <h3>Need a faster response?</h3>
+          <p>Book a consultation call and we can discuss your project right away.</p>
+          <a href="#" class="btn btn-secondary">Schedule a Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore Section -->
+  <section class="explore-section">
+    <div class="container">
+      <div class="explore-content">
+        <h2>While you wait...</h2>
+        <p>Learn more about how we work and the results we deliver.</p>
+        
+        <div class="explore-links">
+          <a href="/services" class="explore-card">
+            <h4>Our Services</h4>
+            <p>See the three core offers designed to modernize your digital presence.</p>
+            <span class="arrow">→</span>
+          </a>
+
+          <a href="/case-studies" class="explore-card">
+            <h4>Case Studies</h4>
+            <p>Review past projects and the outcomes we've delivered for clients.</p>
+            <span class="arrow">→</span>
+          </a>
+
+          <a href="/about" class="explore-card">
+            <h4>About</h4>
+            <p>Learn about our approach and what you can expect when working together.</p>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+
+        <div class="back-home">
+          <a href="/" class="btn btn-primary">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Parallax Hero */
+  .parallax-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-3xl) 0;
+  }
+
+  .parallax-bg {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    right: 0;
+    bottom: -50%;
+    z-index: 0;
+    will-change: transform;
+  }
+
+  .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: float 15s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, #ac3430 20%, #ff6b6b 40%, transparent 70%);
+    top: -150px;
+    left: -150px;
+    z-index: 0;
+    animation-delay: 0s;
+  }
+
+  .orb-2 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #dcceaa 20%, #f5e6c8 40%, transparent 70%);
+    top: 50px;
+    right: -100px;
+    z-index: 0;
+    animation-delay: -7s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(30px, -30px) scale(1.05);
+    }
+    50% {
+      transform: translate(-20px, 20px) scale(0.95);
+    }
+    75% {
+      transform: translate(20px, 30px) scale(1.02);
+    }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .checkmark {
+    margin-bottom: var(--space-lg);
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  @keyframes scaleIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .thank-you-hero h1 {
+    margin-bottom: var(--space-lg);
+    font-size: 3.5rem;
+  }
+
+  .hero-text {
+    font-size: 1.25rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* Next Steps */
+  .next-steps {
+    padding: var(--space-3xl) 0;
+    background: var(--gray-50);
+  }
+
+  .steps-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .steps-content h2 {
+    margin-bottom: var(--space-2xl);
+    font-size: 2.5rem;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .step-card {
+    background: white;
+    padding: var(--space-xl);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+  }
+
+  .step-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--rust);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+
+  .step-card h3 {
+    margin-bottom: var(--space-sm);
+    font-size: 1.5rem;
+  }
+
+  .step-card p {
+    color: var(--gray-600);
+  }
+
+  .alternative-section {
+    background: white;
+    padding: var(--space-2xl);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+  }
+
+  .alternative-section h3 {
+    margin-bottom: var(--space-sm);
+    font-size: 1.5rem;
+  }
+
+  .alternative-section p {
+    margin-bottom: var(--space-lg);
+    color: var(--gray-600);
+  }
+
+  /* Explore Section */
+  .explore-section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .explore-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .explore-content h2 {
+    margin-bottom: var(--space-md);
+    font-size: 2.5rem;
+  }
+
+  .explore-content > p {
+    margin-bottom: var(--space-2xl);
+    font-size: 1.25rem;
+    color: var(--gray-600);
+  }
+
+  .explore-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .explore-card {
+    background: var(--gray-50);
+    padding: var(--space-xl);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    text-align: left;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .explore-card:hover {
+    border-color: var(--rust);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .explore-card h4 {
+    margin-bottom: var(--space-sm);
+    font-size: 1.25rem;
+    color: var(--indigo);
+  }
+
+  .explore-card p {
+    color: var(--gray-600);
+    margin-bottom: var(--space-md);
+  }
+
+  .explore-card .arrow {
+    color: var(--rust);
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .back-home {
+    margin-top: var(--space-2xl);
+  }
+
+  @media (max-width: 768px) {
+    .thank-you-hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .explore-links {
+      grid-template-columns: 1fr;
+    }
+
+    .gradient-orb {
+      width: 350px;
+      height: 350px;
+    }
+
+    .parallax-section {
+      min-height: auto;
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallaxBg = document.querySelector('.parallax-bg') as HTMLElement;
+    
+    if (parallaxBg && scrolled < window.innerHeight) {
+      parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+  });
+</script>
