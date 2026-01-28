@@ -27,7 +27,7 @@ import Layout from "../layouts/Layout.astro";
         
         <!-- Contact Form -->
         <div class="contact-form-wrapper">
-          <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks">
+          <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true" action="/thanks">
             <input type="hidden" name="form-name" value="contact" />
             <p class="hidden">
               <label>
@@ -72,6 +72,8 @@ import Layout from "../layouts/Layout.astro";
               <p class="form-helper">If helpful, include your site link, goals, and timeline.</p>
             </div>
 
+            <div data-netlify-recaptcha="true"></div>
+
             <button type="submit" class="btn btn-primary btn-full">Send Message</button>
           </form>
 
@@ -80,10 +82,54 @@ import Layout from "../layouts/Layout.astro";
 
         <!-- Contact Info -->
         <div class="contact-info">
-          <div class="info-card">
-            <h3>Prefer a quick call?</h3>
-            <p>Book time and I'll come prepared with questions and recommendations.</p>
-            <a href="#" class="btn btn-secondary">Book a Consultation</a>
+          <div class="info-card call-form-card">
+            <button class="call-form-toggle" aria-expanded="false" type="button">
+              <div class="toggle-header">
+                <h3>Prefer a quick call?</h3>
+                <span class="toggle-icon">+</span>
+              </div>
+              <p class="card-intro">I'll reach out to schedule a time.</p>
+            </button>
+            
+            <div class="call-form-content">
+              <form class="quick-call-form" name="quick-call" method="POST" data-netlify="true" netlify-honeypot="bot-field-call" data-netlify-recaptcha="true" action="/thanks">
+                <input type="hidden" name="form-name" value="quick-call" />
+                <p class="hidden">
+                  <label>
+                    Don't fill this out: <input name="bot-field-call" />
+                  </label>
+                </p>
+
+                <div class="form-group-small">
+                  <label for="call-name">Name *</label>
+                  <input type="text" id="call-name" name="call-name" required />
+                </div>
+
+                <div class="form-group-small">
+                  <label for="call-email">Email *</label>
+                  <input type="email" id="call-email" name="call-email" required />
+                </div>
+
+                <div class="form-group-small">
+                  <label for="call-phone">Phone Number *</label>
+                  <input type="tel" id="call-phone" name="call-phone" required />
+                </div>
+
+                <div class="form-group-small">
+                  <label for="call-company">Company</label>
+                  <input type="text" id="call-company" name="call-company" />
+                </div>
+
+                <div class="form-group-small">
+                  <label for="call-website">Website</label>
+                  <input type="url" id="call-website" name="call-website" placeholder="https://" />
+                </div>
+
+                <div data-netlify-recaptcha="true"></div>
+
+                <button type="submit" class="btn btn-secondary btn-small-full">Request a Call</button>
+              </form>
+            </div>
           </div>
 
           <div class="info-card">
@@ -283,6 +329,48 @@ import Layout from "../layouts/Layout.astro";
     border: 1px solid var(--gray-200);
   }
 
+  .info-card.call-form-card {
+    background: white;
+    border: 2px solid var(--rust);
+  }
+
+  .call-form-toggle {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .toggle-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .toggle-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--rust);
+    transition: transform 0.3s ease;
+  }
+
+  .call-form-toggle[aria-expanded="true"] .toggle-icon {
+    transform: rotate(45deg);
+  }
+
+  .call-form-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+
+  .call-form-content.expanded {
+    max-height: 800px;
+    margin-top: var(--space-md);
+  }
+
   .info-card h3 {
     font-size: 1.25rem;
     margin-bottom: var(--space-sm);
@@ -296,6 +384,49 @@ import Layout from "../layouts/Layout.astro";
 
   .info-card p:last-child {
     margin-bottom: 0;
+  }
+
+  .card-intro {
+    margin-bottom: var(--space-lg) !important;
+  }
+
+  /* Quick Call Form */
+  .quick-call-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .form-group-small {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group-small label {
+    font-weight: 600;
+    color: var(--indigo);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .form-group-small input {
+    padding: 0.75rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: var(--font-main);
+    transition: border-color 0.2s ease;
+  }
+
+  .form-group-small input:focus {
+    outline: none;
+    border-color: var(--rust);
+    box-shadow: 0 0 0 3px rgba(172, 52, 48, 0.1);
+  }
+
+  .btn-small-full {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
   }
 
   .small-text {
@@ -334,17 +465,13 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .parallax-section {
-  position: relative;
-  overflow: hidden;
-  min-height: auto;  /* Remove fixed height */
-  display: flex;
-  align-items: center;
-  padding: var(--space-2xl) 0 var(--space-xl);  /* Less padding */
-}
+      min-height: auto;
+    }
   }
 </style>
 
 <script>
+  // Parallax effect
   window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const parallaxBg = document.querySelector('.parallax-bg') as HTMLElement;
@@ -353,4 +480,16 @@ import Layout from "../layouts/Layout.astro";
       parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
   });
+
+  // Expandable call form
+  const callFormToggle = document.querySelector('.call-form-toggle') as HTMLButtonElement;
+  const callFormContent = document.querySelector('.call-form-content') as HTMLElement;
+
+  if (callFormToggle && callFormContent) {
+    callFormToggle.addEventListener('click', () => {
+      const expanded = callFormToggle.getAttribute('aria-expanded') === 'true';
+      callFormToggle.setAttribute('aria-expanded', (!expanded).toString());
+      callFormContent.classList.toggle('expanded');
+    });
+  }
 </script>
