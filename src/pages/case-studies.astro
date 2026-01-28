@@ -8,15 +8,15 @@ import Layout from "../layouts/Layout.astro";
 >
   <!-- Page Header with Parallax -->
   <section class="page-header parallax-section">
-  <div class="parallax-bg" data-speed="0.5">
-    <div class="gradient-orb orb-1"></div>
-    <div class="gradient-orb orb-2"></div>
-  </div>
-  <div class="container header-content">
-    <h1>Case Studies</h1>
-    <p class="page-intro">A consistent format—context, role, deliverables, and outcomes.</p>
-  </div>
-</section>
+    <div class="parallax-bg" data-speed="0.5">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+    </div>
+    <div class="container hero-content">
+      <h1>Case Studies</h1>
+      <p class="hero-text">A consistent format—context, role, deliverables, and outcomes.</p>
+    </div>
+  </section>
 
   <!-- Case Studies Grid -->
   <section class="case-studies">
@@ -154,13 +154,13 @@ import Layout from "../layouts/Layout.astro";
 <style>
   /* Parallax Header */
   .parallax-section {
-  position: relative;
-  overflow: hidden;
-  min-height: auto;  /* Remove fixed height */
-  display: flex;
-  align-items: center;
-  padding: var(--space-2xl) 0 var(--space-xl);  /* Less padding */
-}
+    position: relative;
+    overflow: hidden;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    padding: var(--space-2xl) 0 var(--space-xl);
+  }
 
   .parallax-bg {
     position: absolute;
@@ -215,31 +215,28 @@ import Layout from "../layouts/Layout.astro";
     }
   }
 
-  .header-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;  /* Add this */
-}
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
 
-.page-header {
-  text-align: center;  /* Make sure this exists */
-  border-bottom: 1px solid var(--gray-200);
-}
+  .page-header {
+    border-bottom: 1px solid var(--gray-200);
+  }
 
-.page-header h1 {
-  margin-bottom: var(--space-md);
-  text-align: center;  /* Force center */
-}
+  .page-header h1 {
+    margin-bottom: var(--space-lg);
+  }
 
-.page-intro {
-  max-width: 700px;
-  margin: 0 auto;  /* Center it */
-  font-size: 1.125rem;
-  color: var(--gray-600);
-  line-height: 1.6;
-  text-align: center;  /* Force center */
-  display: block;  /* Make sure it's block level */
-}
+  .hero-text {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.125rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
   .case-studies {
     padding: var(--space-3xl) 0;
   }
