@@ -29,6 +29,7 @@ import Layout from "../layouts/Layout.astro";
         <div class="contact-form-wrapper">
           <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks">
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="form-version" value="2" />
             <p class="hidden">
               <label>
                 Don't fill this out if you're human: <input name="bot-field" />
@@ -72,12 +73,14 @@ import Layout from "../layouts/Layout.astro";
               <p class="form-helper">If helpful, include your site link, goals, and timeline.</p>
             </div>
 
-            <div data-netlify-recaptcha="true"></div>
+            <div style="margin: 1.5rem 0;">
+              <div data-netlify-recaptcha="true"></div>
+            </div>
 
             <button type="submit" class="btn btn-primary btn-full">Send Message</button>
           </form>
 
-          <p class="response-time">I respond within 1 business days.</p>
+          <p class="response-time">I respond within 1–2 business days.</p>
         </div>
 
         <!-- Contact Info -->
@@ -308,6 +311,14 @@ import Layout from "../layouts/Layout.astro";
   [data-netlify-recaptcha="true"] {
     margin: var(--space-md) 0 var(--space-lg);
     display: block !important;
+    min-height: 78px !important;
+    visibility: visible !important;
+  }
+
+  .contact-form [data-netlify-recaptcha="true"] {
+    background: rgba(255, 0, 0, 0.05);
+    padding: 10px;
+    border: 1px dashed red;
   }
 
   .hidden {
