@@ -151,7 +151,7 @@ p {
 }
 
 .logo {
-  height: 150px;
+  height: 175px;
   width: auto;
 }
 
@@ -464,7 +464,7 @@ p {
 }
 
 .footer-logo {
-  height: 150px;
+  height: 175px;
   width: auto;
   margin-bottom: var(--space-md);
 }
