@@ -26,6 +26,13 @@ const {
           <a href="/" class="logo-link">
             <img src="/logo.png" alt="Guiding Point Consulting" class="logo" />
           </a>
+          
+          <!-- Mobile Menu Toggle -->
+          <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span class="hamburger"></span>
+          </button>
+
+          <!-- Navigation -->
           <nav class="main-nav">
             <a href="/services">Services</a>
             <a href="/case-studies">Case Studies</a>
@@ -66,8 +73,40 @@ const {
         </div>
         <div class="footer-bottom">
           <p>© {new Date().getFullYear()} Guiding Point Consulting, LLC. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="/terms">Terms & Conditions</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/accessibility">Accessibility</a>
+          </div>
         </div>
       </div>
     </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+      const menuToggle = document.querySelector('.mobile-menu-toggle');
+      const mainNav = document.querySelector('.main-nav');
+      
+      if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+          menuToggle.classList.toggle('active');
+          mainNav.classList.toggle('mobile-active');
+          document.body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking nav links
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.classList.remove('active');
+            mainNav.classList.remove('mobile-active');
+            document.body.classList.remove('menu-open');
+          });
+        });
+      }
+    </script>
   </body>
 </html>
