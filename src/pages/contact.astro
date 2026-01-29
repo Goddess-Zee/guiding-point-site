@@ -77,12 +77,12 @@ import Layout from "../layouts/Layout.astro";
             <button type="submit" class="btn btn-primary btn-full">Send Message</button>
           </form>
 
-          <p class="response-time">I respond within 1 business days.</p>
+          <p class="response-time">I respond within 1 business day.</p>
         </div>
 
         <!-- Contact Info -->
         <div class="contact-info">
-          <div class="info-card call-form-card">
+          <div class="info-card call-form-card" id="quick-call">
             <button class="call-form-toggle" aria-expanded="false" type="button">
               <div class="toggle-header">
                 <h3>Prefer a quick call?</h3>
@@ -561,5 +561,20 @@ import Layout from "../layouts/Layout.astro";
       callFormToggle.setAttribute('aria-expanded', (!expanded).toString());
       callFormContent.classList.toggle('expanded');
     });
+
+    // Auto-expand if URL has #quick-call
+    if (window.location.hash === '#quick-call') {
+      // Expand the form
+      callFormToggle.setAttribute('aria-expanded', 'true');
+      callFormContent.classList.add('expanded');
+      
+      // Scroll to the form after a brief delay to ensure it's expanded
+      setTimeout(() => {
+        const quickCallSection = document.getElementById('quick-call');
+        if (quickCallSection) {
+          quickCallSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 100);
+    }
   }
 </script>
