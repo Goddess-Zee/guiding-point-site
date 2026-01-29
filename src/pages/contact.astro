@@ -27,7 +27,7 @@ import Layout from "../layouts/Layout.astro";
         
         <!-- Contact Form -->
         <div class="contact-form-wrapper">
-          <form class="contact-form" name="main-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks">
+          <form class="contact-form" name="main-contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="bot-field" action="/thanks">
             <input type="hidden" name="form-name" value="main-contact" />
             <p class="hidden">
               <label>
@@ -92,7 +92,7 @@ import Layout from "../layouts/Layout.astro";
             </button>
             
             <div class="call-form-content">
-              <form class="quick-call-form" name="quick-call" method="POST" data-netlify="true" netlify-honeypot="bot-field-call" action="/thanks">
+              <form class="quick-call-form" name="quick-call" method="POST" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="bot-field-call" action="/thanks">
                 <input type="hidden" name="form-name" value="quick-call" />
                 <p class="hidden">
                   <label>
@@ -125,7 +125,7 @@ import Layout from "../layouts/Layout.astro";
                   <input type="url" id="call-website" name="call-website" placeholder="https://" />
                 </div>
 
-                <!-- <div data-netlify-recaptcha="true"></div> -->
+                <div data-netlify-recaptcha="true"></div>
 
                 <button type="submit" class="btn btn-secondary btn-small-full">Request a Call</button>
               </form>
@@ -308,14 +308,6 @@ import Layout from "../layouts/Layout.astro";
   [data-netlify-recaptcha="true"] {
     margin: var(--space-md) 0 var(--space-lg);
     display: block !important;
-    min-height: 78px !important;
-    visibility: visible !important;
-  }
-
-  .contact-form [data-netlify-recaptcha="true"] {
-    background: rgba(255, 0, 0, 0.05);
-    padding: 10px;
-    border: 1px dashed red;
   }
 
   .hidden {
