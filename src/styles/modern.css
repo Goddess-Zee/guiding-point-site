@@ -151,7 +151,7 @@ p {
 }
 
 .logo {
-  height: 250px;
+  height: 50px;
   width: auto;
 }
 
@@ -183,16 +183,6 @@ p {
   background: #8b2a26;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(172, 52, 48, 0.2);
-}
-
-@media (max-width: 768px) {
-  .main-nav {
-    gap: var(--space-sm);
-  }
-  
-  .main-nav a:not(.nav-cta) {
-    display: none;
-  }
 }
 
 /* ========================================
@@ -474,7 +464,7 @@ p {
 }
 
 .footer-logo {
-  height: 250px;
+  height: 60px;
   width: auto;
   margin-bottom: var(--space-md);
 }
@@ -722,5 +712,47 @@ p {
   .about-content h2 {
     margin-top: var(--space-xl) !important;
     margin-bottom: var(--space-md) !important;
+  }
+}
+
+/* Additional Contact Form Mobile Fixes - Prevent Overflow */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-xl) !important;
+  }
+
+  .contact-form-wrapper,
+  .contact-info {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .quick-call-box {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .quick-call-form input,
+  .quick-call-form select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Ensure container doesn't overflow */
+  .container {
+    max-width: 100%;
+    overflow-x: hidden;
   }
 }
