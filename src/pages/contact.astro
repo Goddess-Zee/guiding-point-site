@@ -27,8 +27,13 @@ import Layout from "../layouts/Layout.astro";
         
         <!-- Contact Form -->
         <div class="contact-form-wrapper">
-          <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="/thanks">
+          <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks">
             <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden">
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </p>
 
             <div class="form-group">
               <label for="name">Name *</label>
@@ -72,7 +77,7 @@ import Layout from "../layouts/Layout.astro";
             <button type="submit" class="btn btn-primary btn-full">Send Message</button>
           </form>
 
-          <p class="response-time">I respond within 1–2 business days.</p>
+          <p class="response-time">I respond within 1 business days.</p>
         </div>
 
         <!-- Contact Info -->
@@ -87,8 +92,13 @@ import Layout from "../layouts/Layout.astro";
             </button>
             
             <div class="call-form-content">
-              <form class="quick-call-form" name="quick-call" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="/thanks">
+              <form class="quick-call-form" name="quick-call" method="POST" data-netlify="true" netlify-honeypot="bot-field-call" action="/thanks">
                 <input type="hidden" name="form-name" value="quick-call" />
+                <p class="hidden">
+                  <label>
+                    Don't fill this out: <input name="bot-field-call" />
+                  </label>
+                </p>
 
                 <div class="form-group-small">
                   <label for="call-name">Name *</label>
