@@ -14,6 +14,11 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    
+    <!-- Favicon (prevents 404 error) -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    
+    <!-- Preconnect for fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -82,6 +87,35 @@ const {
       </div>
     </footer>
 
+    <!-- Cookie Banner -->
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent" style="position:fixed;bottom:16px;left:16px;right:16px;display:flex;justify-content:space-between;align-items:center;padding:12px;background:#fff;border:1px solid #eee;box-shadow:0 2px 8px rgba(0,0,0,0.08);z-index:1000;">
+      <div style="max-width:70%;">
+        <strong>We use cookies</strong>
+        <div>We use cookies to improve your experience. By continuing, you accept our cookie policy.</div>
+      </div>
+      <div>
+        <button id="accept-cookies" class="btn">Accept</button>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        if (!banner) return;
+        if (localStorage.getItem('cookiesAccepted') === 'true') {
+          banner.style.display = 'none';
+          return;
+        }
+        if (acceptBtn) {
+          acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            banner.style.display = 'none';
+          });
+        }
+      })();
+    </script>
     <!-- Mobile Menu Toggle Script -->
     <script>
       const menuToggle = document.querySelector('.mobile-menu-toggle');
@@ -90,7 +124,7 @@ const {
       if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', () => {
           const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-          menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+          menuToggle.setAttribute('aria-expanded', (!isExpanded).toString());
           menuToggle.classList.toggle('active');
           mainNav.classList.toggle('mobile-active');
           document.body.classList.toggle('menu-open');
