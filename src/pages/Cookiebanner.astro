@@ -5,11 +5,10 @@
 <div id="cookie-banner" class="cookie-banner" style="display: none;">
   <div class="cookie-content">
     <div class="cookie-text">
-      <p>We use cookies to improve your experience on our site. By continuing to use this site, you accept our use of cookies.</p>
-      <a href="/privacy" class="cookie-learn-more">Learn more</a>
+      <p>Guiding Point Consulting uses cookies to make your experience even better. By clicking "Accept All", you consent to the use of ALL cookies outlined in our <a href="/cookie-statement" class="cookie-learn-more">Cookie Statement</a>, <a href="/privacy" class="cookie-learn-more">Privacy Policy</a>, and <a href="/terms" class="cookie-learn-more">Terms of Service</a>.</p>
     </div>
     <div class="cookie-actions">
-      <button id="cookie-accept" class="cookie-btn cookie-accept">Accept</button>
+      <button id="cookie-accept" class="cookie-btn cookie-accept">Accept All</button>
       <button id="cookie-decline" class="cookie-btn cookie-decline">Decline</button>
     </div>
   </div>
@@ -21,10 +20,10 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: white;
-    border-top: 2px solid var(--rust);
+    background: var(--rust);
+    border-top: 2px solid #8b2a26;
     padding: var(--space-lg);
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
     z-index: 9999;
     animation: slideUp 0.4s ease-out;
   }
@@ -58,19 +57,20 @@
   .cookie-text p {
     margin: 0;
     font-size: 0.95rem;
-    color: var(--gray-700);
+    color: var(--cream);
     line-height: 1.5;
   }
 
   .cookie-learn-more {
-    color: var(--rust);
+    color: var(--cream);
     text-decoration: underline;
     font-size: 0.95rem;
     white-space: nowrap;
+    font-weight: 600;
   }
 
   .cookie-learn-more:hover {
-    color: var(--indigo);
+    opacity: 0.8;
   }
 
   .cookie-actions {
@@ -80,7 +80,7 @@
 
   .cookie-btn {
     padding: 0.625rem 1.5rem;
-    border: 2px solid var(--rust);
+    border: 2px solid transparent;
     border-radius: 6px;
     font-weight: 600;
     font-size: 0.95rem;
@@ -90,22 +90,25 @@
   }
 
   .cookie-accept {
-    background: var(--rust);
+    background: var(--indigo);
     color: white;
   }
 
   .cookie-accept:hover {
-    background: #8b2a27;
-    border-color: #8b2a27;
+    background: #252742;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(50, 52, 90, 0.3);
   }
 
   .cookie-decline {
-    background: white;
-    color: var(--rust);
+    background: transparent;
+    color: var(--cream);
+    border-color: var(--cream);
   }
 
   .cookie-decline:hover {
-    background: var(--gray-50);
+    background: rgba(220, 206, 170, 0.1);
+    transform: translateY(-1px);
   }
 
   @media (max-width: 768px) {

@@ -1,5 +1,6 @@
 ---
 import "../styles/modern.css";
+// Inline cookie banner markup and logic is used below; external component file removed.
 
 const {
   title = "Guiding Point Consulting",
@@ -81,6 +82,7 @@ const {
           <div class="footer-legal">
             <a href="/terms">Terms & Conditions</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/cookie-statement">Cookie Statement</a>
             <a href="/accessibility">Accessibility</a>
           </div>
         </div>
@@ -88,34 +90,58 @@ const {
     </footer>
 
     <!-- Cookie Banner -->
-    <!-- Cookie Banner -->
-    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent" style="position:fixed;bottom:16px;left:16px;right:16px;display:flex;justify-content:space-between;align-items:center;padding:12px;background:#fff;border:1px solid #eee;box-shadow:0 2px 8px rgba(0,0,0,0.08);z-index:1000;">
-      <div style="max-width:70%;">
-        <strong>We use cookies</strong>
-        <div>We use cookies to improve your experience. By continuing, you accept our cookie policy.</div>
-      </div>
-      <div>
-        <button id="accept-cookies" class="btn">Accept</button>
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie banner" style="display:none;">
+      <div class="cookie-content">
+        <p>We use cookies to improve your experience. By continuing, you agree to our <a href="/cookie-statement">cookie policy</a>.</p>
+        <div class="cookie-actions">
+          <button id="cookie-accept" class="btn">Accept</button>
+          <button id="cookie-dismiss" class="btn btn-alt">Dismiss</button>
+        </div>
       </div>
     </div>
 
     <script>
       (function() {
         const banner = document.getElementById('cookie-banner');
-        const acceptBtn = document.getElementById('accept-cookies');
-        if (!banner) return;
-        if (localStorage.getItem('cookiesAccepted') === 'true') {
-          banner.style.display = 'none';
-          return;
+        const acceptBtn = document.getElementById('cookie-accept');
+        const dismissBtn = document.getElementById('cookie-dismiss');
+        const consentKey = 'gp_cookie_consent';
+
+        function hasConsent() {
+          try {
+            return localStorage.getItem(consentKey) === 'true';
+          } catch (e) {
+            return false;
+          }
         }
+
+        function showBanner() {
+          if (banner) banner.style.display = 'block';
+        }
+
+        function hideBanner() {
+          if (banner) banner.style.display = 'none';
+        }
+
+        if (!hasConsent()) {
+          showBanner();
+        }
+
         if (acceptBtn) {
-          acceptBtn.addEventListener('click', function() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            banner.style.display = 'none';
+          acceptBtn.addEventListener('click', () => {
+            try { localStorage.setItem(consentKey, 'true'); } catch (e) {}
+            hideBanner();
+          });
+        }
+
+        if (dismissBtn) {
+          dismissBtn.addEventListener('click', () => {
+            hideBanner();
           });
         }
       })();
     </script>
+
     <!-- Mobile Menu Toggle Script -->
     <script>
       const menuToggle = document.querySelector('.mobile-menu-toggle');
