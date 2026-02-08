@@ -493,30 +493,25 @@ import Layout from "../layouts/Layout.astro";
     text-align: center;
     padding: var(--space-lg);
     opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
   }
 
-  .process-step:nth-child(1) {
-    animation-delay: 0.2s;
+  .process-step.animate {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .process-step:nth-child(2) {
-    animation-delay: 0.4s;
+  .process-step:nth-child(1).animate {
+    transition-delay: 0.2s;
   }
 
-  .process-step:nth-child(3) {
-    animation-delay: 0.6s;
+  .process-step:nth-child(2).animate {
+    transition-delay: 0.4s;
   }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .process-step:nth-child(3).animate {
+    transition-delay: 0.6s;
   }
 
   .step-number {
@@ -569,7 +564,8 @@ import Layout from "../layouts/Layout.astro";
     font-size: 1.25rem;
     line-height: 1.7;
     margin-bottom: var(--space-xl);
-    opacity: 0.95;
+    color: var(--white);
+    opacity: 1;
   }
 
   .cta-buttons {
@@ -708,6 +704,25 @@ import Layout from "../layouts/Layout.astro";
     if (parallaxBg && scrolled < window.innerHeight) {
       parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
+  });
+
+  // Animate process steps when they come into view
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const processObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all process steps
+  document.querySelectorAll('.process-step').forEach(step => {
+    processObserver.observe(step);
   });
 
   // Optional: Add smooth scroll
