@@ -3,8 +3,8 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="Guiding Point Consulting - Web + AI Consulting"
-  description="Web + AI consulting that bridges tech, creativity, and human connection."
+  title="Guiding Point Consulting - Human-Centered Web + AI Content Systems"
+  description="We help government agencies and B2B service teams modernize websites and content operations without losing the human touch."
 >
   <!-- Hero Section with Parallax -->
   <section class="hero parallax-section">
@@ -15,112 +15,160 @@ import Layout from "../layouts/Layout.astro";
     </div>
     
     <div class="container hero-content">
-      <p class="eyebrow">Human-centered web + AI content systems</p>
-      <h1>Modernize your website and content ops without losing the human touch.</h1>
-      <p class="hero-text">
-        We modernize websites and build AI-enabled content operations so teams publish faster, stay consistent,
-        and improve measurable outcomes while serving as the liaison between leadership and technical teams.
+      <p class="hero-eyebrow">HUMAN-CENTERED WEB + AI CONTENT SYSTEMS</p>
+      <h1 class="hero-title">
+        Modernize your website and content ops without losing the human touch.
+      </h1>
+      <p class="hero-tagline">Bridging tech, creativity and human connection.</p>
+      <p class="hero-description">
+        You know the drill: pages that need updating, content stuck in review, and three different versions of "the right" message floating around. We help teams modernize websites and build AI-assisted content operations so people get clear answers faster—without the bureaucracy or the generic AI fluff.
       </p>
-      <div class="cta-group">
-        <a href="/contact" class="btn btn-primary">Request a Website Audit</a>
+      <div class="hero-buttons">
+        <a href="/contact" class="btn btn-primary">Request an Audit</a>
         <a href="/case-studies" class="btn btn-secondary">View Case Studies</a>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="services">
+  <!-- Who I Work With -->
+  <section class="clients-section">
     <div class="container">
+      <h2 class="section-title">Who I Work With</h2>
+      <div class="clients-grid">
+        <div class="client-card">
+          <h3>Government Agencies</h3>
+          <p>
+            Program offices, comms teams, and agencies who need to untangle content workflows, improve accessibility, and introduce AI in a way that feels thoughtful, safe, and actually usable day to day.
+          </p>
+        </div>
+        <div class="client-card">
+          <h3>B2B Service Teams</h3>
+          <p>
+            Marketing, sales, and customer success teams tired of "random acts of content" that don't connect to revenue. Build AI-supported workflows and align teams around a content strategy people can follow on a busy Tuesday.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-content">
+        <h2 class="section-title">What We Do</h2>
+        <p class="about-lead">
+          We're a web and AI consultancy that cares just as much about the humans behind the screens as the systems they use.
+        </p>
+        <p>
+          Guiding Point Consulting helps teams review and improve public-facing sites, streamline content workflows, and design AI-assisted processes that support clarity, compliance, and trust—not just another tool on the stack.
+        </p>
+        <p>
+          In practice, that means translating leadership goals into practical steps, giving content creators and SMEs a clearer path to publish, and helping technical teams implement changes without endless back-and-forth.
+        </p>
+        <p>
+          Our role is part strategist, part translator, part "let's actually get this out the door" partner.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      
       <div class="services-grid">
+        <!-- Service 1 -->
         <div class="service-card">
           <div class="service-number">01</div>
           <h3>Website Audit + Roadmap</h3>
-          <p>Clarity on what to fix first and why.</p>
-          <ul>
-            <li>UX + content structure review</li>
-            <li>Performance + accessibility quick wins</li>
-            <li>Prioritized roadmap with impact notes</li>
+          <p class="service-tagline">Clarity on what to fix first, what can wait, and how to bring everyone along.</p>
+          <ul class="service-list">
+            <li>UX and content structure review focused on real people trying to complete real tasks—residents, partners, prospects, internal teams.</li>
+            <li>Performance and accessibility quick wins that support compliance and reduce day-to-day friction.</li>
+            <li>A prioritized roadmap written in plain language, so leadership, program owners, and IT can agree on "what's next" without a 40-slide deck.</li>
           </ul>
+          <a href="/services#audit" class="service-link">Learn more →</a>
         </div>
 
+        <!-- Service 2 -->
         <div class="service-card">
           <div class="service-number">02</div>
           <h3>AI Content Ops Setup</h3>
-          <p>SOPs, prompts, QA, and workflows that scale.</p>
-          <ul>
-            <li>Content workflow mapping</li>
-            <li>Prompt library tailored to your brand</li>
-            <li>QA checklist and templates</li>
+          <p class="service-tagline">Help your team use AI without losing context, nuance, or control.</p>
+          <ul class="service-list">
+            <li>Map how content actually moves today—from request to approvals to publish—so we're solving real bottlenecks, not imaginary ones.</li>
+            <li>Design AI-assisted workflows, prompts, and templates that respect your review process, governance, and security requirements.</li>
+            <li>Create practical QA checklists so content stays accurate, accessible, and on-brand even as tools change.</li>
           </ul>
+          <a href="/services#content-ops" class="service-link">Learn more →</a>
         </div>
 
+        <!-- Service 3 -->
         <div class="service-card">
           <div class="service-number">03</div>
           <h3>Fractional Strategy Lead</h3>
-          <p>A steady hand bridging leadership + delivery.</p>
-          <ul>
-            <li>Weekly/biweekly strategy alignment</li>
-            <li>Stakeholder coordination</li>
-            <li>Performance tracking and iteration</li>
+          <p class="service-tagline">A steady partner who keeps projects moving and conversations grounded in reality.</p>
+          <ul class="service-list">
+            <li>Support for leaders juggling competing priorities and limited time.</li>
+            <li>Coordination across teams and vendors so decisions don't disappear into endless email threads.</li>
+            <li>Light-touch reporting that shows progress and learns from what worked—without creating another reporting burden.</li>
           </ul>
+          <a href="/services#strategy" class="service-link">Learn more →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stats Section -->
-  <section class="stats">
+  <!-- How We Work Section -->
+  <section class="process-section">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat">
-          <div class="stat-number">+28%</div>
-          <div class="stat-label">ROAS lift</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">+42%</div>
-          <div class="stat-label">Traffic growth</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">-15%</div>
-          <div class="stat-label">Time-to-publish</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How I Work Section -->
-  <section class="how-i-work">
-    <div class="container">
-      <h2>How We Work</h2>
-      <p class="section-intro">Strategy first. Then clean execution. Then systems that help your team keep moving after launch.</p>
+      <h2 class="section-title">How We Work</h2>
+      <p class="section-lead">
+        Strategy first. Then clean execution. Then systems your team can actually keep up with after launch.
+      </p>
       
-      <div class="process-grid">
+      <div class="process-steps">
         <div class="process-step">
           <div class="step-number">1</div>
-          <h4>Diagnose</h4>
-          <p>Review your site and content workflow to identify quick wins and gaps.</p>
+          <h3>Diagnose</h3>
+          <p>
+            We review your site and workflows, talk with the people doing the work, and surface quick wins and bigger gaps in plain language everyone can react to.
+          </p>
         </div>
+
         <div class="process-step">
           <div class="step-number">2</div>
-          <h4>Build</h4>
-          <p>Design systems, SOPs, and templates that scale with your team.</p>
+          <h3>Build</h3>
+          <p>
+            We co-design simple systems, templates, and AI workflows that feel like a relief, not another mandate from "the website folks."
+          </p>
         </div>
+
         <div class="process-step">
           <div class="step-number">3</div>
-          <h4>Lead</h4>
-          <p>Connect the dots between leadership goals and delivery teams.</p>
+          <h3>Lead</h3>
+          <p>
+            We stay close enough to help you prioritize, answer questions, and keep content shipping—without burning out the same 2–3 people every time.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Case Studies Preview -->
   <!-- CTA Section -->
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Ready to Modernize?</h2>
-        <p>We'll review your site and content workflow, identify quick wins, and map a practical modernization plan.</p>
-        <a href="/contact" class="btn btn-primary">Request an Audit</a>
+        <h2>Ready to untangle your content operations?</h2>
+        <p>
+          Let's talk about what's slowing you down and what a more sustainable content system could look like for your team.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn-primary btn-large">Request an Audit</a>
+          <a href="/about" class="btn btn-secondary btn-large">Learn More About Us</a>
+        </div>
       </div>
     </div>
   </section>
@@ -129,13 +177,13 @@ import Layout from "../layouts/Layout.astro";
 <style>
   /* Parallax Hero Styles */
   .parallax-section {
-  position: relative;
-  overflow: hidden;
-  min-height: auto;  /* Remove fixed height */
-  display: flex;
-  align-items: center;
-  padding: var(--space-2xl) 0 var(--space-xl);  /* Less padding */
-}
+    position: relative;
+    overflow: hidden;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--space-xl) * 2.5) 0 var(--space-xl);
+  }
 
   .parallax-bg {
     position: absolute;
@@ -209,86 +257,421 @@ import Layout from "../layouts/Layout.astro";
   .hero-content {
     position: relative;
     z-index: 1;
-  }
-
-  /* Hero Section */
-  .hero {
-    padding: var(--space-3xl) 0;
     text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  .eyebrow {
-    display: inline-block;
-    color: var(--rust);
-    font-weight: 600;
+  .hero-eyebrow {
     font-size: 0.875rem;
-    text-transform: uppercase;
+    font-weight: 600;
     letter-spacing: 0.1em;
+    color: var(--rust);
+    text-transform: uppercase;
     margin-bottom: var(--space-md);
-    padding: 0.5rem 1rem;
-    background: rgba(172, 52, 48, 0.08);
-    border-radius: 20px;
   }
 
-  /* Animated Gradient Text */
-.hero h1 {
-  max-width: 900px;
-  margin: 0 auto var(--space-lg);
-  background: linear-gradient(
-    90deg,
-    var(--indigo) 0%,
-    var(--rust) 50%,
-    var(--indigo) 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 8s ease-in-out infinite;
-}
-
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-}
-
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-}
-
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-}
-
-  .hero-text {
-    max-width: 700px;
-    margin: 0 auto var(--space-xl);
-    font-size: 1.25rem;
-    color: var(--gray-600);
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(135deg, var(--rust) 0%, var(--indigo) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-md);
+    animation: gradient-shift 8s ease infinite;
+    background-size: 200% 200%;
   }
 
-  .cta-group {
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .hero-tagline {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    color: var(--rust);
+    margin-bottom: var(--space-lg);
+    font-style: italic;
+  }
+
+  .hero-description {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    color: var(--gray-700);
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-buttons {
     display: flex;
     gap: var(--space-md);
     justify-content: center;
     flex-wrap: wrap;
   }
 
+  /* Clients Section */
+  .clients-section {
+    padding: calc(var(--space-xl) * 2) 0;
+    background: var(--white);
+  }
+
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+  }
+
+  .client-card {
+    background: var(--off-white);
+    padding: var(--space-xl);
+    border-radius: 12px;
+    border: 2px solid var(--gray-200);
+    transition: all 0.3s ease;
+  }
+
+  .client-card:hover {
+    border-color: var(--rust);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(172, 52, 48, 0.1);
+  }
+
+  .client-card h3 {
+    font-size: 1.5rem;
+    color: var(--indigo);
+    margin-bottom: var(--space-md);
+  }
+
+  .client-card p {
+    color: var(--gray-700);
+    line-height: 1.7;
+  }
+
+  /* About Section */
+  .about-section {
+    padding: calc(var(--space-xl) * 2) 0;
+    background: linear-gradient(to bottom, var(--white), var(--off-white));
+  }
+
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .about-lead {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--indigo);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+  }
+
+  .about-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--gray-700);
+    margin-bottom: var(--space-md);
+  }
+
+  /* Services Section */
+  .services-section {
+    padding: calc(var(--space-xl) * 2) 0;
+    background: var(--white);
+  }
+
+  .services-grid {
+    display: grid;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+  }
+
+  .service-card {
+    background: var(--off-white);
+    padding: var(--space-xl);
+    border-radius: 12px;
+    border-left: 4px solid var(--rust);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .service-number {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--rust);
+    background: rgba(172, 52, 48, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: var(--space-md);
+  }
+
+  .service-card h3 {
+    font-size: 1.75rem;
+    color: var(--indigo);
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-tagline {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: var(--space-md);
+    font-style: italic;
+  }
+
+  .service-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-md) 0;
+  }
+
+  .service-list li {
+    padding-left: 1.5rem;
+    margin-bottom: var(--space-sm);
+    position: relative;
+    color: var(--gray-700);
+    line-height: 1.7;
+  }
+
+  .service-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--rust);
+    font-weight: 600;
+  }
+
+  .service-link {
+    display: inline-block;
+    margin-top: var(--space-md);
+    color: var(--rust);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+
+  .service-link:hover {
+    transform: translateX(4px);
+  }
+
+  /* Process Section */
+  .process-section {
+    padding: calc(var(--space-xl) * 2) 0;
+    background: linear-gradient(135deg, var(--indigo) 0%, #252742 100%);
+    color: var(--white);
+  }
+
+  .process-section .section-title {
+    color: var(--white);
+  }
+
+  .section-lead {
+    font-size: 1.375rem;
+    text-align: center;
+    max-width: 700px;
+    margin: var(--space-lg) auto var(--space-xl);
+    line-height: 1.6;
+    color: var(--white);
+    opacity: 1;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+  }
+
+  .process-step {
+    text-align: center;
+    padding: var(--space-lg);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  .process-step:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+
+  .process-step:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+
+  .process-step:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--rust);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+
+  .process-step h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+    color: var(--white);
+  }
+
+  .process-step p {
+    line-height: 1.7;
+    color: var(--white);
+    opacity: 1;
+  }
+
+  /* Case Studies Preview */
+  /* CTA Section */
+  .cta-section {
+    padding: calc(var(--space-xl) * 2) 0;
+    background: linear-gradient(135deg, var(--rust) 0%, #8b2a26 100%);
+    color: var(--white);
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: var(--space-md);
+    color: var(--white);
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+    opacity: 0.95;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Button Styles */
+  .btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--rust);
+    color: var(--white);
+  }
+
+  .btn-primary:hover {
+    background: #8b2a26;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(172, 52, 48, 0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--indigo);
+    border-color: var(--indigo);
+  }
+
+  .btn-secondary:hover {
+    background: var(--indigo);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  .cta-section .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+  }
+
+  .cta-section .btn-secondary:hover {
+    background: var(--white);
+    color: var(--rust);
+  }
+
+  .btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+  }
+
+  /* Section Title */
+  .section-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--indigo);
+    text-align: center;
+    margin-bottom: var(--space-md);
+    font-weight: 700;
+  }
+
+  /* Responsive */
   @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-xl) 0;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .hero-buttons .btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .clients-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .process-steps {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .cta-buttons .btn {
+      width: 100%;
+    }
+
     .gradient-orb {
       width: 400px;
       height: 400px;
@@ -311,7 +694,7 @@ import Layout from "../layouts/Layout.astro";
 
     .parallax-section {
       min-height: auto;
-      padding: var(--space-2xl) 0;
+      padding: var(--space-xl) 0;
     }
   }
 </style>
@@ -342,3 +725,4 @@ import Layout from "../layouts/Layout.astro";
     });
   });
 </script>
+</Layout>
