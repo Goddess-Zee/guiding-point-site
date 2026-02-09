@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout
   title="About - Guiding Point Consulting"
-  description="I help teams modernize their web presence and build AI-enabled content operations—without losing the human element."
+  description="I help teams modernize their web presence and build AI-enabled content operations, without losing the human element."
 >
   <!-- Hero with Parallax -->
   <section class="about-hero parallax-section">
@@ -15,8 +15,10 @@ import Layout from "../layouts/Layout.astro";
     <div class="container hero-content">
       <h1>About</h1>
       <p class="hero-text">
-        We help teams modernize their web presence and build AI-enabled content operations without losing the human element that makes communication work.
+        I help government and commercial teams modernize their web presence and build AI-enabled content operations, without losing the human element that makes communication work.
       </p>
+      
+      <p class="hero-tagline">Web + AI consulting that bridges tech, creativity, and human connection.</p>
     </div>
   </section>
 
@@ -25,28 +27,34 @@ import Layout from "../layouts/Layout.astro";
     <div class="container">
       <div class="content-section">
         <p class="large-text">
-          Oue strength is being the liaison between leadership and technical teams. We translate goals into systems, roadmaps, and execution plans that teams can actually ship. The result is a website and content process that feels clear, consistent, and measurable.
+          Guiding Point Consulting exists for the moments when "just update the website" turns into late-night edits, unclear ownership, and content that never quite says what everyone meant. I sit between leadership, subject-matter experts, and technical teams to translate goals into systems, roadmaps, and execution plans your team can actually ship.
         </p>
       </div>
 
       <div class="content-grid">
         <div class="content-block">
           <h2>What you can expect</h2>
+          <p class="intro-text">
+            You're not just handing off a project, you're getting a partner who cares about how the work feels for your team.
+          </p>
           <ul class="check-list">
-            <li>Clear scope and transparent communication</li>
-            <li>Human-centered UX and messaging</li>
-            <li>Systems thinking (not just pages)</li>
-            <li>Practical AI workflows with quality controls</li>
+            <li>Clear scope, steady communication, and realistic expectations.</li>
+            <li>Human-centered UX and messaging that respect your audiences' time and attention.</li>
+            <li>Systems thinking instead of "one-off" pages and random acts of content.</li>
+            <li>Practical AI workflows with quality controls, not shiny tools with no guardrails.</li>
           </ul>
         </div>
 
         <div class="content-block">
-          <h2>Tools & strengths</h2>
+          <h2>Tools, strengths, and strategy</h2>
+          <p class="intro-text">
+            On any given project, we're toggling between strategy, structure, and delivery:
+          </p>
           <ul class="check-list">
-            <li>Web strategy, IA, and content structure</li>
-            <li>Performance-first builds and clean handoffs</li>
-            <li>SEO and measurement foundations</li>
-            <li>AI content operations (SOPs, prompts, governance)</li>
+            <li>Web strategy, information architecture, and content structure that make it easier to find and understand what matters.</li>
+            <li>Performance-first builds and clean handoffs so your internal team or vendors aren't guessing what to do next.</li>
+            <li>SEO and measurement foundations so you can see what's working and where to improve.</li>
+            <li>AI content operations - SOPs, prompts, governance that support the humans doing the work instead of replacing their judgment.</li>
           </ul>
         </div>
       </div>
@@ -57,22 +65,23 @@ import Layout from "../layouts/Layout.astro";
   <section class="approach-section">
     <div class="container">
       <div class="approach-content">
-        <h2>Our Approach</h2>
+        <h2>How we work with teams</h2>
+        <p class="approach-intro">The throughline is simple: listen, simplify, then ship.</p>
         <div class="approach-grid">
           <div class="approach-item">
             <div class="approach-number">1</div>
-            <h3>Listen First</h3>
-            <p>We start by understanding your goals, constraints, and team dynamics before proposing solutions.</p>
+            <h3>Listen first</h3>
+            <p>We start by understanding your goals, constraints, and team dynamics before proposing solutions. I want to know what's worked, what hasn't, and where the real friction lives day to day.</p>
           </div>
           <div class="approach-item">
             <div class="approach-number">2</div>
-            <h3>Systems Thinking</h3>
-            <p>Every recommendation considers how it fits into your broader workflow and long-term goals.</p>
+            <h3>Systems thinking</h3>
+            <p>Every recommendation considers how it fits into your broader workflows, tools, and long-term goals. If it won't hold up after the kickoff meeting, it doesn't go in the plan.</p>
           </div>
           <div class="approach-item">
             <div class="approach-number">3</div>
-            <h3>Ship & Iterate</h3>
-            <p>We prioritize getting something working quickly, then improving it based on real feedback and data.</p>
+            <h3>Ship and iterate</h3>
+            <p>We focus on getting something useful live, then improving based on real feedback and data. No endless cycles of "almost done".</p>
           </div>
         </div>
       </div>
@@ -84,7 +93,8 @@ import Layout from "../layouts/Layout.astro";
     <div class="container">
       <div class="cta-content">
         <h2>Let's work together</h2>
-        <p>Ready to modernize your website and content operations? Let's start with a conversation.</p>
+        <p>If your website, content, or AI initiatives feel heavier than they should, that's a signal, not a failure.</p>
+        <p>Ready to modernize your website and content operations? Let's start with a conversation and figure out the next right step for your team.</p>
         <a href="/contact" class="btn btn-primary">Get in Touch</a>
       </div>
     </div>
@@ -95,13 +105,13 @@ import Layout from "../layouts/Layout.astro";
 <style>
   /* Parallax Hero */
   .parallax-section {
-  position: relative;
-  overflow: hidden;
-  min-height: auto;  /* Remove fixed height */
-  display: flex;
-  align-items: center;
-  padding: var(--space-2xl) 0 var(--space-xl);  /* Less padding */
-}
+    position: relative;
+    overflow: hidden;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    padding: var(--space-2xl) 0 var(--space-xl);
+  }
 
   .parallax-bg {
     position: absolute;
@@ -168,10 +178,20 @@ import Layout from "../layouts/Layout.astro";
 
   .hero-text {
     max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.5rem;
+    margin: 0 auto var(--space-lg);
+    font-size: 1.25rem;
     line-height: 1.6;
     color: var(--gray-700);
+  }
+
+  .hero-tagline {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--rust);
+    line-height: 1.6;
   }
 
   .about-content {
@@ -198,8 +218,15 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .content-block h2 {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     font-size: 1.75rem;
+  }
+
+  .intro-text {
+    margin-bottom: var(--space-lg);
+    font-size: 1.125rem;
+    color: var(--gray-700);
+    line-height: 1.7;
   }
 
   .check-list {
@@ -237,8 +264,16 @@ import Layout from "../layouts/Layout.astro";
 
   .approach-content h2 {
     text-align: center;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-md);
     font-size: 2.5rem;
+  }
+
+  .approach-intro {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--gray-700);
+    margin-bottom: var(--space-2xl);
+    font-weight: 500;
   }
 
   .approach-grid {
@@ -253,6 +288,26 @@ import Layout from "../layouts/Layout.astro";
     background: white;
     border-radius: 12px;
     border: 1px solid var(--gray-200);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .approach-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .approach-item:nth-child(1).animate {
+    transition-delay: 0.2s;
+  }
+
+  .approach-item:nth-child(2).animate {
+    transition-delay: 0.4s;
+  }
+
+  .approach-item:nth-child(3).animate {
+    transition-delay: 0.6s;
   }
 
   .approach-number {
@@ -279,9 +334,42 @@ import Layout from "../layouts/Layout.astro";
     line-height: 1.6;
   }
 
+  .cta-section {
+    padding: calc(var(--space-xl) * 2) 0;
+    background: linear-gradient(135deg, var(--rust) 0%, #8b2a26 100%);
+    color: var(--white);
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: var(--space-md);
+    color: var(--white);
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+    color: var(--white);
+  }
+
+  .cta-content p:last-of-type {
+    margin-bottom: var(--space-xl);
+  }
+
   @media (max-width: 768px) {
     .hero-text {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
+    }
+
+    .hero-tagline {
+      font-size: 1.125rem;
     }
 
     .content-grid {
@@ -311,5 +399,24 @@ import Layout from "../layouts/Layout.astro";
     if (parallaxBg && scrolled < window.innerHeight) {
       parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
+  });
+
+  // Animate approach items when they come into view
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const approachObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all approach items
+  document.querySelectorAll('.approach-item').forEach(item => {
+    approachObserver.observe(item);
   });
 </script>
