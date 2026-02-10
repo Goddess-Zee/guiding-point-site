@@ -21,7 +21,7 @@ import Layout from "../layouts/Layout.astro";
       </h1>
       <p class="hero-tagline">Bridging tech, creativity and human connection.</p>
       <p class="hero-description">
-        You know the drill: pages that need updating, content stuck in review, and three different versions of "the right" message floating around. We help teams modernize websites and build AI-assisted content operations so people get clear answers faster, without the generic AI fluff.
+        You know the drill: pages that need updating, content stuck in review, and three different versions of "the right" message floating around. We help teams modernize websites and build AI-assisted content operations so people get clear answers faster without the generic AI fluff.
       </p>
       <div class="hero-buttons">
         <a href="/contact" class="btn btn-primary">Request an Audit</a>
@@ -63,7 +63,7 @@ import Layout from "../layouts/Layout.astro";
           Guiding Point Consulting helps teams review and improve public-facing sites, streamline content workflows, and design AI-assisted processes that support clarity, compliance, and trust, not just another tool on the stack.
         </p>
         <p>
-          In practice, that means translating leadership goals into practical steps, giving content creators and SMEs a clearer path to publish, and helping technical teams implement changes without endless back and forth.
+          In practice, that means translating leadership goals into practical steps, giving content creators and SMEs a clearer path to publish, and helping technical teams implement changes without endless back-and-forth.
         </p>
         <p>
           Our role is part strategist, part translator, part "let's actually get this out the door" partner.
@@ -85,7 +85,7 @@ import Layout from "../layouts/Layout.astro";
           <p class="service-tagline">Clarity on what to fix first, what can wait, and how to bring everyone along.</p>
           <ul class="service-list">
             <li>UX and content structure review focused on real people trying to complete real tasks, residents, partners, prospects, internal teams.</li>
-            <li>Performance and accessibility quick wins that support compliance and reduce day to day friction.</li>
+            <li>Performance and accessibility quick wins that support compliance and reduce day-to-day friction.</li>
             <li>A prioritized roadmap written in plain language, so leadership, program owners, and IT can agree on "what's next" without a 40-slide deck.</li>
           </ul>
           <a href="/services#audit" class="service-link">Learn more →</a>
@@ -97,9 +97,9 @@ import Layout from "../layouts/Layout.astro";
           <h3>AI Content Ops Setup</h3>
           <p class="service-tagline">Help your team use AI without losing context, nuance, or control.</p>
           <ul class="service-list">
-            <li>Map how content actually moves today from request to approvals to publish—so we're solving real bottlenecks, not imaginary ones.</li>
+            <li>Map how content actually moves today—from request to approvals to publish, so we're solving real bottlenecks, not imaginary ones.</li>
             <li>Design AI-assisted workflows, prompts, and templates that respect your review process, governance, and security requirements.</li>
-            <li>Create practical QA checklists so content stays accurate, accessible, and on brand even as tools change.</li>
+            <li>Create practical QA checklists so content stays accurate, accessible, and on-brand even as tools change.</li>
           </ul>
           <a href="/services#content-ops" class="service-link">Learn more →</a>
         </div>
@@ -112,7 +112,7 @@ import Layout from "../layouts/Layout.astro";
           <ul class="service-list">
             <li>Support for leaders juggling competing priorities and limited time.</li>
             <li>Coordination across teams and vendors so decisions don't disappear into endless email threads.</li>
-            <li>Light touch reporting that shows progress and learns from what worked without creating another reporting burden.</li>
+            <li>Light-touch reporting that shows progress and learns from what worked—without creating another reporting burden.</li>
           </ul>
           <a href="/services#strategy" class="service-link">Learn more →</a>
         </div>
@@ -280,7 +280,7 @@ import Layout from "../layouts/Layout.astro";
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: var(--space-md);
-    animation: gradient-shift 8s ease infinite;
+    animation: gradient-shift 4s ease infinite;
     background-size: 200% 200%;
   }
 
@@ -543,7 +543,7 @@ import Layout from "../layouts/Layout.astro";
   /* Case Studies Preview */
   /* CTA Section */
   .cta-section {
-    padding: calc(var(--space-xl) * 2) 0;
+    padding: calc(var(--space-xl) * 2) 0 var(--space-xl) 0;
     background: linear-gradient(135deg, var(--rust) 0%, #8b2a26 100%);
     color: var(--white);
     text-align: center;
@@ -641,6 +641,15 @@ import Layout from "../layouts/Layout.astro";
       padding: var(--space-xl) 0;
     }
 
+    /* Tighter spacing on mobile */
+    .clients-section,
+    .about-section,
+    .services-section,
+    .process-section,
+    .cta-section {
+      padding: var(--space-xl) 0;
+    }
+
     .hero-buttons {
       flex-direction: column;
       width: 100%;
@@ -716,6 +725,8 @@ import Layout from "../layouts/Layout.astro";
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
+      } else {
+        entry.target.classList.remove('animate');
       }
     });
   }, observerOptions);

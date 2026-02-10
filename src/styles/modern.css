@@ -464,7 +464,7 @@ p {
 }
 
 .footer-logo {
-  height: 250px;
+  height: 120px;
   width: auto;
   margin-bottom: var(--space-md);
 }
@@ -645,11 +645,13 @@ p {
   }
 }
 
-/* Footer Legal Links */
+/* Footer Legal Links - CENTERED */
 .footer-legal {
   display: flex;
   gap: var(--space-lg);
   margin-top: var(--space-sm);
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-legal a {
