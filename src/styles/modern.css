@@ -770,3 +770,118 @@ p {
     box-sizing: border-box !important;
   }
 }
+/* ============================================
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Disable expensive parallax and blur effects */
+  .parallax-bg {
+    display: none !important;
+  }
+  
+  .gradient-orb {
+    display: none !important;
+  }
+  
+  /* Use simple, performant gradient background instead */
+  .parallax-section,
+  .hero,
+  .about-hero,
+  .contact-hero,
+  .page-header {
+    background: linear-gradient(
+      135deg,
+      rgba(172, 52, 48, 0.03) 0%,
+      rgba(50, 52, 90, 0.03) 100%
+    ) !important;
+  }
+  
+  /* Disable all animations on mobile */
+  .gradient-orb,
+  .process-step,
+  .approach-item,
+  .service-card,
+  .client-card {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Remove transform transitions that trigger repaints */
+  .service-card:hover,
+  .client-card:hover,
+  .case-study-card:hover {
+    transform: none !important;
+  }
+  
+  /* Reduce box-shadow complexity */
+  .service-card:hover,
+  .client-card:hover,
+  .case-study-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Optimize typography rendering */
+  body,
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+  }
+  
+  /* Reduce will-change usage */
+  .parallax-bg,
+  .gradient-orb,
+  * {
+    will-change: auto !important;
+  }
+  
+  /* Prevent unnecessary reflows */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Optimize scroll performance */
+  * {
+    scroll-behavior: auto !important;
+  }
+  
+  /* Remove complex filters */
+  .gradient-orb,
+  .parallax-bg::after {
+    filter: none !important;
+  }
+}
+
+/* Additional mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Reduce padding to minimize layout shifts */
+  .parallax-section {
+    padding: var(--space-xl) 0 !important;
+  }
+  
+  /* Simplify hero content */
+  .hero-content {
+    padding: var(--space-md);
+  }
+  
+  /* Optimize form rendering */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+  
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
