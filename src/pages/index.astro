@@ -3,12 +3,11 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="Mission Based Non-Profits & Subcontractor Support for Government Primes. Web Modernization + AI Content Strategy | Guiding Point Consulting"
+  title="Web Modernization + AI Content Strategy | Guiding Point Consulting"
   description="We help Mission Based Non-Profits & Government Primes modernize websites and streamline content operations with AI-assisted workflows, without losing the human touch. Get a free audit."
 >
   <!-- Hero Section with Parallax -->
   <section class="hero parallax-section">
-    <!-- Parallax Background Layers -->
     <div class="parallax-bg" data-speed="0.5">
       <div class="gradient-orb orb-1"></div>
       <div class="gradient-orb orb-2"></div>
@@ -17,7 +16,7 @@ import Layout from "../layouts/Layout.astro";
     <div class="container hero-content">
       <p class="hero-eyebrow">HUMAN-CENTERED WEB + AI CONTENT SYSTEMS</p>
       <h1 class="hero-title">
-        Modernize your website and content ops without losing the human touch.
+        Helping Nonprofits show up clearly, work smarter, and serve their communities with confidence.
       </h1>
       <p class="hero-tagline">Bridging tech, creativity and human connection.</p>
       <p class="hero-description">
@@ -52,6 +51,63 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
+  <!-- Slideshow Section -->
+  <section class="slideshow-section" aria-label="Work moments slideshow">
+    <div class="slideshow-track">
+
+      <div class="slide active">
+        <div class="slide-bg placeholder-1">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide-caption">
+          <span class="caption-tag">In the Field</span>
+          <p>Working alongside nonprofit staff to map the content workflows that actually happen day to day.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-bg placeholder-2">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide-caption">
+          <span class="caption-tag">Strategy Sessions</span>
+          <p>Turning leadership goals into roadmaps teams can follow without a 40-slide deck.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-bg placeholder-3">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide-caption">
+          <span class="caption-tag">Training in Action</span>
+          <p>Helping program and comms staff use AI safely and confidently in their day-to-day work.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-bg placeholder-4">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide-caption">
+          <span class="caption-tag">Community First</span>
+          <p>Every system we build is designed for the real people your organization exists to serve.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="slide-btn slide-prev" aria-label="Previous slide">&#8592;</button>
+    <button class="slide-btn slide-next" aria-label="Next slide">&#8594;</button>
+
+    <div class="slide-dots" role="tablist">
+      <button class="dot active" aria-label="Slide 1" role="tab"></button>
+      <button class="dot" aria-label="Slide 2" role="tab"></button>
+      <button class="dot" aria-label="Slide 3" role="tab"></button>
+      <button class="dot" aria-label="Slide 4" role="tab"></button>
+    </div>
+  </section>
+
   <!-- What We Do -->
   <section class="about-section">
     <div class="container">
@@ -69,7 +125,7 @@ import Layout from "../layouts/Layout.astro";
           publish, and helping technical teams and prime contractors implement changes without endless back‑and‑forth.
         </p>
         <p>
-          Our role is part strategist, part translator, and part “let’s actually get this out the door” partner for organizations doing mission‑critical work.
+          Our role is part strategist, part translator, and part "let's actually get this out the door" partner for organizations doing mission‑critical work.
         </p>
       </div>
     </div>
@@ -81,12 +137,10 @@ import Layout from "../layouts/Layout.astro";
       <h2 class="section-title">Services</h2>
       
       <div class="services-grid">
-        <!-- Service 1 -->
         <div class="service-card">
           <div class="service-number">01</div>
           <h3>Website Audit + Modernization Roadmap</h3>
-          <p class="service-tagline">If your website feels cluttered, outdated, or unclear, a focused audit and roadmap 
-            can restore trust and reduce friction.</p>
+          <p class="service-tagline">If your website feels cluttered, outdated, or unclear, a focused audit and roadmap can restore trust and reduce friction.</p>
           <ul class="service-list">
             <li>UX and content structure review focused on real people trying to complete real tasks, residents, partners, prospects, internal teams.</li>
             <li>Performance and accessibility quick wins that support compliance and reduce day-to-day friction.</li>
@@ -95,7 +149,6 @@ import Layout from "../layouts/Layout.astro";
           <a href="/services#audit" class="service-link">Learn more →</a>
         </div>
 
-        <!-- Service 2 -->
         <div class="service-card">
           <div class="service-number">02</div>
           <h3>AI-Supported Content Operations</h3>
@@ -103,13 +156,11 @@ import Layout from "../layouts/Layout.astro";
           <ul class="service-list">
             <li>Templates, SOPs, and checklists for common tasks, updates, reports, board materials, and outreach, so content moves faster with fewer bottlenecks.</li>
             <li>Prompt kits and guardrails tailored to your voice, values, and compliance needs so AI stays safe and on-brand.</li>
-            <li>Simple governance: who can use which tools, for what, and how content is reviewed before it goes live.</li>
-            <li>Practical AI team training so staff know when and how to use AI, what to avoid, and how to keep human judgment at the center.</li>
+            <li>Simple governance covering who can use which tools, for what, and how content is reviewed before it goes live.</li>
           </ul>
           <a href="/services#content-ops" class="service-link">Learn more →</a>
         </div>
 
-        <!-- Service 3 -->
         <div class="service-card">
           <div class="service-number">03</div>
           <h3>Custom Mission-Aware Chatbots & AI Assistants</h3>
@@ -123,7 +174,6 @@ import Layout from "../layouts/Layout.astro";
           <a href="/services#chatbots" class="service-link">Learn more →</a>
         </div>
 
-        <!-- Service 4 -->
         <div class="service-card">
           <div class="service-number">04</div>
           <h3>Fractional Digital Strategy Lead</h3>
@@ -136,7 +186,7 @@ import Layout from "../layouts/Layout.astro";
           </ul>
           <a href="/services#strategy" class="service-link">Learn more →</a>
         </div>
-        <!-- Service 5 -->
+
         <div class="service-card">
           <div class="service-number">05</div>
           <h3>AI Team Training</h3>
@@ -150,9 +200,6 @@ import Layout from "../layouts/Layout.astro";
           </ul>
           <a href="/services#ai-training" class="service-link">Learn more →</a>
         </div>
-      </div>
-    </div>
-  </section>
       </div>
     </div>
   </section>
@@ -186,14 +233,13 @@ import Layout from "../layouts/Layout.astro";
           <div class="step-number">3</div>
           <h3>Lead</h3>
           <p>
-            We stay close enough to help you prioritize, answer questions, and keep content shipping without burning out the same 2–3 people every time.
+            We stay close enough to help you prioritize, answer questions, and keep content shipping without burning out the same 2-3 people every time.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Case Studies Preview -->
   <!-- CTA Section -->
   <section class="cta-section">
     <div class="container">
@@ -212,7 +258,7 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
-  /* Parallax Hero Styles */
+  /* ── Parallax Hero ────────────────────────────── */
   .parallax-section {
     position: relative;
     overflow: hidden;
@@ -260,7 +306,6 @@ import Layout from "../layouts/Layout.astro";
     animation-delay: -7s;
   }
 
-  /* Add a third orb for more depth */
   .parallax-bg::after {
     content: '';
     position: absolute;
@@ -277,18 +322,10 @@ import Layout from "../layouts/Layout.astro";
   }
 
   @keyframes float {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-    }
-    25% {
-      transform: translate(30px, -30px) scale(1.05);
-    }
-    50% {
-      transform: translate(-20px, 20px) scale(0.95);
-    }
-    75% {
-      transform: translate(20px, 30px) scale(1.02);
-    }
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25%       { transform: translate(30px, -30px) scale(1.05); }
+    50%       { transform: translate(-20px, 20px) scale(0.95); }
+    75%       { transform: translate(20px, 30px) scale(1.02); }
   }
 
   .hero-content {
@@ -322,8 +359,8 @@ import Layout from "../layouts/Layout.astro";
   }
 
   @keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
 
@@ -349,7 +386,7 @@ import Layout from "../layouts/Layout.astro";
     flex-wrap: wrap;
   }
 
-  /* Clients Section */
+  /* ── Clients Section ──────────────────────────── */
   .clients-section {
     padding: calc(var(--space-xl) * 2) 0;
     background: var(--white);
@@ -387,7 +424,161 @@ import Layout from "../layouts/Layout.astro";
     line-height: 1.7;
   }
 
-  /* About Section */
+  /* ── Slideshow ────────────────────────────────── */
+  .slideshow-section {
+    position: relative;
+    width: 100%;
+    height: 540px;
+    overflow: hidden;
+    background: #1a1a2e;
+  }
+
+  .slideshow-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    pointer-events: none;
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.05);
+    transition: transform 7s ease;
+  }
+
+  .slide.active .slide-bg {
+    transform: scale(1);
+  }
+
+  /* Slide images */
+  .placeholder-1 { background-image: url('/images/slide-1.png'); }
+  .placeholder-2 { background-image: url('/images/slide-2.png'); }
+  .placeholder-3 { background-image: url('/images/slide-3.png'); }
+  .placeholder-4 { background-image: url('/images/slide-4.png'); }
+
+  .slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  }
+
+  .slide-caption {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(14px);
+    text-align: center;
+    color: var(--white);
+    width: 100%;
+    max-width: 640px;
+    padding: 0 var(--space-lg);
+    opacity: 0;
+    transition: opacity 0.9s ease 0.5s, transform 0.9s ease 0.5s;
+  }
+
+  .slide.active .slide-caption {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .caption-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f5c4c2;
+    background: rgba(172, 52, 48, 0.35);
+    border: 1px solid rgba(172, 52, 48, 0.55);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .slide-caption p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.93);
+    margin: 0;
+    font-weight: 400;
+  }
+
+  /* Prev / Next arrows */
+  .slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .slide-btn:hover {
+    background: rgba(172, 52, 48, 0.55);
+    border-color: var(--rust);
+  }
+
+  .slide-prev { left: var(--space-lg); }
+  .slide-next { right: var(--space-lg); }
+
+  /* Dots */
+  .slide-dots {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .dot.active {
+    background: var(--rust);
+    transform: scale(1.4);
+  }
+
+  /* ── About Section ────────────────────────────── */
   .about-section {
     padding: calc(var(--space-xl) * 2) 0;
     background: linear-gradient(to bottom, var(--white), var(--off-white));
@@ -413,7 +604,7 @@ import Layout from "../layouts/Layout.astro";
     margin-bottom: var(--space-md);
   }
 
-  /* Services Section */
+  /* ── Services Section ─────────────────────────── */
   .services-section {
     padding: calc(var(--space-xl) * 2) 0;
     background: var(--white);
@@ -498,7 +689,7 @@ import Layout from "../layouts/Layout.astro";
     transform: translateX(4px);
   }
 
-  /* Process Section */
+  /* ── Process Section ──────────────────────────── */
   .process-section {
     padding: calc(var(--space-xl) * 2) 0;
     background: linear-gradient(135deg, var(--indigo) 0%, #252742 100%);
@@ -516,7 +707,6 @@ import Layout from "../layouts/Layout.astro";
     margin: var(--space-lg) auto var(--space-xl);
     line-height: 1.6;
     color: var(--white);
-    opacity: 1;
   }
 
   .process-steps {
@@ -539,17 +729,9 @@ import Layout from "../layouts/Layout.astro";
     transform: translateY(0);
   }
 
-  .process-step:nth-child(1).animate {
-    transition-delay: 0.2s;
-  }
-
-  .process-step:nth-child(2).animate {
-    transition-delay: 0.4s;
-  }
-
-  .process-step:nth-child(3).animate {
-    transition-delay: 0.6s;
-  }
+  .process-step:nth-child(1).animate { transition-delay: 0.2s; }
+  .process-step:nth-child(2).animate { transition-delay: 0.4s; }
+  .process-step:nth-child(3).animate { transition-delay: 0.6s; }
 
   .step-number {
     display: inline-flex;
@@ -574,11 +756,9 @@ import Layout from "../layouts/Layout.astro";
   .process-step p {
     line-height: 1.7;
     color: var(--white);
-    opacity: 1;
   }
 
-  /* Case Studies Preview */
-  /* CTA Section */
+  /* ── CTA Section ──────────────────────────────── */
   .cta-section {
     padding: calc(var(--space-xl) * 2) 0 var(--space-xl) 0;
     background: linear-gradient(135deg, var(--rust) 0%, #8b2a26 100%);
@@ -602,7 +782,6 @@ import Layout from "../layouts/Layout.astro";
     line-height: 1.7;
     margin-bottom: var(--space-xl);
     color: var(--white);
-    opacity: 1;
   }
 
   .cta-buttons {
@@ -612,7 +791,7 @@ import Layout from "../layouts/Layout.astro";
     flex-wrap: wrap;
   }
 
-  /* Button Styles */
+  /* ── Buttons ──────────────────────────────────── */
   .btn {
     display: inline-block;
     padding: 0.875rem 2rem;
@@ -663,7 +842,7 @@ import Layout from "../layouts/Layout.astro";
     font-size: 1.125rem;
   }
 
-  /* Section Title */
+  /* ── Section Title ────────────────────────────── */
   .section-title {
     font-size: clamp(2rem, 4vw, 2.75rem);
     color: var(--indigo);
@@ -672,13 +851,10 @@ import Layout from "../layouts/Layout.astro";
     font-weight: 700;
   }
 
-  /* Responsive */
+  /* ── Responsive ───────────────────────────────── */
   @media (max-width: 768px) {
-    .hero {
-      padding: var(--space-xl) 0;
-    }
+    .hero { padding: var(--space-xl) 0; }
 
-    /* Tighter spacing on mobile */
     .clients-section,
     .about-section,
     .services-section,
@@ -687,77 +863,48 @@ import Layout from "../layouts/Layout.astro";
       padding: var(--space-xl) 0;
     }
 
-    .hero-buttons {
-      flex-direction: column;
-      width: 100%;
-    }
+    .slideshow-section { height: 400px; }
 
-    .hero-buttons .btn {
-      width: 100%;
-      text-align: center;
-    }
+    .slide-caption { bottom: 60px; }
+    .slide-caption p { font-size: 1rem; }
 
-    .clients-grid {
-      grid-template-columns: 1fr;
-    }
+    .slide-btn { width: 38px; height: 38px; font-size: 1rem; }
 
-    .process-steps {
-      grid-template-columns: 1fr;
-    }
-
+    .hero-buttons,
     .cta-buttons {
       flex-direction: column;
       width: 100%;
     }
 
+    .hero-buttons .btn,
     .cta-buttons .btn {
       width: 100%;
+      text-align: center;
     }
 
-    .gradient-orb {
-      width: 400px;
-      height: 400px;
+    .clients-grid,
+    .process-steps {
+      grid-template-columns: 1fr;
     }
 
-    .orb-1 {
-      width: 400px;
-      height: 400px;
-    }
-
-    .orb-2 {
-      width: 350px;
-      height: 350px;
-    }
-
-    .parallax-bg::after {
-      width: 300px;
-      height: 300px;
-    }
-
-    .parallax-section {
-      min-height: auto;
-      padding: var(--space-xl) 0;
-    }
+    .orb-1 { width: 400px; height: 400px; }
+    .orb-2 { width: 350px; height: 350px; }
+    .parallax-bg::after { width: 300px; height: 300px; }
+    .parallax-section { min-height: auto; padding: var(--space-xl) 0; }
   }
 </style>
 
 <script>
-  // Simple parallax effect
+  // Parallax
   window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const parallaxBg = document.querySelector('.parallax-bg') as HTMLElement;
-    
     if (parallaxBg && scrolled < window.innerHeight) {
       parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
   });
 
-  // Animate process steps when they come into view
-  const observerOptions = {
-    threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px'
-  };
-
+  // Process step animations
   const processObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -766,25 +913,55 @@ import Layout from "../layouts/Layout.astro";
         entry.target.classList.remove('animate');
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.2, rootMargin: '0px 0px -100px 0px' });
 
-  // Observe all process steps
   document.querySelectorAll('.process-step').forEach(step => {
     processObserver.observe(step);
   });
 
-  // Optional: Add smooth scroll
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e: Event) => {
       e.preventDefault();
       const href = anchor.getAttribute('href');
       const target = href ? document.querySelector(href) : null;
       if (target) {
-        (target as HTMLElement).scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        (target as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
+
+  // Slideshow
+  (function () {
+    const slides = document.querySelectorAll<HTMLElement>('.slide');
+    const dots   = document.querySelectorAll<HTMLElement>('.dot');
+    const prev   = document.querySelector<HTMLButtonElement>('.slide-prev');
+    const next   = document.querySelector<HTMLButtonElement>('.slide-next');
+    let current  = 0;
+    let timer: ReturnType<typeof setInterval>;
+    const DELAY  = 5000;
+
+    function goTo(index: number) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function startTimer() {
+      timer = setInterval(() => goTo(current + 1), DELAY);
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      startTimer();
+    }
+
+    prev?.addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+    next?.addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetTimer(); }));
+
+    startTimer();
+  })();
 </script>

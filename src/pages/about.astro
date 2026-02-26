@@ -45,12 +45,70 @@ import Layout from "../layouts/Layout.astro";
 
         <div class="mission-block">
           <h2>Why "Guiding Point"</h2>
-          <p>A guiding point is what you look for when you're navigating uncertain terrain, a fixed, reliable marker that helps you find your direction and keep moving forward with confidence.</p>
+          <p>A guiding point is what you look for when you're navigating uncertain terrain a fixed, reliable marker that helps you find your direction and keep moving forward with confidence.</p>
           <p>For nonprofits and mission-driven teams, that moment often looks like this: the website no longer reflects who you are, AI tools are sitting unused because no one knows where to start, or the gap between leadership's vision and what the team can actually execute keeps growing wider.</p>
-          <p>That is exactly where we come in. We bring the roadmap, the systems, and the human understanding to help your team take the next right step, and the one after that.</p>
+          <p>That is exactly where we come in. We bring the roadmap, the systems, and the human understanding to help your team take the next right step and the one after that.</p>
         </div>
 
       </div>
+    </div>
+  </section>
+
+
+  <!-- Slideshow Section -->
+  <section class="slideshow-section" aria-label="Work moments slideshow">
+    <div class="slideshow-track">
+
+      <div class="slide active">
+        <div class="slide-bg slide-img-1">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide-caption">
+          <span class="caption-tag">In the Field</span>
+          <p>Working alongside nonprofit staff to map the content workflows that actually happen day to day.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-bg slide-img-2">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide-caption">
+          <span class="caption-tag">Strategy Sessions</span>
+          <p>Turning leadership goals into roadmaps teams can follow without a 40-slide deck.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-bg slide-img-3">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide-caption">
+          <span class="caption-tag">Training in Action</span>
+          <p>Helping program and comms staff use AI safely and confidently in their day-to-day work.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-bg slide-img-4">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide-caption">
+          <span class="caption-tag">Community First</span>
+          <p>Every system we build is designed for the real people your organization exists to serve.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="slide-btn slide-prev" aria-label="Previous slide">&#8592;</button>
+    <button class="slide-btn slide-next" aria-label="Next slide">&#8594;</button>
+
+    <div class="slide-dots" role="tablist">
+      <button class="dot active" aria-label="Slide 1" role="tab"></button>
+      <button class="dot" aria-label="Slide 2" role="tab"></button>
+      <button class="dot" aria-label="Slide 3" role="tab"></button>
+      <button class="dot" aria-label="Slide 4" role="tab"></button>
     </div>
   </section>
 
@@ -62,13 +120,13 @@ import Layout from "../layouts/Layout.astro";
         <div class="content-block">
           <h2>What You Can Expect</h2>
           <p class="intro-text">
-            You're not just handing off a project, you're getting a partner who genuinely cares about how the work feels for your team and the people your organization serves.
+            You're not just handing off a project you're getting a partner who genuinely cares about how the work feels for your team and the people your organization serves.
           </p>
           <ul class="check-list">
             <li>Clear scope, steady communication, and realistic expectations.</li>
             <li>Human-centered messaging and UX that respects your audience's time, trust, and lived experience.</li>
             <li>Systems thinking instead of one-off pages and random acts of content.</li>
-            <li>Practical AI workflows with quality controls, guardrails, and governancenot shiny tools with no structure.</li>
+            <li>Practical AI workflows with quality controls, guardrails, and governance not shiny tools with no structure.</li>
             <li>Training your team can actually follow, even on a busy Tuesday with no tech background.</li>
           </ul>
         </div>
@@ -102,7 +160,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="approach-item">
             <div class="approach-number">1</div>
             <h3>Listen First</h3>
-            <p>We start by understanding your mission, goals, constraints, and team dynamics before proposing anything. We want to know what's working, what isn't, and where the real friction lives in your website, your content process, or how your team currently uses AI.</p>
+            <p>We start by understanding your mission, goals, constraints, and team dynamics before proposing anything. We want to know what's working, what isn't, and where the real friction lives, in your website, your content process, or how your team currently uses AI.</p>
           </div>
 
           <div class="approach-item">
@@ -501,6 +559,165 @@ import Layout from "../layouts/Layout.astro";
       min-height: auto;
     }
   }
+
+  /* ── Slideshow ────────────────────────────────── */
+  .slideshow-section {
+    position: relative;
+    width: 100%;
+    height: 540px;
+    overflow: hidden;
+    background: #1a1a2e;
+  }
+
+  .slideshow-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    pointer-events: none;
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.05);
+    transition: transform 7s ease;
+  }
+
+  .slide.active .slide-bg {
+    transform: scale(1);
+  }
+
+  .slide-img-1 { background-image: url('/images/slide-1.png'); }
+  .slide-img-2 { background-image: url('/images/slide-2.png'); }
+  .slide-img-3 { background-image: url('/images/slide-3.png'); }
+  .slide-img-4 { background-image: url('/images/slide-4.png'); }
+
+  .slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  }
+
+  .slide-caption {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(14px);
+    text-align: center;
+    color: var(--white);
+    width: 100%;
+    max-width: 640px;
+    padding: 0 var(--space-lg);
+    opacity: 0;
+    transition: opacity 0.9s ease 0.5s, transform 0.9s ease 0.5s;
+  }
+
+  .slide.active .slide-caption {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .caption-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f5c4c2;
+    background: rgba(172, 52, 48, 0.35);
+    border: 1px solid rgba(172, 52, 48, 0.55);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .slide-caption p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.93);
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .slide-btn:hover {
+    background: rgba(172, 52, 48, 0.55);
+    border-color: var(--rust);
+  }
+
+  .slide-prev { left: var(--space-lg); }
+  .slide-next { right: var(--space-lg); }
+
+  .slide-dots {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .dot.active {
+    background: var(--rust);
+    transform: scale(1.4);
+  }
+
+  @media (max-width: 768px) {
+    .slideshow-section { height: 400px; }
+    .slide-caption { bottom: 60px; }
+    .slide-caption p { font-size: 1rem; }
+    .slide-btn { width: 38px; height: 38px; font-size: 1rem; }
+  }
+
 </style>
 
 <script>
@@ -530,4 +747,39 @@ import Layout from "../layouts/Layout.astro";
   document.querySelectorAll('.approach-item').forEach(item => {
     approachObserver.observe(item);
   });
+
+  // Slideshow
+  (function () {
+    const slides = document.querySelectorAll<HTMLElement>('.slide');
+    const dots   = document.querySelectorAll<HTMLElement>('.dot');
+    const prev   = document.querySelector<HTMLButtonElement>('.slide-prev');
+    const next   = document.querySelector<HTMLButtonElement>('.slide-next');
+    let current  = 0;
+    let timer: ReturnType<typeof setInterval>;
+    const DELAY  = 5000;
+
+    function goTo(index: number) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function startTimer() {
+      timer = setInterval(() => goTo(current + 1), DELAY);
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      startTimer();
+    }
+
+    prev?.addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+    next?.addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetTimer(); }));
+
+    startTimer();
+  })();
+
 </script>
