@@ -36,7 +36,7 @@ const {
     <!-- End Google Tag Manager -->
 
     <!-- HubSpot Popup Form -->
-    <script src="https://js-na2.hsforms.net/forms/embed/245446209.js" defer></script>
+    <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
     <!-- End HubSpot Popup Form -->
   </head>
   <body>
@@ -126,7 +126,13 @@ const {
     <CookieBanner />
 
     <!-- HubSpot Popup Form Trigger -->
-    <div class="hs-form-frame" data-region="na2" data-form-id="e3caa480-3d76-439d-9907-4330b8f99012" data-portal-id="245446209"></div>
+    <script is:inline>
+      hbspt.forms.create({
+        portalId: "245446209",
+        formId: "3932c3f6-aa91-4d2a-a17e-4d3e81adf76d",
+        region: "na2"
+      });
+    </script>
     <!-- End HubSpot Popup Form Trigger -->
 
     <!-- Mobile Menu Toggle Script -->
