@@ -480,8 +480,6 @@ import Layout from "../layouts/Layout.astro";
     color: var(--indigo);
   }
 
-
-
   /* CTA Section */
   .cta-section {
     padding: calc(var(--space-xl) * 2) 0;
@@ -601,10 +599,11 @@ import Layout from "../layouts/Layout.astro";
     transform: scale(1);
   }
 
-  .slide-img-1 { background-image: url('/images/slide-1.png'); }
-  .slide-img-2 { background-image: url('/images/slide-2.png'); }
-  .slide-img-3 { background-image: url('/images/slide-3.png'); }
-  .slide-img-4 { background-image: url('/images/slide-4.png'); }
+  /* Slide images — WebP for performance */
+  .slide-img-1 { background-image: url('/images/slide-1.webp'); }
+  .slide-img-2 { background-image: url('/images/slide-2.webp'); }
+  .slide-img-3 { background-image: url('/images/slide-3.webp'); }
+  .slide-img-4 { background-image: url('/images/slide-4.webp'); }
 
   .slide-overlay {
     position: absolute;

@@ -20,6 +20,9 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/logo.png" />
     
+    <!-- Preload hero slideshow image (first slide, LCP element) -->
+    <link rel="preload" as="image" href="/images/slide-1.webp" />
+
     <!-- Preconnect for fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,16 +32,30 @@ const {
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245446209.js"></script>
     <!-- End HubSpot Tracking Code -->
 
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager (desktop-immediate / mobile-deferred) -->
     <script is:inline>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PDKGQHB4');
+    (function() {
+      function loadGTM() {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PDKGQHB4');
+      }
+
+      if (window.innerWidth > 768) {
+        // Desktop: load immediately
+        loadGTM();
+      } else {
+        // Mobile: defer until first scroll so it doesn't block LCP
+        window.addEventListener('scroll', function onFirstScroll() {
+          loadGTM();
+          window.removeEventListener('scroll', onFirstScroll);
+        }, { once: true, passive: true });
+      }
+    })();
     </script>
     <!-- End Google Tag Manager -->
-
 
   </head>
   <body>
@@ -126,8 +143,6 @@ const {
 
     <!-- Cookie Banner -->
     <CookieBanner />
-
-
 
     <!-- Mobile Menu Toggle Script -->
     <script>
