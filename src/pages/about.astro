@@ -6,12 +6,8 @@ import Layout from "../layouts/Layout.astro";
   title="Human-Centered Web + AI Consulting | About Guiding Point"
   description="Guiding Point Consulting helps mission-based nonprofits and government prime contractors modernize websites, build AI content systems, and deliver digital strategy without losing the human element."
 >
-  <!-- Hero with Parallax -->
-  <section class="about-hero parallax-section">
-    <div class="parallax-bg" data-speed="0.5">
-      <div class="gradient-orb orb-1"></div>
-      <div class="gradient-orb orb-2"></div>
-    </div>
+  <!-- Hero -->
+  <section class="about-hero">
     <div class="container hero-content">
       <h1>About</h1>
       <p class="hero-text">
@@ -53,7 +49,6 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </section>
-
 
   <!-- Slideshow Section -->
   <section class="slideshow-section" aria-label="Work moments slideshow">
@@ -195,72 +190,13 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
-  /* Parallax Hero */
-  .parallax-section {
-    position: relative;
-    overflow: hidden;
-    min-height: auto;
-    display: flex;
-    align-items: center;
+  /* ── Hero ─────────────────────────────────────── */
+  .about-hero {
+    background: var(--white);
     padding: var(--space-2xl) 0 var(--space-xl);
   }
 
-  .parallax-bg {
-    position: absolute;
-    top: -50%;
-    left: 0;
-    right: 0;
-    bottom: -50%;
-    z-index: 0;
-    will-change: transform;
-  }
-
-  .gradient-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.5;
-    animation: float 15s ease-in-out infinite;
-  }
-
-  .orb-1 {
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, #ac3430 20%, #ff6b6b 40%, transparent 70%);
-    top: -150px;
-    left: -150px;
-    z-index: 0;
-    animation-delay: 0s;
-  }
-
-  .orb-2 {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, #dcceaa 20%, #f5e6c8 40%, transparent 70%);
-    top: 50px;
-    right: -100px;
-    z-index: 0;
-    animation-delay: -7s;
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-    }
-    25% {
-      transform: translate(30px, -30px) scale(1.05);
-    }
-    50% {
-      transform: translate(-20px, 20px) scale(0.95);
-    }
-    75% {
-      transform: translate(20px, 30px) scale(1.02);
-    }
-  }
-
   .hero-content {
-    position: relative;
-    z-index: 1;
     text-align: center;
   }
 
@@ -448,17 +384,9 @@ import Layout from "../layouts/Layout.astro";
     transform: translateY(0);
   }
 
-  .approach-item:nth-child(1).animate {
-    transition-delay: 0.2s;
-  }
-
-  .approach-item:nth-child(2).animate {
-    transition-delay: 0.4s;
-  }
-
-  .approach-item:nth-child(3).animate {
-    transition-delay: 0.6s;
-  }
+  .approach-item:nth-child(1).animate { transition-delay: 0.2s; }
+  .approach-item:nth-child(2).animate { transition-delay: 0.4s; }
+  .approach-item:nth-child(3).animate { transition-delay: 0.6s; }
 
   .approach-number {
     display: inline-flex;
@@ -531,31 +459,6 @@ import Layout from "../layouts/Layout.astro";
     background: var(--off-white);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  @media (max-width: 768px) {
-    .hero-text {
-      font-size: 1.125rem;
-    }
-
-    .hero-tagline {
-      font-size: 1.125rem;
-    }
-
-    .mission-grid,
-    .content-grid,
-    .approach-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .gradient-orb {
-      width: 350px;
-      height: 350px;
-    }
-
-    .parallax-section {
-      min-height: auto;
-    }
   }
 
   /* ── Slideshow ────────────────────────────────── */
@@ -711,40 +614,31 @@ import Layout from "../layouts/Layout.astro";
   }
 
   @media (max-width: 768px) {
+    .hero-text { font-size: 1.125rem; }
+    .hero-tagline { font-size: 1.125rem; }
+
+    .mission-grid,
+    .content-grid,
+    .approach-grid {
+      grid-template-columns: 1fr;
+    }
+
     .slideshow-section { height: 400px; }
     .slide-caption { bottom: 60px; }
     .slide-caption p { font-size: 1rem; }
     .slide-btn { width: 38px; height: 38px; font-size: 1rem; }
   }
-
 </style>
 
 <script>
-  // Parallax (Desktop only for performance)
-  if (window.innerWidth > 768) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const parallaxBg = document.querySelector('.parallax-bg') as HTMLElement;
-      
-      if (parallaxBg && scrolled < window.innerHeight) {
-        parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
-      }
-    });
-  }
-
   // Animate approach items when they come into view
-  const observerOptions = {
-    threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px'
-  };
-
   const approachObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.2, rootMargin: '0px 0px -100px 0px' });
 
   document.querySelectorAll('.approach-item').forEach(item => {
     approachObserver.observe(item);
@@ -783,5 +677,4 @@ import Layout from "../layouts/Layout.astro";
 
     startTimer();
   })();
-
 </script>
