@@ -29,7 +29,18 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
     <!-- HubSpot Tracking Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245446209.js"></script>
+    <script is:inline>
+  // Delay HubSpot until after page is interactive — reduces main thread blocking
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var hs = document.createElement('script');
+      hs.src = '//js-na2.hs-scripts.com/245446209.js';
+      hs.async = true;
+      hs.defer = true;
+      document.head.appendChild(hs);
+    }, 3000); // 3s after load — tracking still fires, paint is unblocked
+  });
+</script>
     <!-- End HubSpot Tracking Code -->
 
     <!-- Google Tag Manager (desktop-immediate / mobile-deferred) -->
