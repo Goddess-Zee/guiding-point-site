@@ -3,8 +3,8 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="Request a Free Website Audit | Contact Guiding Point Consulting"
-  description="Ready to untangle your content operations? Get a free website audit and discover what's slowing your team down. Let's build a sustainable content system together."
+  title="Partner With Guiding Point Consulting | Contact"
+  description="Government prime contractors and mission-driven organizations can reach out to explore subcontract partnerships, website modernization, AI content systems, and digital strategy support."
 >
   <!-- Hero with Parallax -->
   <section class="contact-hero parallax-section">
@@ -13,10 +13,38 @@ import Layout from "../layouts/Layout.astro";
       <div class="gradient-orb orb-2"></div>
     </div>
     <div class="container hero-content">
-      <h1>Contact</h1>
+      <h1>Partner With Guiding Point Consulting</h1>
       <p class="hero-text">
-        Tell me what you're trying to improve. I'll reply with next steps and options.
+        Guiding Point Consulting partners with government prime contractors as a subcontractor, supporting the delivery of website modernization, digital systems, and AI-enabled workflows for public sector and mission-driven organizations.
       </p>
+      <p class="hero-sub">
+        If you are looking for a specialized partner to strengthen contract delivery, improve digital communication, or implement sustainable content systems, we would be glad to connect.
+      </p>
+    </div>
+  </section>
+
+  <!-- Who This Is For -->
+  <section class="who-section">
+    <div class="container">
+      <div class="who-grid">
+        <div class="who-block who-block--fit">
+          <h3>Who Should Reach Out</h3>
+          <ul>
+            <li>Government prime contractors seeking subcontract support</li>
+            <li>Organizations managing digital modernization or communication projects</li>
+            <li>Teams needing structured workflows, AI integration, or website improvements</li>
+            <li>Leaders looking for a fractional digital strategy partner</li>
+          </ul>
+        </div>
+        <div class="who-block who-block--notfit">
+          <h3>This May Not Be the Right Fit If</h3>
+          <ul>
+            <li>You are only looking for a basic website design with no systems work</li>
+            <li>You need a quick, low-cost project without long-term sustainability</li>
+            <li>You are not interested in improving internal workflows or processes</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -27,6 +55,7 @@ import Layout from "../layouts/Layout.astro";
         
         <!-- Contact Form -->
         <div class="contact-form-wrapper">
+          <h2 class="form-heading">Start a Partnership Conversation</h2>
           <form class="contact-form" name="main-contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="bot-field" action="/thanks">
             <input type="hidden" name="form-name" value="main-contact" />
             <p class="hidden">
@@ -35,19 +64,40 @@ import Layout from "../layouts/Layout.astro";
               </label>
             </p>
 
-            <div class="form-group">
-              <label for="name">Name *</label>
-              <input type="text" id="name" name="name" required />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="role">Role / Title</label>
+                <input type="text" id="role" name="role" placeholder="e.g. Program Manager, Director of IT" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+
+              <div class="form-group">
+                <label for="company">Organization *</label>
+                <input type="text" id="company" name="company" required />
+              </div>
             </div>
 
             <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-
-            <div class="form-group">
-              <label for="company">Company / Organization</label>
-              <input type="text" id="company" name="company" />
+              <label for="inquiry-type">What best describes your inquiry? *</label>
+              <select id="inquiry-type" name="inquiry-type" required>
+                <option value="">Select one...</option>
+                <option value="govcon-subcontract">Government prime contractor — subcontract partnership</option>
+                <option value="public-sector-nonprofit">Public sector or nonprofit organization</option>
+                <option value="ai-training">AI training inquiry</option>
+                <option value="workshop-speaking">Workshop or speaking request</option>
+                <option value="other">Other</option>
+              </select>
             </div>
 
             <div class="form-group">
@@ -56,28 +106,17 @@ import Layout from "../layouts/Layout.astro";
             </div>
 
             <div class="form-group">
-              <label for="service">Interested In</label>
-              <select id="service" name="service">
-                <option value="">Select a service...</option>
-                <option value="audit">Website Audit + Roadmap</option>
-                <option value="content-ops">AI Content Ops Setup</option>
-                <option value="strategy">Fractional Strategy Lead</option>
-                <option value="not-sure">Not sure yet</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Tell us about your project *</label>
-              <textarea id="message" name="message" rows="6" required placeholder="Include your goals, timeline, and any specific challenges you're facing..."></textarea>
-              <p class="form-helper">If helpful, include your site link, goals, and timeline.</p>
+              <label for="message">Briefly describe your project or need *</label>
+              <textarea id="message" name="message" rows="6" required placeholder="Include any relevant contract details, project goals, timeline, or specific challenges you are facing..."></textarea>
+              <p class="form-helper">For subcontracting opportunities, please include any relevant contract or project details.</p>
             </div>
 
             <div data-netlify-recaptcha="true"></div>
 
-            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            <button type="submit" class="btn btn-primary btn-full">Submit Inquiry</button>
           </form>
 
-          <p class="response-time">We respond within 1 business day.</p>
+          <p class="response-time">We respond to all inquiries within 1 to 2 business days.</p>
         </div>
 
         <!-- Contact Info -->
@@ -88,7 +127,7 @@ import Layout from "../layouts/Layout.astro";
                 <h3>Prefer a quick call?</h3>
                 <span class="toggle-icon">+</span>
               </div>
-              <p class="card-intro">I'll reach out to schedule a time.</p>
+              <p class="card-intro">Leave your details and we will reach out to schedule a time.</p>
             </button>
             
             <div class="call-form-content">
@@ -116,13 +155,13 @@ import Layout from "../layouts/Layout.astro";
                 </div>
 
                 <div class="form-group-small">
-                  <label for="call-company">Company</label>
+                  <label for="call-company">Organization</label>
                   <input type="text" id="call-company" name="call-company" />
                 </div>
 
                 <div class="form-group-small">
-                  <label for="call-website">Website *</label>
-                  <input type="url" id="call-website" name="call-website" placeholder="https://" required />
+                  <label for="call-website">Website</label>
+                  <input type="url" id="call-website" name="call-website" placeholder="https://" />
                 </div>
 
                 <button type="submit" class="btn btn-secondary btn-small-full">Request a Call</button>
@@ -140,6 +179,10 @@ import Layout from "../layouts/Layout.astro";
             <p>Tampa, Florida</p>
             <p class="small-text">Working with clients nationwide</p>
           </div>
+
+          <div class="info-card positioning-card">
+            <p>Guiding Point Consulting supports government prime contractors as a subcontractor, delivering digital systems, AI workflows, and communication solutions to the organizations they serve.</p>
+          </div>
         </div>
 
       </div>
@@ -149,7 +192,7 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
-  /* Parallax Hero */
+  /* ── Parallax Hero ───────────────────────────── */
   .parallax-section {
     position: relative;
     overflow: hidden;
@@ -199,18 +242,10 @@ import Layout from "../layouts/Layout.astro";
   }
 
   @keyframes float {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-    }
-    25% {
-      transform: translate(30px, -30px) scale(1.05);
-    }
-    50% {
-      transform: translate(-20px, 20px) scale(0.95);
-    }
-    75% {
-      transform: translate(20px, 30px) scale(1.02);
-    }
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -30px) scale(1.05); }
+    50% { transform: translate(-20px, 20px) scale(0.95); }
+    75% { transform: translate(20px, 30px) scale(1.02); }
   }
 
   .hero-content {
@@ -224,15 +259,98 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .hero-text {
+    max-width: 800px;
+    margin: 0 auto var(--space-md);
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--gray-700);
+  }
+
+  .hero-sub {
     max-width: 700px;
     margin: 0 auto;
-    font-size: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--gray-600);
+    font-style: italic;
+  }
+
+  /* ── Who Section ─────────────────────────────── */
+  .who-section {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    padding: var(--space-xl) 0;
+  }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .who-block {
+    padding: var(--space-lg);
+    border-radius: 8px;
+  }
+
+  .who-block--fit {
+    background: rgba(50, 52, 90, 0.04);
+    border: 1px solid rgba(50, 52, 90, 0.1);
+  }
+
+  .who-block--notfit {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+  }
+
+  .who-block h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: var(--space-md);
+  }
+
+  .who-block--fit h3 { color: var(--indigo); }
+  .who-block--notfit h3 { color: var(--gray-600); }
+
+  .who-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .who-block li {
+    padding-left: 1.5rem;
+    margin-bottom: var(--space-sm);
+    position: relative;
+    font-size: 0.975rem;
     line-height: 1.6;
     color: var(--gray-700);
   }
 
+  .who-block--fit li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--rust);
+    font-weight: 700;
+  }
+
+  .who-block--notfit li::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    color: var(--gray-500);
+    font-weight: 600;
+  }
+
+  /* ── Contact Section ─────────────────────────── */
   .contact-section {
     padding: var(--space-3xl) 0;
+    background: var(--off-white);
   }
 
   .contact-grid {
@@ -243,6 +361,7 @@ import Layout from "../layouts/Layout.astro";
     margin: 0 auto;
   }
 
+  /* ── Form ────────────────────────────────────── */
   .contact-form-wrapper {
     background: white;
     padding: var(--space-2xl);
@@ -250,9 +369,24 @@ import Layout from "../layouts/Layout.astro";
     border: 1px solid var(--gray-200);
   }
 
+  .form-heading {
+    font-size: 1.5rem;
+    color: var(--indigo);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--rust);
+    display: inline-block;
+  }
+
   .contact-form {
     display: flex;
     flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-lg);
   }
 
@@ -277,6 +411,7 @@ import Layout from "../layouts/Layout.astro";
     font-size: 1rem;
     font-family: var(--font-main);
     transition: border-color 0.2s ease;
+    background: white;
   }
 
   .form-group input:focus,
@@ -296,21 +431,17 @@ import Layout from "../layouts/Layout.astro";
     margin-top: 0.5rem;
     font-size: 0.875rem;
     color: var(--gray-600);
+    font-style: italic;
   }
 
-  .btn-full {
-    width: 100%;
-  }
+  .btn-full { width: 100%; }
 
-  /* Ensure reCAPTCHA is visible */
   [data-netlify-recaptcha="true"] {
     margin: var(--space-md) 0 var(--space-lg);
     display: block !important;
   }
 
-  .hidden {
-    display: none;
-  }
+  .hidden { display: none; }
 
   .response-time {
     margin-top: var(--space-lg);
@@ -320,6 +451,7 @@ import Layout from "../layouts/Layout.astro";
     font-style: italic;
   }
 
+  /* ── Contact Info Sidebar ────────────────────── */
   .contact-info {
     display: flex;
     flex-direction: column;
@@ -336,6 +468,19 @@ import Layout from "../layouts/Layout.astro";
   .info-card.call-form-card {
     background: white;
     border: 2px solid var(--rust);
+  }
+
+  .positioning-card {
+    background: rgba(50, 52, 90, 0.04);
+    border: 1px solid rgba(50, 52, 90, 0.12);
+  }
+
+  .positioning-card p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    font-style: italic;
+    margin: 0;
   }
 
   .call-form-toggle {
@@ -386,15 +531,11 @@ import Layout from "../layouts/Layout.astro";
     margin-bottom: var(--space-md);
   }
 
-  .info-card p:last-child {
-    margin-bottom: 0;
-  }
+  .info-card p:last-child { margin-bottom: 0; }
 
-  .card-intro {
-    margin-bottom: var(--space-lg) !important;
-  }
+  .card-intro { margin-bottom: var(--space-lg) !important; }
 
-  /* Quick Call Form */
+  /* ── Quick Call Form ─────────────────────────── */
   .quick-call-form {
     display: flex;
     flex-direction: column;
@@ -443,43 +584,70 @@ import Layout from "../layouts/Layout.astro";
     font-weight: 600;
   }
 
-  .contact-link:hover {
-    text-decoration: underline;
+  .contact-link:hover { text-decoration: underline; }
+
+  /* ── Buttons ─────────────────────────────────── */
+  .btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    font-size: 1rem;
+    font-family: var(--font-main);
   }
 
+  .btn-primary {
+    background: var(--rust);
+    color: var(--white);
+    border-color: var(--rust);
+  }
+
+  .btn-primary:hover {
+    background: #8b2a26;
+    border-color: #8b2a26;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(172, 52, 48, 0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--rust);
+    border-color: var(--rust);
+  }
+
+  .btn-secondary:hover {
+    background: var(--rust);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  /* ── Responsive ──────────────────────────────── */
   @media (max-width: 968px) {
     .contact-grid {
       grid-template-columns: 1fr;
       gap: var(--space-2xl);
     }
 
-    .contact-form-wrapper {
-      padding: var(--space-lg);
-    }
+    .contact-form-wrapper { padding: var(--space-lg); }
   }
 
   @media (max-width: 768px) {
-    .hero-text {
-      font-size: 1.25rem;
-    }
+    .hero-text { font-size: 1.125rem; }
+    .hero-sub { font-size: 1rem; }
 
-    .gradient-orb {
-      width: 300px;
-      height: 300px;
-    }
+    .gradient-orb { width: 300px; height: 300px; }
+    .parallax-section { min-height: auto; }
 
-    .parallax-section {
-      min-height: auto;
-    }
+    .who-grid { grid-template-columns: 1fr; }
 
-    /* AGGRESSIVE Mobile Contact Layout Fixes */
-    * {
-      box-sizing: border-box !important;
-    }
+    .form-row { grid-template-columns: 1fr; }
 
-    body {
-      overflow-x: hidden !important;
-    }
+    * { box-sizing: border-box !important; }
+    body { overflow-x: hidden !important; }
 
     .container {
       padding-left: var(--space-md) !important;
@@ -511,25 +679,17 @@ import Layout from "../layouts/Layout.astro";
       overflow-x: hidden !important;
     }
 
-    .contact-form {
+    .contact-form,
+    .form-group,
+    .form-row {
       width: 100% !important;
       max-width: 100% !important;
       margin: 0 !important;
-      padding: 0 !important;
     }
 
-    .form-group {
-      width: 100% !important;
-      max-width: 100% !important;
-      margin: 0 0 var(--space-md) 0 !important;
-      padding: 0 !important;
-    }
+    .form-row { grid-template-columns: 1fr !important; }
 
-    .form-group label {
-      display: block !important;
-      width: 100% !important;
-      margin-bottom: 0.5rem !important;
-    }
+    .form-group label { display: block !important; width: 100% !important; }
 
     .form-group input,
     .form-group select,
@@ -539,73 +699,41 @@ import Layout from "../layouts/Layout.astro";
       min-width: 0 !important;
       box-sizing: border-box !important;
       margin: 0 !important;
-      padding: 0.875rem !important;
     }
 
-    /* Specific fix for select dropdown */
     select {
       -webkit-appearance: none !important;
       appearance: none !important;
-      padding-right: 2rem !important;
     }
 
-    /* reCAPTCHA */
     [data-netlify-recaptcha="true"] {
       width: 100% !important;
       max-width: 100% !important;
       overflow-x: hidden !important;
     }
 
-    /* Button */
     .btn-full {
       width: 100% !important;
       max-width: 100% !important;
       box-sizing: border-box !important;
     }
 
-    /* Contact Info Sidebar */
-    .contact-info {
-      padding: 0 !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      box-sizing: border-box !important;
-      overflow-x: hidden !important;
-    }
-
-    .info-card {
-      margin-bottom: var(--space-md) !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      box-sizing: border-box !important;
-      padding: var(--space-lg) !important;
-    }
-
-    /* Quick Call Form */
+    .contact-info,
+    .info-card,
     .call-form-card {
       width: 100% !important;
       max-width: 100% !important;
       box-sizing: border-box !important;
     }
 
-    .quick-call-form {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-
-    .form-group-small {
-      width: 100% !important;
-      max-width: 100% !important;
-      margin: 0 0 var(--space-md) 0 !important;
-    }
-
-    .form-group-small input,
-    .form-group-small select {
+    .quick-call-form,
+    .form-group-small,
+    .form-group-small input {
       width: 100% !important;
       max-width: 100% !important;
       min-width: 0 !important;
       box-sizing: border-box !important;
       margin: 0 !important;
-      padding: 0.875rem !important;
     }
   }
 </style>
@@ -616,12 +744,12 @@ import Layout from "../layouts/Layout.astro";
     window.addEventListener('scroll', () => {
       const scrolled = window.pageYOffset;
       const parallaxBg = document.querySelector('.parallax-bg') as HTMLElement;
-      
       if (parallaxBg && scrolled < window.innerHeight) {
         parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
       }
     });
   }
+
   // Expandable call form
   const callFormToggle = document.querySelector('.call-form-toggle') as HTMLButtonElement;
   const callFormContent = document.querySelector('.call-form-content') as HTMLElement;
@@ -633,13 +761,9 @@ import Layout from "../layouts/Layout.astro";
       callFormContent.classList.toggle('expanded');
     });
 
-    // Auto-expand if URL has #quick-call
     if (window.location.hash === '#quick-call') {
-      // Expand the form
       callFormToggle.setAttribute('aria-expanded', 'true');
       callFormContent.classList.add('expanded');
-      
-      // Scroll to the form after a brief delay to ensure it's expanded
       setTimeout(() => {
         const quickCallSection = document.getElementById('quick-call');
         if (quickCallSection) {
