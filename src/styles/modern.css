@@ -539,11 +539,11 @@ p {
     font-size: 3rem;
   }
 }
+
 /* ========================================
-   MOBILE FIXES - Add to end of modern.css
+   MOBILE FIXES
 ======================================== */
 
-/* Mobile Menu Toggle Button (Hamburger) */
 .mobile-menu-toggle {
   display: none;
   flex-direction: column;
@@ -576,34 +576,15 @@ p {
   transition: all 0.3s ease;
 }
 
-.hamburger::before {
-  top: -8px;
-}
+.hamburger::before { top: -8px; }
+.hamburger::after { bottom: -8px; }
 
-.hamburger::after {
-  bottom: -8px;
-}
+.mobile-menu-toggle.active .hamburger { background: transparent; }
+.mobile-menu-toggle.active .hamburger::before { transform: rotate(45deg); top: 0; }
+.mobile-menu-toggle.active .hamburger::after { transform: rotate(-45deg); bottom: 0; }
 
-/* Hamburger Animation when Active */
-.mobile-menu-toggle.active .hamburger {
-  background: transparent;
-}
-
-.mobile-menu-toggle.active .hamburger::before {
-  transform: rotate(45deg);
-  top: 0;
-}
-
-.mobile-menu-toggle.active .hamburger::after {
-  transform: rotate(-45deg);
-  bottom: 0;
-}
-
-/* Mobile Menu Styles */
 @media (max-width: 968px) {
-  .mobile-menu-toggle {
-    display: flex;
-  }
+  .mobile-menu-toggle { display: flex; }
 
   .main-nav {
     position: fixed;
@@ -621,9 +602,7 @@ p {
     overflow-y: auto;
   }
 
-  .main-nav.mobile-active {
-    transform: translateX(0);
-  }
+  .main-nav.mobile-active { transform: translateX(0); }
 
   .main-nav a {
     font-size: 1.25rem;
@@ -639,13 +618,9 @@ p {
     width: 100%;
   }
 
-  /* Prevent body scroll when menu open */
-  body.menu-open {
-    overflow: hidden;
-  }
+  body.menu-open { overflow: hidden; }
 }
 
-/* Footer Legal Links - CENTERED */
 .footer-legal {
   display: flex;
   gap: var(--space-lg);
@@ -661,16 +636,14 @@ p {
   transition: color 0.2s;
 }
 
-.footer-legal a:hover {
-  color: var(--rust);
-}
+.footer-legal a:hover { color: var(--rust); }
 
 @media (max-width: 768px) {
   .footer-bottom {
     flex-direction: column;
     gap: var(--space-md);
     text-align: center;
-    padding: var(--space-lg) 0 !important; /* Reduce padding */
+    padding: var(--space-lg) 0 !important;
   }
 
   .footer-legal {
@@ -678,32 +651,16 @@ p {
     gap: var(--space-sm);
   }
 
-  /* Fix contact page mobile spacing */
-  .contact-section {
-    padding: var(--space-2xl) 0 !important;
-  }
-
-  .contact-grid {
-    padding: 0 var(--space-md);
-  }
-
-  .contact-form-wrapper {
-    padding: var(--space-lg) !important;
-  }
-
-  .contact-info {
-    padding: 0 var(--space-md);
-  }
-
-  .info-card {
-    margin-bottom: var(--space-md);
-  }
+  .contact-section { padding: var(--space-2xl) 0 !important; }
+  .contact-grid { padding: 0 var(--space-md); }
+  .contact-form-wrapper { padding: var(--space-lg) !important; }
+  .contact-info { padding: 0 var(--space-md); }
+  .info-card { margin-bottom: var(--space-md); }
 }
 
-/* About Page Mobile Fixes */
 @media (max-width: 768px) {
   .about-intro {
-    text-align: left !important; /* Make it consistent */
+    text-align: left !important;
     padding: 0 var(--space-md);
   }
 
@@ -717,7 +674,6 @@ p {
   }
 }
 
-/* Additional Contact Form Mobile Fixes - Prevent Overflow */
 @media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr !important;
@@ -733,18 +689,7 @@ p {
 
   .contact-form input,
   .contact-form select,
-  .contact-form textarea {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-
-  .quick-call-box {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-
+  .contact-form textarea,
   .quick-call-form input,
   .quick-call-form select {
     width: 100%;
@@ -752,41 +697,33 @@ p {
     box-sizing: border-box;
   }
 
-  /* Ensure container doesn't overflow */
   .container {
     max-width: 100%;
     overflow-x: hidden;
   }
 }
 
-/* Emergency Mobile Overflow Fix */
 @media (max-width: 768px) {
   html, body {
     overflow-x: hidden !important;
     max-width: 100vw !important;
   }
 
-  * {
-    box-sizing: border-box !important;
-  }
+  * { box-sizing: border-box !important; }
 }
-/* ============================================
-   MOBILE PERFORMANCE - MINIMAL FIX
-   ============================================ */
+
+/* ========================================
+   MOBILE PERFORMANCE
+======================================== */
 
 @media (max-width: 768px) {
-  /* Hide expensive blur effects */
-  .gradient-orb {
-    display: none;
-  }
-  
-  /* Simplify parallax background */
+  .gradient-orb { display: none; }
+
   .parallax-bg {
     position: static;
     background: transparent;
   }
-  
-  /* Use simple background for hero sections */
+
   .parallax-section::before {
     content: '';
     position: absolute;
@@ -797,8 +734,20 @@ p {
     background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
     z-index: -1;
   }
-  
-  .parallax-section {
-    position: relative;
+
+  .parallax-section { position: relative; }
+}
+
+/* ========================================
+   MOBILE SPACING SCALE
+   Reduces space variables on mobile so
+   section gaps tighten across every page.
+======================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --space-xl:  1.75rem;  /* was 3rem */
+    --space-2xl: 2.5rem;   /* was 4rem */
+    --space-3xl: 3.5rem;   /* was 6rem */
   }
 }
