@@ -6,12 +6,8 @@ import Layout from "../layouts/Layout.astro";
   title="Partner With Guiding Point Consulting | Contact"
   description="Government prime contractors and mission-driven organizations can reach out to explore subcontract partnerships, website modernization, AI content systems, and digital strategy support."
 >
-  <!-- Hero with Parallax -->
-  <section class="contact-hero parallax-section">
-    <div class="parallax-bg" data-speed="0.5">
-      <div class="gradient-orb orb-1"></div>
-      <div class="gradient-orb orb-2"></div>
-    </div>
+  <!-- Hero -->
+  <section class="contact-hero">
     <div class="container hero-content">
       <h1>Partner With Guiding Point Consulting</h1>
       <p class="hero-text">
@@ -192,60 +188,11 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
-  /* ── Parallax Hero ───────────────────────────── */
-  .parallax-section {
-    position: relative;
-    overflow: hidden;
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    padding: var(--space-3xl) 0 var(--space-2xl);
-    background: var(--gray-50);
-  }
-
-  .parallax-bg {
-    position: absolute;
-    top: -50%;
-    left: 0;
-    right: 0;
-    bottom: -50%;
-    z-index: 0;
-    will-change: transform;
-  }
-
-  .gradient-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.5;
-    animation: float 15s ease-in-out infinite;
-  }
-
-  .orb-1 {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, #ac3430 20%, #ff6b6b 40%, transparent 70%);
-    top: -150px;
-    left: -150px;
-    z-index: 0;
-    animation-delay: 0s;
-  }
-
-  .orb-2 {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #dcceaa 20%, #f5e6c8 40%, transparent 70%);
-    top: 50px;
-    right: -100px;
-    z-index: 0;
-    animation-delay: -7s;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    25% { transform: translate(30px, -30px) scale(1.05); }
-    50% { transform: translate(-20px, 20px) scale(0.95); }
-    75% { transform: translate(20px, 30px) scale(1.02); }
+  /* ── Hero ───────────────────────────────────── */
+  .contact-hero {
+    background: var(--white);
+    padding: var(--space-2xl) 0 var(--space-xl);
+    border-bottom: 1px solid var(--gray-200);
   }
 
   .hero-content {
@@ -636,12 +583,6 @@ import Layout from "../layouts/Layout.astro";
   }
 
   @media (max-width: 768px) {
-    .hero-text { font-size: 1.125rem; }
-    .hero-sub { font-size: 1rem; }
-
-    .gradient-orb { width: 300px; height: 300px; }
-    .parallax-section { min-height: auto; }
-
     .who-grid { grid-template-columns: 1fr; }
 
     .form-row { grid-template-columns: 1fr; }
@@ -739,17 +680,6 @@ import Layout from "../layouts/Layout.astro";
 </style>
 
 <script>
-  // Parallax effect (Desktop only for performance)
-  if (window.innerWidth > 768) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const parallaxBg = document.querySelector('.parallax-bg') as HTMLElement;
-      if (parallaxBg && scrolled < window.innerHeight) {
-        parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
-      }
-    });
-  }
-
   // Expandable call form
   const callFormToggle = document.querySelector('.call-form-toggle') as HTMLButtonElement;
   const callFormContent = document.querySelector('.call-form-content') as HTMLElement;
