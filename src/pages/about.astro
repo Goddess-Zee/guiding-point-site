@@ -27,9 +27,57 @@ import Layout from "../layouts/Layout.astro";
         <p class="large-text">
           Guiding Point Consulting exists for the moments when "just update the website" turns into late-night edits, unclear ownership, and content that never quite reflects the mission everyone is working toward. We sit between leadership, program staff, and technical teams to translate goals into systems, roadmaps, and execution plans that actually hold up — whether we are supporting a government prime contractor as a delivery subcontractor or working directly with a mission-driven nonprofit to improve their digital presence.
         </p>
-        <p class="large-text">
+        <p class="large-text positioning-line">
           We are not a traditional agency or a one-time consultant. We are a long-term capability partner focused on building systems that teams can actually maintain.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet the Founder -->
+  <section class="founder-section">
+    <div class="container">
+      <h2 class="section-title">Meet the Founder</h2>
+      <div class="founder-grid">
+
+        <div class="founder-photo">
+          <img src="/images/headshot-placeholder.png" alt="Zipporah Banyay, Founder of Guiding Point Consulting" class="headshot-img" />
+          <div class="founder-name-block">
+            <h3>Zipporah Banyay</h3>
+            <p class="founder-title">Founder and CEO, Guiding Point Consulting LLC</p>
+            <a href="https://www.linkedin.com/in/zipporahbanyay/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="founder-bio">
+          <p>
+            Zipporah Banyay is a technical integrations professional, full stack JavaScript developer, and digital strategist whose career began in marketing — and never fully left it. Over seven years, she has built a rare combination of creative instinct, client fluency, and hands-on technical depth that shapes everything Guiding Point delivers.
+          </p>
+          <p>
+            Her foundation is in marketing. She started working with entrepreneurs and small businesses as an independent consultant, helping them grow through multi-channel strategy — brand development, content creation, paid advertising, SEO, and analytics. That early work taught her something that still drives how she operates today: the most powerful thing you can give a team is not just a better tool, but a clearer system and the confidence to use it.
+          </p>
+          <p>
+            From there, she moved into account management roles inside digital marketing agencies, where she spent years as the primary point of contact for SMB and enterprise clients — overseeing website builds, digital advertising campaigns, content operations, cross-platform integrations, and performance reporting. She learned what it looks like when strategy and execution fall out of alignment, and how to fix it without losing the client relationship in the process.
+          </p>
+          <p>
+            Along the way, she developed a parallel track in IT and technical support — working inside enterprise environments managing systems, access controls, onboarding, and SOPs. That experience gave her a working understanding of infrastructure that most marketers never develop, and it permanently changed how she thinks about digital systems and sustainability.
+          </p>
+          <p>
+            When AI started reshaping content operations, she leaned in. She pursued full stack web development training — earning certifications in JavaScript, React, Node.js, MongoDB, and REST APIs — and began building and deploying the kind of technical integrations she had previously scoped and handed off. Today she configures analytics stacks, builds authentication flows, manages CI/CD pipelines, and implements the same CRM and platform integrations she once briefed developers to handle.
+          </p>
+          <p>
+            That combination — marketing operations fluency, client-facing experience, and genuine technical depth — is what makes Guiding Point's work different. Zipporah does not just recommend systems. She builds them, documents them, and trains the teams who will maintain them long after the engagement ends.
+          </p>
+          <p class="founder-credentials">
+            Degree in Business and Marketing · Full Stack Web Development Certification · Google IT Support Certificate · Foundations of UX Design · 14 total professional certifications in IT, data analytics, web development, and more.
+          </p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -37,12 +85,12 @@ import Layout from "../layouts/Layout.astro";
   <!-- How We Work with Government Prime Contractors -->
   <section class="govcon-section">
     <div class="container">
-      <h2 class="section-title section-title--light">How We Work with Government Prime Contractors</h2>
+      <h2 class="govcon-title">How We Work with Government Prime Contractors</h2>
       <p class="govcon-lead">
         Guiding Point Consulting integrates into prime-led teams as a specialized subcontractor, supporting key components of contract delivery that are often underserved or difficult to staff internally.
       </p>
       <p class="govcon-body">
-        We focus on areas such as website modernization, communication systems, content workflows, and AI adoption — helping ensure that deliverables are not only completed, but usable, sustainable, and effective for the organizations served. The prime stays on contract and leads delivery. We handle the digital and AI execution.
+        We focus on areas such as website modernization, digital systems, content workflows, and AI adoption — helping ensure that deliverables are not only completed, but usable, sustainable, and effective for the organizations served. The prime stays on contract and leads delivery. We handle the digital and AI execution.
       </p>
       <div class="govcon-points">
         <div class="govcon-point">
@@ -188,7 +236,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="approach-item">
             <div class="approach-number">1</div>
             <h3>Listen First</h3>
-            <p>We start by understanding the mission, goals, constraints, and team dynamics before proposing anything. We want to know what is working, what is not, and where the real friction lives — in the website, the content process, or how the team currently uses AI.</p>
+            <p>We start by understanding the mission, goals, constraints, and team dynamics before proposing anything. We want to know what is working, what is not, and where the real friction lives.</p>
           </div>
 
           <div class="approach-item">
@@ -200,7 +248,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="approach-item">
             <div class="approach-number">3</div>
             <h3>Ship and Iterate</h3>
-            <p>We focus on getting something useful live, documented, and in the team's hands — then improving based on real feedback and results. No endless cycles of "almost done." If a system will not hold up after we leave, it does not ship.</p>
+            <p>We focus on getting something useful live, documented, and in the team's hands — then improving based on real feedback and results. No endless cycles of almost done.</p>
           </div>
 
         </div>
@@ -285,22 +333,121 @@ import Layout from "../layouts/Layout.astro";
     margin-bottom: var(--space-lg);
   }
 
-  .large-text:last-child {
+  .positioning-line {
     font-weight: 600;
     color: var(--indigo);
     font-size: 1.125rem;
   }
 
-  /* ── GovCon Section ───────────────────────────── */
-  .govcon-section {
-    padding: calc(var(--space-xl) * 2) 0;
-    background: linear-gradient(135deg, var(--indigo) 0%, #252742 100%);
-    color: var(--white);
-    margin-top: var(--space-xl);
+  /* ── Founder Section ─────────────────────────── */
+  .founder-section {
+    padding: var(--space-3xl) 0;
+    background: var(--off-white);
   }
 
-  .section-title--light {
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-2xl);
+    max-width: 1000px;
+    margin: var(--space-xl) auto 0;
+    align-items: start;
+  }
+
+  .founder-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .headshot-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--rust);
+  flex-shrink: 0;
+}
+
+  .headshot-initials {
+    font-size: 3rem;
+    font-weight: 700;
     color: var(--white);
+    letter-spacing: 0.05em;
+  }
+
+  .founder-name-block {
+    text-align: center;
+  }
+
+  .founder-name-block h3 {
+    font-size: 1.5rem;
+    color: var(--indigo);
+    margin-bottom: 0.25rem;
+  }
+
+  .founder-title {
+    font-size: 0.9rem;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    line-height: 1.4;
+  }
+
+  .linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--indigo);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--indigo);
+    border-radius: 20px;
+    transition: all 0.2s ease;
+  }
+
+  .linkedin-link:hover {
+    background: var(--indigo);
+    color: var(--white);
+  }
+
+  .founder-bio p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--gray-700);
+    margin-bottom: var(--space-md);
+  }
+
+  .founder-bio p:last-child {
+    margin-bottom: 0;
+  }
+
+  .founder-credentials {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    font-style: italic;
+    border-top: 1px solid var(--gray-200);
+    padding-top: var(--space-md);
+    margin-top: var(--space-md);
+    line-height: 1.7;
+  }
+
+  /* ── GovCon Section ───────────────────────────── */
+  .govcon-section {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--indigo) 0%, #252742 100%);
+    color: var(--white);
+  }
+
+  .govcon-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: var(--white) !important;
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    font-weight: 700;
   }
 
   .govcon-lead {
@@ -354,7 +501,7 @@ import Layout from "../layouts/Layout.astro";
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     color: var(--indigo);
     text-align: center;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     font-weight: 700;
   }
 
@@ -630,11 +777,7 @@ import Layout from "../layouts/Layout.astro";
   .slide-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.1) 0%,
-      rgba(0, 0, 0, 0.6) 100%
-    );
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
   }
 
   .slide-caption {
@@ -695,7 +838,6 @@ import Layout from "../layouts/Layout.astro";
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 1;
   }
 
   .slide-btn:hover {
@@ -738,6 +880,14 @@ import Layout from "../layouts/Layout.astro";
     .hero-sub { font-size: 1rem; }
     .hero-tagline { font-size: 1.125rem; }
 
+    .founder-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .founder-photo {
+      align-items: center;
+    }
+
     .mission-grid,
     .content-grid,
     .approach-grid,
@@ -753,12 +903,9 @@ import Layout from "../layouts/Layout.astro";
 </style>
 
 <script>
-  // Animate approach items when they come into view
   const approachObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('animate');
     });
   }, { threshold: 0.2, rootMargin: '0px 0px -100px 0px' });
 
@@ -766,7 +913,6 @@ import Layout from "../layouts/Layout.astro";
     approachObserver.observe(item);
   });
 
-  // Slideshow
   (function () {
     const slides = document.querySelectorAll<HTMLElement>('.slide');
     const dots   = document.querySelectorAll<HTMLElement>('.dot');
@@ -784,14 +930,8 @@ import Layout from "../layouts/Layout.astro";
       dots[current].classList.add('active');
     }
 
-    function startTimer() {
-      timer = setInterval(() => goTo(current + 1), DELAY);
-    }
-
-    function resetTimer() {
-      clearInterval(timer);
-      startTimer();
-    }
+    function startTimer() { timer = setInterval(() => goTo(current + 1), DELAY); }
+    function resetTimer() { clearInterval(timer); startTimer(); }
 
     prev?.addEventListener('click', () => { goTo(current - 1); resetTimer(); });
     next?.addEventListener('click', () => { goTo(current + 1); resetTimer(); });
