@@ -1,0 +1,234 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map(post => ({
+    params: { slug: post.id.replace(/\.mdx?$/, '') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, pubDate, updatedDate, author, category, tags, linkedin } = post.data;
+const formattedDate = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Layout title={`${title} — Guiding Point Consulting`} description={description}>
+
+  <style>
+    :root {
+      --indigo:    #32345a;
+      --indigo-md: #44467a;
+      --red:       #ac3430;
+      --red-lt:    #c94540;
+      --beige:     #f9eac5;
+      --blush:     #f4e5e2;
+      --white:     #fdfbfb;
+      --charcoal:  #2c3e50;
+      --mid:       #6b7a8d;
+      --rule:      #e8ddd5;
+    }
+
+    /* ── Breadcrumb ── */
+    .post-breadcrumb { background: var(--indigo); padding: 0 24px; display: flex; align-items: center; height: 44px; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .back-link { color: rgba(255,255,255,0.6); font-size: 0.8rem; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+    .back-link:hover { color: var(--beige); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); font-size: 0.75rem; }
+    a.breadcrumb-category { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--beige); opacity: 0.85; text-decoration: none; transition: opacity 0.2s; }
+    a.breadcrumb-category:hover { opacity: 1; }
+
+    /* ── Hero ── */
+    .post-hero { background: var(--indigo); padding: 64px 24px 72px; text-align: center; position: relative; overflow: hidden; }
+    .post-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(172,52,48,0.1) 0%, transparent 65%); }
+    .hero-inner { max-width: 680px; margin: 0 auto; position: relative; }
+    .hero-category { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--beige); opacity: 0.8; margin-bottom: 20px; }
+    .post-hero h1 { font-family: 'Playfair Display', serif !important; font-size: clamp(1.8rem, 4vw, 2.8rem) !important; font-weight: 700 !important; color: white !important; line-height: 1.2 !important; margin-bottom: 20px !important; margin-top: 0 !important; }
+    .post-hero .description { font-size: 1.05rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 32px; font-weight: 300; }
+    .hero-meta { display: flex; justify-content: center; align-items: center; gap: 16px; font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+    .hero-meta strong { color: rgba(255,255,255,0.7); font-weight: 500; }
+
+    /* ── Layout ── */
+    .post-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1100px; margin: 0 auto; padding: 64px 24px 96px; align-items: start; background: var(--blush); }
+
+    /* ── Article ── */
+    .post-content { background: var(--white); border: 1px solid var(--rule); padding: 56px 64px; border-radius: 2px; }
+    .post-content :global(h2) { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; color: var(--indigo); margin: 48px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+    .post-content :global(h3) { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--charcoal); margin: 36px 0 12px; }
+    .post-content :global(p) { font-size: 1rem; line-height: 1.85; margin-bottom: 20px; color: var(--charcoal); }
+    .post-content :global(ul), .post-content :global(ol) { margin: 0 0 20px 1.5rem; }
+    .post-content :global(li) { font-size: 1rem; line-height: 1.75; margin-bottom: 8px; }
+    .post-content :global(blockquote) { border-left: 3px solid var(--red); margin: 32px 0; padding: 16px 24px; background: var(--blush); font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--indigo); line-height: 1.65; }
+    .post-content :global(strong) { color: var(--indigo); font-weight: 600; }
+    .post-content :global(a) { color: var(--indigo); border-bottom: 1px solid var(--red); text-decoration: none; }
+    .post-content :global(hr) { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+    .post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--rule); }
+    .tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--blush); border: 1px solid var(--rule); color: var(--mid); padding: 5px 12px; border-radius: 2px; }
+
+    /* ── Sidebar ── */
+    .post-sidebar { display: flex; flex-direction: column; gap: 24px; position: sticky; top: 24px; }
+
+    /* ── Back to Blog button ── */
+    .back-to-blog { display: block; text-align: center; background: var(--white); border: 1px solid var(--rule); border-left: 3px solid var(--red); color: var(--indigo); font-size: 0.85rem; font-weight: 600; padding: 14px 20px; text-decoration: none; border-radius: 2px; transition: background 0.2s, border-color 0.2s; }
+    .back-to-blog:hover { background: var(--blush); border-left-color: var(--indigo); }
+
+    /* ── Sidebar Cards ── */
+    .sidebar-card { background: var(--white); border: 1px solid var(--rule); border-radius: 2px; overflow: hidden; }
+    .sidebar-card-header { background: var(--indigo); color: white; padding: 16px 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+    .sidebar-card-header.accent { background: var(--red); color: white; }
+    .sidebar-card-body { padding: 20px; }
+
+    /* ── LinkedIn panel ── */
+    .linkedin-panel { display: none; }
+    .linkedin-panel.visible { display: block; }
+    .linkedin-hook { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--indigo); line-height: 1.6; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+    .linkedin-cta-text { font-size: 0.85rem; color: var(--mid); line-height: 1.65; margin-bottom: 16px; }
+    .linkedin-hashtags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .hashtag { font-size: 0.75rem; color: #0a66c2; font-weight: 500; }
+    .copy-btn { width: 100%; background: #0a66c2; color: white; border: none; padding: 12px; font-family: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; border-radius: 2px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s; }
+    .copy-btn:hover { background: #004182; }
+    .copy-btn.copied { background: #057642; }
+
+    /* ── Author ── */
+    .author-info { display: flex; gap: 14px; align-items: flex-start; }
+    .author-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-name { font-weight: 600; font-size: 0.9rem; color: var(--indigo); margin-bottom: 4px; }
+    .author-title { font-size: 0.8rem; color: var(--mid); line-height: 1.5; }
+
+    /* ── CTA ── */
+    .cta-text { font-size: 0.875rem; color: var(--mid); line-height: 1.65; margin-bottom: 16px; }
+    .cta-link { display: block; text-align: center; background: var(--indigo); color: white; font-size: 0.85rem; font-weight: 600; padding: 12px; text-decoration: none; border-radius: 2px; transition: background 0.2s; }
+    .cta-link:hover { background: var(--indigo-md); }
+
+    @media (max-width: 900px) {
+      .post-layout { grid-template-columns: 1fr; }
+      .post-sidebar { position: static; }
+      .post-content { padding: 36px 28px; }
+    }
+  </style>
+
+  <!-- Breadcrumb -->
+  <div class="post-breadcrumb">
+    <a href="/blog" class="back-link">← All Posts</a>
+    <span class="breadcrumb-sep">/</span>
+    <a href="/blog" class="breadcrumb-category">{category}</a>
+  </div>
+
+  <!-- Hero -->
+  <header class="post-hero">
+    <div class="hero-inner">
+      <p class="hero-category">{category}</p>
+      <h1>{title}</h1>
+      <p class="description">{description}</p>
+      <div class="hero-meta">
+        <strong>{author}</strong>
+        <span>·</span>
+        <span>{formattedDate}</span>
+        {updatedDate && (
+          <>
+            <span>·</span>
+            <span>Updated {updatedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+          </>
+        )}
+      </div>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <div class="post-layout">
+
+    <article class="post-content">
+      <Content />
+      {tags && tags.length > 0 && (
+        <div class="post-tags">
+          {tags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+    </article>
+
+    <aside class="post-sidebar">
+
+      <!-- Back to Blog — always visible at top of sidebar -->
+      <a href="/blog" class="back-to-blog">← Back to Insights</a>
+
+      <!-- LinkedIn panel — hidden by default, visible at ?li=true -->
+      {linkedin && (
+        <div class="sidebar-card linkedin-panel" id="li-panel">
+          <div class="sidebar-card-header accent">LinkedIn Newsletter Version</div>
+          <div class="sidebar-card-body">
+            <p class="linkedin-hook">"{linkedin.hook}"</p>
+            <p class="linkedin-cta-text">{linkedin.cta}</p>
+            {linkedin.hashtags && linkedin.hashtags.length > 0 && (
+              <div class="linkedin-hashtags">
+                {linkedin.hashtags.map(h => <span class="hashtag">#{h}</span>)}
+              </div>
+            )}
+            <button
+              class="copy-btn"
+              id="copy-linkedin"
+              data-hook={linkedin.hook}
+              data-cta={linkedin.cta}
+              data-hashtags={linkedin.hashtags?.map(h => `#${h}`).join(' ')}
+              data-url={Astro.url.href}
+              data-title={title}
+            >
+              Copy for LinkedIn
+            </button>
+          </div>
+        </div>
+      )}
+
+      <!-- About the Author -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">About the Author</div>
+        <div class="sidebar-card-body">
+          <div class="author-info">
+            <img src="/headshot.png" alt="Zipporah Banyay" class="author-avatar" />
+            <div>
+              <p class="author-name">{author}</p>
+              <p class="author-title">Founder, Guiding Point Consulting — Web Modernization & AI Content Strategy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work With Guiding Point -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Work With Guiding Point</div>
+        <div class="sidebar-card-body">
+          <p class="cta-text">Whether you're a government prime contractor needing subcontracting support or a nonprofit ready for digital transformation — let's talk.</p>
+          <a href="/contact" class="cta-link">Schedule a Consultation →</a>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <script>
+    // Copy for LinkedIn
+    const btn = document.getElementById('copy-linkedin') as HTMLButtonElement | null;
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const { hook, cta, hashtags, url, title } = btn.dataset;
+        const text = `${hook}\n\n${title}\n${url}\n\n${cta}\n\n${hashtags}`;
+        navigator.clipboard.writeText(text).then(() => {
+          btn.classList.add('copied');
+          btn.textContent = '✓ Copied to Clipboard';
+          setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.textContent = 'Copy for LinkedIn';
+          }, 2500);
+        });
+      });
+    }
+
+    // Show LinkedIn panel only when ?li=true is in the URL
+    const liPanel = document.getElementById('li-panel');
+    if (liPanel && new URLSearchParams(window.location.search).get('li') === 'true') {
+      liPanel.classList.add('visible');
+    }
+  </script>
+
+</Layout>
