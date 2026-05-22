@@ -48,25 +48,44 @@ const categories = [
     .blog-hero::after  { content: ''; position: absolute; bottom: -80px; left: -40px; width: 260px; height: 260px; border-radius: 50%; border: 1px solid rgba(249,234,197,0.1); pointer-events: none; }
     .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
     .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--beige); margin-bottom: 14px; opacity: 0.8; }
-    .blog-hero h1 { font-family: 'Playfair Display', serif !important; font-size: clamp(2rem, 5vw, 3.4rem) !important; color: white !important; line-height: 1.15 !important; max-width: 680px; margin-bottom: 
-    14px !important; margin-top: 0 !important;}
+    .blog-hero h1 { font-family: 'Playfair Display', serif !important; font-size: clamp(2rem, 5vw, 3.4rem) !important; color: white !important; line-height: 1.15 !important; max-width: 680px; margin-bottom: 14px !important; margin-top: 0 !important; }
     .blog-hero p { font-size: 1.02rem; color: rgba(255,255,255,0.6); max-width: 520px; font-weight: 300; }
 
     /* ── Filter Bar ── */
     .filter-bar { background: var(--white); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 40; }
-    .filter-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
-    .filter-inner::-webkit-scrollbar { display: none; }
-    .filter-btn:first-child { font-weight: 700; color: var(--indigo); padding-right: 24px; border-right: 1px solid var(--rule); margin-right: 8px;}
-    .filter-btn:hover, .filter-btn.active { color: var(--indigo); border-bottom-color: var(--red); }
+    .filter-inner { max-width: 1100px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; }
+    .filter-btn {
+      padding: 14px 16px;
+      border: none;
+      background: none !important;
+      box-shadow: none !important;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--mid);
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .filter-btn:first-child {
+      font-weight: 700;
+      color: var(--indigo);
+      padding-right: 20px;
+      border-right: 1px solid var(--rule);
+      margin-right: 4px;
+    }
+    .filter-btn:hover { color: var(--indigo); border-bottom-color: var(--rule); background: none !important; }
+    .filter-btn.active { color: var(--indigo); border-bottom-color: var(--red); background: none !important; }
 
     /* ── Main ── */
-    .blog-main { max-width: 1100px; margin: 0 auto; padding: 56px 24px 96px; background: var(--blush); }
+    .blog-main { max-width: 1100px; margin: 0 auto; padding: 56px 24px 96px; }
 
     /* ── Featured ── */
     .featured-post { display: grid; grid-template-columns: 1fr 1fr; background: var(--white); border: 1px solid var(--rule); border-radius: 2px; overflow: hidden; margin-bottom: 64px; transition: box-shadow 0.25s; text-decoration: none; color: inherit; }
     .featured-post:hover { box-shadow: 0 12px 40px rgba(50,52,90,0.12); }
     .featured-image { background: var(--indigo); min-height: 360px; position: relative; overflow: hidden; }
-    .featured-image img { width: 100%; height: 100%; object-fit: contain; background: var(--indigo); opacity: 1;}
+    .featured-image img { width: 100%; height: 100%; object-fit: contain; background: var(--indigo); opacity: 1; }
     .featured-image-placeholder { width: 100%; height: 100%; min-height: 360px; background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-md) 100%); }
     .category-badge { position: absolute; top: 24px; left: 24px; background: var(--red); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; border-radius: 2px; }
     .featured-content { padding: 52px 48px; display: flex; flex-direction: column; justify-content: center; }
@@ -106,6 +125,7 @@ const categories = [
       .featured-image-placeholder { min-height: 220px; }
       .featured-content { padding: 32px 28px; }
       .linkedin-cta { flex-direction: column; text-align: center; }
+      .filter-btn { padding: 12px 12px; font-size: 0.78rem; }
     }
   </style>
 
@@ -194,8 +214,7 @@ const categories = [
 
   <script>
   const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-  const cards   = document.querySelectorAll<HTMLElement>('[data-category]');
-  const filterInner = document.querySelector('.filter-inner');
+  const cards = document.querySelectorAll<HTMLElement>('.featured-post, .post-card');
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -205,8 +224,6 @@ const categories = [
       cards.forEach(card => {
         card.style.display = (selected === 'All' || card.dataset.category === selected) ? '' : 'none';
       });
-      // Always scroll back so "All" stays visible
-      if (filterInner) filterInner.scrollLeft = 0;
     });
   });
 </script>
