@@ -1,7 +1,7 @@
 ---
 title: "5 Things Government Prime Contractors Should Know Before Bringing on a Subcontractor"
 description: "Most subcontracting relationships fail in the onboarding phase — not the delivery phase. Here's what primes need to evaluate, structure, and communicate before work begins."
-pubDate: 2026-05-01
+pubDate: 2026-05-01T12:00:00
 author: Zipporah Banyay
 category: Government Contracting
 audience: [government-primes]

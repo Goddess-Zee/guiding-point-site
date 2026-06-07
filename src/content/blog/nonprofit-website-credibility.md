@@ -1,7 +1,7 @@
 ---
 title: "Why Your Nonprofit's Website Is Undermining Your Mission (And What to Do About It)"
 description: "Donors, grant reviewers, and partners all Google you before they trust you. If your website looks like 2014, that credibility gap is costing you funding and relationships."
-pubDate: 2026-05-15
+pubDate: 2026-05-15T12:00:00
 author: Zipporah Banyay
 category: Nonprofit Strategy
 audience: [nonprofits]
