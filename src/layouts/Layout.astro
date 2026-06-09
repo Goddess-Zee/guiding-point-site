@@ -39,19 +39,6 @@ const {
       />
     </noscript>
 
-    <!-- HubSpot: injected 3s after load, never blocks paint -->
-    <script is:inline>
-      window.addEventListener('load', function () {
-        setTimeout(function () {
-          var hs = document.createElement('script');
-          hs.src = '//js-na2.hs-scripts.com/245446209.js';
-          hs.async = true;
-          hs.defer = true;
-          document.head.appendChild(hs);
-        }, 3000);
-      });
-    </script>
-
     <!-- GTM: injected 2s after load on all devices, never blocks paint -->
     <script is:inline>
       (function () {
