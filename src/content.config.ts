@@ -8,7 +8,7 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    author: z.string().default('Goddess Zee'),
+    author: z.string().default('Zipporah Banyay'),
     category: z.enum([
       'Government Contracting',
       'Nonprofit Strategy',
