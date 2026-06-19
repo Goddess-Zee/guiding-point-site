@@ -3,7 +3,7 @@ title: "What Grant Reviewers See When They Google You"
 description: "Before a grant reviewer reads your application, they've already Googled you. What they find in those first 30 seconds shapes everything that comes after."
 pubDate: 2026-06-15T12:00:00
 author: Zipporah Banyay
-category: Non Profit Strategy
+category: Nonprofit Strategy
 audience: [nonprofits]
 tags: [grant readiness, nonprofit strategy, web modernization, digital credibility, donor trust]
 featured: false
