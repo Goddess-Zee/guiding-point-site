@@ -81,4 +81,4 @@ The best subcontracting agreements read like they were written by two parties wh
 
 **The bottom line:** Treat subcontractor onboarding with the same rigor you'd apply to any government delivery. The risk mitigation happens before the work starts.
 
-At Guiding Point Consulting, we support government prime contractors as a subcontracting partner specializing in web modernization and AI content strategy. If you're building a team for an upcoming proposal or need support on an existing contract, let's talk.
+At Guiding Point Consulting, we support government prime contractors as a subcontracting partner specializing in [digital delivery, web modernization, and AI content strategy](/services) If you're building a team for an upcoming proposal or need support on an existing contract, [let's talk](/contact).

@@ -101,4 +101,4 @@ Keep exclusivity scoped to the specific opportunity. If you want broader exclusi
 
 A teaming agreement negotiated carefully before the proposal is submitted is an investment in a smoother post-award relationship. The primes who build strong subcontracting partnerships don't just win contracts — they deliver on them. And delivering on them is what earns the next one.
 
-At Guiding Point Consulting, we support government prime contractors as a subcontracting delivery partner for web modernization and AI content strategy. If you're building your team for an upcoming proposal, let's talk before the RFP drops.
+At Guiding Point Consulting, we support government prime contractors as a subcontracting delivery partner for [web modernization and AI content strategy](/services) If you're building your team for an upcoming proposal, [let's talk](/contact) before the RFP drops.

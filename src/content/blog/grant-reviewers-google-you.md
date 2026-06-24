@@ -85,4 +85,4 @@ None of this replaces the quality of your program work or the relationships you'
 
 Reviewers are not looking for reasons to disqualify your organization. They're looking for confidence that if they recommend funding you, you'll be able to deliver. Your digital presence is part of the case you're making.
 
-At Guiding Point Consulting, we work with mission-based nonprofits on [web modernization and digital strategy](/services) so your online presence reflects the quality of the work you're already doing. If your website hasn't kept up, [let's talk](/contact) before your next application cycle.
+At Guiding Point Consulting, we work with mission-based nonprofits on [web modernization and digital strategy](/nonprofits) so your online presence reflects the quality of the work you're already doing. If your website hasn't kept up, [let's talk](/contact) before your next application cycle.

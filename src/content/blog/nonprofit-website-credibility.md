@@ -34,7 +34,7 @@ Here's what happens when a mission-based organization has an outdated, slow, or 
 
 ## What "Modernization" Actually Means for Nonprofits
 
-Web modernization isn't a redesign for aesthetics. It's a strategic alignment between your digital presence and your organizational goals.
+[Web modernization](/nonprofits) isn't a redesign for aesthetics. It's a strategic alignment between your digital presence and your organizational goals.
 
 For nonprofits, this typically includes:
 
@@ -67,4 +67,4 @@ Most nonprofits find 3–5 quick wins in under an hour of looking.
 
 At Guiding Point Consulting, we specialize in web modernization and AI content strategy for mission-based nonprofits. Whether you need a full platform upgrade or a strategic content refresh, we work within nonprofit budgets and timelines.
 
-Let's make sure your digital presence reflects the quality of your work.
+[Let's make sure your digital presence reflects the quality of your work.](/contact)
