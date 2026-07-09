@@ -1,5 +1,5 @@
 ---
-title: "Websiten Modernization Isn't a Redesign — It's a Strategic Investment"
+title: "Website Modernization Isn't a Redesign — It's a Strategic Investment"
 description: "A redesign changes how your website looks. Modernization changes what your website does. Here's what's actually involved — and why both government contractors and nonprofits can't afford to skip it."
 pubDate: 2026-07-01T12:00:00
 author: Zipporah Banyay
