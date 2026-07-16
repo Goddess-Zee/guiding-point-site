@@ -3,12 +3,12 @@ title: "How to Evaluate a Sub's Digital Capabilities Before the Contract Starts"
 description: "Most primes evaluate subcontractors on past performance and price. The ones who deliver consistently also evaluate operational fit — especially when the work is digital."
 pubDate: 2026-07-15T12:00:00
 author: Zipporah Banyay
-category: Subcontracting, Government Contracting
+category: Subcontracting
 audience: [government-primes]
 tags: [subcontracting, digital delivery, government contracting, web modernization, AI content, vetting]
 featured: false
 draft: false
-coverImage: /images/evaluate-sub-digital-capabilities.png
+coverImage: /images/evaluate-sub-digital-capabilities.webp
 coverAlt: Government prime contractor evaluating subcontractor digital capabilities
 
 linkedin:
