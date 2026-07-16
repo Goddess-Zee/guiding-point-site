@@ -87,7 +87,24 @@ const {
 
           <nav class="main-nav">
             <a href="/about">About</a>
-            <a href="/services">Services</a>
+
+            <div class="nav-dropdown">
+              <button class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+                Services
+                <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                  <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="dropdown-menu">
+                <a href="/services">All Services</a>
+                <a href="/services/website-modernization">Website Modernization</a>
+                <a href="/services/ai-content-operations">AI Content Operations</a>
+                <a href="/services/ai-team-training">AI Team Training</a>
+                <a href="/services/custom-ai-chatbots">Custom AI Chatbots</a>
+                <a href="/services/fractional-digital-strategy">Fractional Digital Strategy</a>
+              </div>
+            </div>
+
             <a href="/nonprofits">Nonprofits</a>
             <a href="/case-studies">Case Studies</a>
             <a href="/capability-statement">Capability Statement</a>
@@ -117,9 +134,11 @@ const {
           <div class="footer-links">
             <div class="footer-col">
               <h4>Services</h4>
-              <a href="/services#audit">Website Audit</a>
-              <a href="/services#content-ops">Content Ops</a>
-              <a href="/services#strategy">Strategy Lead</a>
+              <a href="/services/website-modernization">Website Modernization</a>
+              <a href="/services/ai-content-operations">AI Content Operations</a>
+              <a href="/services/ai-team-training">AI Team Training</a>
+              <a href="/services/custom-ai-chatbots">Custom AI Chatbots</a>
+              <a href="/services/fractional-digital-strategy">Fractional Digital Strategy</a>
             </div>
             <div class="footer-col">
               <h4>Company</h4>
@@ -192,6 +211,26 @@ const {
             mainNav.classList.remove('mobile-active');
             document.body.classList.remove('menu-open');
           });
+        });
+      }
+
+      const dropdownTrigger = document.querySelector('.dropdown-trigger');
+      const navDropdown = document.querySelector('.nav-dropdown');
+
+      if (dropdownTrigger && navDropdown) {
+        dropdownTrigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isOpen = navDropdown.classList.toggle('open');
+          dropdownTrigger.setAttribute('aria-expanded', isOpen.toString());
+        });
+
+        document.addEventListener('click', (e) => {
+          const target = e.target;
+          // Ensure target is a Node before calling contains to satisfy TypeScript
+          if (target instanceof Node && !navDropdown.contains(target)) {
+            navDropdown.classList.remove('open');
+            dropdownTrigger.setAttribute('aria-expanded', 'false');
+          }
         });
       }
     </script>

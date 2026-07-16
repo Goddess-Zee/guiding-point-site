@@ -186,6 +186,93 @@ p {
 }
 
 /* ========================================
+   Nav Dropdown (Services)
+======================================== */
+
+.nav-dropdown { position: relative; }
+
+.dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font: inherit;
+  font-weight: 500;
+  color: var(--gray-700);
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dropdown-trigger:hover { color: var(--rust); }
+
+.dropdown-arrow { transition: transform 0.2s ease; }
+
+.nav-dropdown.open .dropdown-arrow,
+.nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 100;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--indigo);
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+
+.dropdown-menu a:hover { background: var(--beige); }
+
+@media (min-width: 969px) {
+  .nav-dropdown:hover .dropdown-menu,
+  .nav-dropdown.open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 968px) {
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: max-height 0.3s ease;
+  }
+  .nav-dropdown.open .dropdown-menu {
+    max-height: 400px;
+    padding: 8px 0;
+  }
+  .dropdown-trigger {
+    font-size: 1.25rem;
+    padding: var(--space-sm) 0;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* ========================================
    Hero Section
 ======================================== */
 
@@ -751,3 +838,168 @@ p {
     --space-3xl: 3.5rem;   /* was 6rem */
   }
 }
+
+/* ========================================
+   Service Detail Pages
+======================================== */
+
+.service-hero {
+  padding: var(--space-3xl) 0 var(--space-xl);
+}
+
+.service-hero h1 {
+  max-width: 800px;
+  margin-bottom: var(--space-md);
+  text-align: left;
+}
+
+.service-intro {
+  font-size: 1.25rem;
+  color: var(--gray-600);
+  max-width: 700px;
+  margin-bottom: var(--space-lg);
+}
+
+.service-section {
+  padding: var(--space-2xl) 0;
+}
+
+.service-section h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.service-section + .service-section {
+  border-top: 1px solid var(--gray-200);
+}
+
+/* "What You Get" checklist */
+.checklist {
+  list-style: none;
+  max-width: 700px;
+}
+
+.checklist li {
+  padding-left: 2rem;
+  margin-bottom: var(--space-sm);
+  position: relative;
+  font-size: 1.125rem;
+  color: var(--gray-700);
+}
+
+.checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* "Who This Is For" cards */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.audience-card {
+  background: var(--gray-50);
+  border-left: 4px solid var(--rust);
+  padding: var(--space-lg);
+  border-radius: 8px;
+}
+
+.audience-card p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* "What This Is Not" callout */
+.not-this-box {
+  background: rgba(220, 206, 170, 0.3);
+  border-left: 4px solid var(--indigo);
+  padding: var(--space-lg);
+  border-radius: 8px;
+  margin: var(--space-lg) 0;
+  max-width: 700px;
+}
+
+.not-this-box p {
+  margin: 0;
+  font-size: 1.0625rem;
+}
+
+/* "The Outcome" highlight box */
+.outcome-box {
+  background: var(--indigo);
+  color: white;
+  padding: var(--space-xl);
+  border-radius: 12px;
+  margin: var(--space-lg) 0;
+}
+
+.outcome-box h2 {
+  color: white;
+  margin-bottom: var(--space-sm);
+}
+
+.outcome-box p {
+  color: var(--beige);
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+/* Investment / pricing box */
+.investment-box {
+  border: 2px solid var(--gray-200);
+  border-radius: 12px;
+  padding: var(--space-lg);
+  margin: var(--space-lg) 0;
+  background: white;
+  max-width: 700px;
+}
+
+.investment-box h3 {
+  font-size: 1.125rem;
+  margin-bottom: var(--space-xs);
+}
+
+.investment-box p {
+  margin: 0;
+  color: var(--gray-600);
+}
+
+/* Bottom CTA on service pages */
+.service-cta {
+  text-align: center;
+  padding: var(--space-2xl) 0 var(--space-3xl);
+}
+
+.service-cta p {
+  max-width: 500px;
+  margin: 0 auto var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .service-hero h1,
+  .service-intro,
+  .checklist,
+  .not-this-box,
+  .investment-box {
+    max-width: 100%;
+  }
+}
+.newsletter-btn {
+  display: block;
+  text-align: center;
+  background: #0a66c2;
+  color: white !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 12px;
+  text-decoration: none !important;
+  border-radius: 16px;
+  transition: background 0.2s;
+}
+.newsletter-btn:hover { background: #004182; }

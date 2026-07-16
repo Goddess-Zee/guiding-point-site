@@ -102,6 +102,10 @@ const formattedDate = pubDate.toLocaleDateString('en-US', { year: 'numeric', mon
     .cta-link { display: block; text-align: center; background: var(--indigo); color: white; font-size: 0.85rem; font-weight: 600; padding: 12px; text-decoration: none; border-radius: 2px; transition: background 0.2s; }
     .cta-link:hover { background: var(--indigo-md); }
 
+    /* ── Newsletter button ── */
+    .newsletter-btn { display: block; text-align: center; background: #0a66c2; color: white !important; font-size: 0.85rem; font-weight: 600; padding: 12px; text-decoration: none !important; border-radius: 16px; transition: background 0.2s; margin-top: 4px; }
+    .newsletter-btn:hover { background: #004182; }
+
     @media (max-width: 900px) {
       .post-layout { grid-template-columns: 1fr; }
       .post-sidebar { position: static; }
@@ -150,8 +154,8 @@ const formattedDate = pubDate.toLocaleDateString('en-US', { year: 'numeric', mon
 
     <aside class="post-sidebar">
 
-      <!-- Back to Blog — always visible at top of sidebar -->
-      <a href="/blog" class="back-to-blog">← Back to Insights</a>
+      <!-- Back to Blog -->
+      <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
       <!-- LinkedIn panel — hidden by default, visible at ?li=true -->
       {linkedin && (
@@ -200,6 +204,22 @@ const formattedDate = pubDate.toLocaleDateString('en-US', { year: 'numeric', mon
         <div class="sidebar-card-body">
           <p class="cta-text">Whether you're a government prime contractor needing subcontracting support or a nonprofit ready for digital transformation — let's talk.</p>
           <a href="/contact" class="cta-link">Schedule a Consultation →</a>
+        </div>
+      </div>
+
+      <!-- Stay in the Loop -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Stay in the Loop</div>
+        <div class="sidebar-card-body">
+          <p class="cta-text">Get strategy and insights for government contractors and mission-driven nonprofits delivered to your LinkedIn inbox.</p>
+          <a
+            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7481376028104466432"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="newsletter-btn"
+          >
+            Subscribe on LinkedIn
+          </a>
         </div>
       </div>
 
