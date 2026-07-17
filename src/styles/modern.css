@@ -792,7 +792,7 @@ p {
 
 @media (max-width: 768px) {
   html, body {
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
     max-width: 100vw !important;
   }
 
@@ -844,7 +844,8 @@ p {
 ======================================== */
 
 .service-hero {
-  padding: var(--space-3xl) 0 var(--space-xl);
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-xl);
 }
 
 .service-hero h1 {
@@ -861,7 +862,8 @@ p {
 }
 
 .service-section {
-  padding: var(--space-2xl) 0;
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
 }
 
 .service-section h2 {
@@ -973,7 +975,8 @@ p {
 /* Bottom CTA on service pages */
 .service-cta {
   text-align: center;
-  padding: var(--space-2xl) 0 var(--space-3xl);
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-3xl);
 }
 
 .service-cta p {
