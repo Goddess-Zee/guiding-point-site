@@ -105,7 +105,19 @@ const {
               </div>
             </div>
 
-            <a href="/nonprofits">Nonprofits</a>
+            <div class="nav-dropdown">
+              <button class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+                Who We Serve
+                <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                  <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="dropdown-menu">
+                <a href="/nonprofits">Nonprofits</a>
+                <a href="/government-contractors">Government Contractors</a>
+              </div>
+            </div>
+
             <a href="/case-studies">Case Studies</a>
             <a href="/capability-statement">Capability Statement</a>
             <a href="/faq">FAQ</a>
@@ -214,25 +226,37 @@ const {
         });
       }
 
-      const dropdownTrigger = document.querySelector('.dropdown-trigger');
-      const navDropdown = document.querySelector('.nav-dropdown');
+      const navDropdowns = document.querySelectorAll('.nav-dropdown');
 
-      if (dropdownTrigger && navDropdown) {
+      navDropdowns.forEach((navDropdown) => {
+        const dropdownTrigger = navDropdown.querySelector('.dropdown-trigger');
+        if (!dropdownTrigger) return;
+
         dropdownTrigger.addEventListener('click', (e) => {
           e.preventDefault();
           const isOpen = navDropdown.classList.toggle('open');
           dropdownTrigger.setAttribute('aria-expanded', isOpen.toString());
-        });
 
-        document.addEventListener('click', (e) => {
-          const target = e.target;
-          // Ensure target is a Node before calling contains to satisfy TypeScript
-          if (target instanceof Node && !navDropdown.contains(target)) {
+          navDropdowns.forEach((other) => {
+            if (other !== navDropdown) {
+              other.classList.remove('open');
+              other.querySelector('.dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        const target = e.target;
+        if (!(target instanceof Node)) return;
+
+        navDropdowns.forEach((navDropdown) => {
+          if (!navDropdown.contains(target)) {
             navDropdown.classList.remove('open');
-            dropdownTrigger.setAttribute('aria-expanded', 'false');
+            navDropdown.querySelector('.dropdown-trigger')?.setAttribute('aria-expanded', 'false');
           }
         });
-      }
+      });
     </script>
   </body>
 </html>

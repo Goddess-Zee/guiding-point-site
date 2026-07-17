@@ -2,47 +2,118 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Custom Mission-Aware AI Chatbots & Assistants" description="Custom AI chatbots trained on your organization's own content — built to answer client, donor, and staff questions in your actual voice, accurately.">
+<Layout
+  title="Custom Mission-Aware AI Chatbots & Assistants"
+  description="Custom AI chatbots trained on your organization's own content — built to answer client, donor, and staff questions in your actual voice, accurately."
+>
+  <style>
+    .hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 12px 40px rgba(50,52,90,0.12);
+      display: block;
+      background: #f3f4f6;
+      min-height: 320px;
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .hero-image-wrap {
+        order: -1;
+      }
+    }
+  </style>
+
   <main>
-    # Service Page Draft: Custom Mission-Aware AI Chatbots & Assistants
+    <!-- Hero -->
+    <section class="service-hero container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow">Custom AI Chatbots</span>
+          <h1>Custom Mission-Aware AI Chatbots & Assistants</h1>
+          <p class="service-intro">
+            Generic chatbots give generic — sometimes wrong — answers. For an organization built on
+            trust, that's a real liability, not a convenience.
+          </p>
+          <p class="service-intro">
+            Guiding Point Consulting builds <strong>custom AI chatbots and assistants trained on your
+            organization's own documents and content</strong> — so the answers your clients, donors,
+            or staff get actually reflect your programs, your policies, and your voice.
+          </p>
+          <div class="cta-group" style="justify-content: flex-start;">
+            <a href="/contact" class="btn btn-primary">Build Your Custom Assistant</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <!-- PLACEHOLDER: swap src below with your chosen image -->
+          <img
+            src="/images/custom-ai-chatbots-page.webp"
+            alt="Custom AI chatbot illustration"
+            class="hero-image"
+          />
+        </div>
+      </div>
+    </section>
 
-**Proposed URL:** `/services/custom-ai-chatbots/`
+    <!-- What You Get -->
+    <section class="service-section container">
+      <h2>What You Get</h2>
+      <ul class="checklist">
+        <li>A chatbot trained specifically on your organization's content: program details, FAQs, policies, or internal documentation</li>
+        <li>Careful scoping of what the assistant should and shouldn't answer, so it stays accurate and doesn't overstep</li>
+        <li>Integration into your website or internal tools, built to match your existing brand and design</li>
+        <li>Ongoing accuracy checks as your content changes, so the assistant doesn't drift out of date</li>
+      </ul>
+    </section>
 
-**SEO Meta Title (52 chars):** Custom Mission-Aware AI Chatbots & Assistants
+    <!-- Who This Is For -->
+    <section class="service-section container">
+      <h2>Who This Is For</h2>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <p><strong>Nonprofits</strong> fielding repetitive questions from clients, donors, or the community who want fast, accurate answers without more staff hours</p>
+        </div>
+        <div class="audience-card">
+          <p><strong>Government prime contractors</strong> needing a mission-aware assistant for internal knowledge, client support, or public-facing program information</p>
+        </div>
+        <div class="audience-card">
+          <p>Organizations that tried an off-the-shelf chatbot and found it gave vague or inaccurate answers</p>
+        </div>
+      </div>
 
-**SEO Meta Description (153 chars):** Custom AI chatbots trained on your organization's own content — built to answer client, donor, and staff questions in your actual voice, accurately.
+      <div class="not-this-box">
+        <p><strong>What this is not:</strong> This isn't a plug-in widget pointed at a generic AI model. It's a system built and scoped around your actual content, so it answers like someone from your organization would.</p>
+      </div>
+    </section>
 
----
+    <!-- Outcome -->
+    <section class="service-section container">
+      <div class="outcome-box">
+        <h2>The Outcome</h2>
+        <p>A chatbot that saves your team time on repetitive questions while giving the people you serve accurate, on-brand answers they can trust.</p>
+      </div>
 
-## H1: Custom Mission-Aware AI Chatbots & Assistants
+      <div class="investment-box">
+        <h3>Investment</h3>
+        <p>Custom chatbot builds are scoped to complexity and integration needs — reach out for a custom quote.</p>
+      </div>
+    </section>
 
-Generic chatbots give generic — sometimes wrong — answers. For an organization built on trust, that's a real liability, not a convenience.
-
-Guiding Point Consulting builds **custom AI chatbots and assistants trained on your organization's own documents and content** — so the answers your clients, donors, or staff get actually reflect your programs, your policies, and your voice.
-
-### What You Get
-
-- A chatbot trained specifically on your organization's content: program details, FAQs, policies, or internal documentation
-- Careful scoping of what the assistant should and shouldn't answer, so it stays accurate and doesn't overstep
-- Integration into your website or internal tools, built to match your existing brand and design
-- Ongoing accuracy checks as your content changes, so the assistant doesn't drift out of date
-
-### Who This Is For
-
-- **Nonprofits** fielding repetitive questions from clients, donors, or the community who want fast, accurate answers without more staff hours
-- **Government prime contractors** needing a mission-aware assistant for internal knowledge, client support, or public-facing program information
-- Organizations that tried an off-the-shelf chatbot and found it gave vague or inaccurate answers
-
-### What This Is Not
-
-This isn't a plug-in widget pointed at a generic AI model. It's a system built and scoped around your actual content, so it answers like someone from your organization would.
-
-### The Outcome
-
-A chatbot that saves your team time on repetitive questions while giving the people you serve accurate, on-brand answers they can trust.
-
-**Investment:** Custom chatbot builds are scoped to complexity and integration needs — reach out for a custom quote.
-
-**CTA button:** "Build Your Custom Assistant" → contact/consultation page
+    <!-- CTA -->
+    <section class="service-cta container">
+      <h2>Ready to Build Your Custom Assistant?</h2>
+      <p>Let's scope a chatbot that answers accurately, in your voice, built around your real content.</p>
+      <a href="/contact" class="btn btn-primary">Build Your Custom Assistant</a>
+    </section>
   </main>
 </Layout>

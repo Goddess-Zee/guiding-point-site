@@ -6,29 +6,66 @@ import Layout from '../../layouts/Layout.astro';
   title="Website Modernization for Government Contractors | Guiding Point Consulting"
   description="WBE/MBE-certified website audit and modernization for GovCon primes and nonprofits. Clear roadmaps, accessible builds, faster launches."
 >
+  <style>
+    .hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 12px 40px rgba(50,52,90,0.12);
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .hero-image-wrap {
+        order: -1;
+      }
+    }
+  </style>
+
   <main>
     <!-- Hero -->
     <section class="service-hero container">
-      <span class="eyebrow">Website Modernization</span>
-      <h1>Website Audit & Modernization Roadmap</h1>
-      <p class="service-intro">
-        Your website is often the first thing a prime, a partner, or a program officer checks
-        before they take you seriously. If it's slow, outdated, or hard to navigate, it's quietly
-        costing you credibility — and opportunities — before a conversation even starts.
-      </p>
-      <p class="service-intro">
-        Guiding Point Consulting delivers <strong>website modernization for government
-        contractors and mission-driven nonprofits</strong>: a clear-eyed audit of what's working,
-        what isn't, and a practical roadmap to fix it — without a 40-slide deck standing between
-        you and action.
-      </p>
-      <p class="service-intro">
-        As a certified <strong>WBE/MBE subcontractor delivery partner</strong>, we know what
-        primes, agencies, and boards expect from a professional web presence, and we build toward
-        that standard from day one.
-      </p>
-      <div class="cta-group" style="justify-content: flex-start;">
-        <a href="/contact" class="btn btn-primary">Get Your Website Audited</a>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow">Website Modernization</span>
+          <h1>Website Audit & Modernization Roadmap</h1>
+          <p class="service-intro">
+            Your website is often the first thing a prime, a partner, or a program officer checks
+            before they take you seriously. If it's slow, outdated, or hard to navigate, it's quietly
+            costing you credibility — and opportunities — before a conversation even starts.
+          </p>
+          <p class="service-intro">
+            Guiding Point Consulting delivers <strong>website modernization for government
+            contractors and mission-driven nonprofits</strong>: a clear-eyed audit of what's working,
+            what isn't, and a practical roadmap to fix it — without a 40-slide deck standing between
+            you and action.
+          </p>
+          <p class="service-intro">
+            As a certified <strong>WBE/MBE subcontractor delivery partner</strong>, we know what
+            primes, agencies, and boards expect from a professional web presence, and we build toward
+            that standard from day one.
+          </p>
+          <div class="cta-group" style="justify-content: flex-start;">
+            <a href="/contact" class="btn btn-primary">Get Your Website Audited</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <img
+            src="/images/website-modernization-page.webp"
+            alt="Website modernization across desktop, laptop, tablet and mobile devices"
+            class="hero-image"
+          />
+        </div>
       </div>
     </section>
 

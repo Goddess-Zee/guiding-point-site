@@ -980,7 +980,9 @@ p {
   max-width: 500px;
   margin: 0 auto var(--space-lg);
 }
-
+.service-hero {
+  padding-bottom: 1.5rem;
+}
 @media (max-width: 768px) {
   .service-hero h1,
   .service-intro,
