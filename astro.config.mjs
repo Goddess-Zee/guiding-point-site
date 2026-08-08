@@ -6,9 +6,11 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://guidingpointconsults.com",
+  trailingSlash: 'always',
   integrations: [sitemap()],
 
   vite: {
     plugins: [tailwindcss()],
   },
+
 });
