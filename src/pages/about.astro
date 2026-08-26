@@ -69,7 +69,7 @@ import Layout from "../layouts/Layout.astro";
             <h3>Zipporah Banyay</h3>
             <p class="founder-title">Founder and CEO, Guiding Point Consulting LLC</p>
             <a href="https://www.linkedin.com/in/zipporahbanyay/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
               </svg>
               Connect on LinkedIn
@@ -181,11 +181,11 @@ import Layout from "../layouts/Layout.astro";
     <button class="slide-btn slide-prev" aria-label="Previous slide">&#8592;</button>
     <button class="slide-btn slide-next" aria-label="Next slide">&#8594;</button>
 
-    <div class="slide-dots" role="tablist">
-      <button class="dot active" aria-label="Slide 1" role="tab"></button>
-      <button class="dot" aria-label="Slide 2" role="tab"></button>
-      <button class="dot" aria-label="Slide 3" role="tab"></button>
-      <button class="dot" aria-label="Slide 4" role="tab"></button>
+    <div class="slide-dots" role="group" aria-label="Choose slide">
+      <button class="dot active" aria-label="Show slide 1 of 4: In the Field" aria-current="true"></button>
+      <button class="dot" aria-label="Show slide 2 of 4: Strategy Sessions" aria-current="false"></button>
+      <button class="dot" aria-label="Show slide 3 of 4: Training in Action" aria-current="false"></button>
+      <button class="dot" aria-label="Show slide 4 of 4: Community First" aria-current="false"></button>
     </div>
   </section>
 
@@ -301,7 +301,7 @@ import Layout from "../layouts/Layout.astro";
     line-height: 1.7;
     color: var(--gray-600);
     padding: var(--space-md) var(--space-lg);
-    background: rgba(50, 52, 90, 0.04);
+    background: rgba(2, 30, 51, 0.04);
     border-left: 3px solid var(--rust);
     border-radius: 0 6px 6px 0;
     text-align: left;
@@ -435,7 +435,7 @@ import Layout from "../layouts/Layout.astro";
   /* ── GovCon Section ───────────────────────────── */
   .govcon-section {
     padding: var(--space-3xl) 0;
-    background: linear-gradient(135deg, var(--indigo) 0%, #252742 100%);
+    background: linear-gradient(135deg, var(--indigo) 0%, #01141f 100%);
     color: var(--white);
   }
 
@@ -758,8 +758,8 @@ import Layout from "../layouts/Layout.astro";
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #f5c4c2;
-    background: rgba(172, 52, 48, 0.35);
-    border: 1px solid rgba(172, 52, 48, 0.55);
+    background: rgba(117, 19, 18, 0.35);
+    border: 1px solid rgba(117, 19, 18, 0.55);
     padding: 0.3rem 1rem;
     border-radius: 20px;
     margin-bottom: var(--space-sm);
@@ -793,7 +793,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .slide-btn:hover {
-    background: rgba(172, 52, 48, 0.55);
+    background: rgba(117, 19, 18, 0.55);
     border-color: var(--rust);
   }
 
@@ -829,7 +829,7 @@ import Layout from "../layouts/Layout.astro";
   /* ── CTA Section ─────────────────────────────── */
   .cta-section {
     padding: calc(var(--space-xl) * 2) 0;
-    background: linear-gradient(135deg, var(--rust) 0%, #8b2a26 100%);
+    background: linear-gradient(135deg, var(--rust) 0%, #5a0e0d 100%);
     color: var(--white);
     text-align: center;
   }
@@ -930,9 +930,11 @@ import Layout from "../layouts/Layout.astro";
     function goTo(index: number) {
       slides[current].classList.remove('active');
       dots[current].classList.remove('active');
+      dots[current].setAttribute('aria-current', 'false');
       current = (index + slides.length) % slides.length;
       slides[current].classList.add('active');
       dots[current].classList.add('active');
+      dots[current].setAttribute('aria-current', 'true');
     }
 
     function startTimer() { timer = setInterval(() => goTo(current + 1), DELAY); }

@@ -3,13 +3,20 @@
 ======================================== */
 
 :root {
-  /* Brand Colors */
-  --indigo: #32345a;
-  --rust: #ac3430;
-  --beige: #dcceaa;
+  /* Brand Colors (2026 rebrand) */
+  --dark-wine: #751312;
+  --prussian-blue: #021e33;
+  --linen: #f7f0e7;
+  --camel: #b68748;
   --white: #ffffff;
   --off-white: #fdfbfb;
-  
+
+  /* Legacy aliases — keep so existing var(--indigo) / var(--rust) / var(--beige)
+     references across other .astro files keep working without a find/replace pass */
+  --indigo: var(--prussian-blue);
+  --rust: var(--dark-wine);
+  --beige: var(--linen);
+
   /* Grays */
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
@@ -18,10 +25,10 @@
   --gray-600: #4b5563;
   --gray-700: #374151;
   --gray-900: #111827;
-  
+
   /* Typography */
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  
+
   /* Spacing */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -30,7 +37,7 @@
   --space-xl: 3rem;
   --space-2xl: 4rem;
   --space-3xl: 6rem;
-  
+
   /* Layout */
   --max-width: 1200px;
   --header-height: 80px;
@@ -49,6 +56,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* A11y fix (accessiBe audit #3): offsets anchor-scroll and keyboard focus
+     targets so the sticky header never overlaps the focused/scrolled-to element */
+  scroll-padding-top: var(--header-height);
 }
 
 body {
@@ -79,7 +89,7 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.2;
-  color: var(--indigo);
+  color: var(--prussian-blue);
 }
 
 h1 {
@@ -168,11 +178,11 @@ p {
 }
 
 .main-nav a:hover {
-  color: var(--rust);
+  color: var(--dark-wine);
 }
 
 .nav-cta {
-  background: var(--rust);
+  background: var(--dark-wine);
   color: white !important;
   padding: 0.6rem 1.5rem;
   border-radius: 6px;
@@ -180,9 +190,9 @@ p {
 }
 
 .nav-cta:hover {
-  background: #8b2a26;
+  background: #5a0e0d;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(172, 52, 48, 0.2);
+  box-shadow: 0 4px 12px rgba(117, 19, 18, 0.25);
 }
 
 /* ========================================
@@ -205,7 +215,7 @@ p {
   padding: 0;
 }
 
-.dropdown-trigger:hover { color: var(--rust); }
+.dropdown-trigger:hover { color: var(--dark-wine); }
 
 .dropdown-arrow { transition: transform 0.2s ease; }
 
@@ -231,13 +241,13 @@ p {
 .dropdown-menu a {
   display: block;
   padding: 10px 16px;
-  color: var(--indigo);
+  color: var(--prussian-blue);
   text-decoration: none;
   white-space: nowrap;
   font-size: 0.95rem;
 }
 
-.dropdown-menu a:hover { background: var(--beige); }
+.dropdown-menu a:hover { background: var(--linen); }
 
 @media (min-width: 969px) {
   .nav-dropdown:hover .dropdown-menu,
@@ -283,14 +293,14 @@ p {
 
 .eyebrow {
   display: inline-block;
-  color: var(--rust);
+  color: var(--dark-wine);
   font-weight: 600;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-md);
   padding: 0.5rem 1rem;
-  background: rgba(172, 52, 48, 0.08);
+  background: rgba(117, 19, 18, 0.08);
   border-radius: 20px;
 }
 
@@ -328,26 +338,26 @@ p {
 }
 
 .btn-primary {
-  background: var(--rust);
+  background: var(--dark-wine);
   color: white;
-  box-shadow: 0 2px 8px rgba(172, 52, 48, 0.2);
+  box-shadow: 0 2px 8px rgba(117, 19, 18, 0.25);
 }
 
 .btn-primary:hover {
-  background: #8b2a26;
+  background: #5a0e0d;
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(172, 52, 48, 0.3);
+  box-shadow: 0 4px 16px rgba(117, 19, 18, 0.35);
 }
 
 .btn-secondary {
   background: white;
-  color: var(--indigo);
+  color: var(--prussian-blue);
   border: 2px solid var(--gray-300);
 }
 
 .btn-secondary:hover {
-  border-color: var(--rust);
-  color: var(--rust);
+  border-color: var(--dark-wine);
+  color: var(--dark-wine);
 }
 
 /* ========================================
@@ -374,7 +384,7 @@ p {
 }
 
 .service-card:hover {
-  border-color: var(--rust);
+  border-color: var(--dark-wine);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transform: translateY(-4px);
 }
@@ -383,8 +393,8 @@ p {
   display: inline-block;
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--rust);
-  background: rgba(172, 52, 48, 0.1);
+  color: var(--dark-wine);
+  background: rgba(117, 19, 18, 0.1);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   margin-bottom: var(--space-md);
@@ -415,7 +425,7 @@ p {
   content: "→";
   position: absolute;
   left: 0;
-  color: var(--rust);
+  color: var(--dark-wine);
   font-weight: bold;
 }
 
@@ -425,7 +435,7 @@ p {
 
 .stats {
   padding: var(--space-3xl) 0;
-  background: var(--indigo);
+  background: var(--prussian-blue);
   color: white;
 }
 
@@ -441,12 +451,12 @@ p {
   font-weight: 700;
   color: white;
   margin-bottom: var(--space-sm);
-  text-shadow: 0 0 30px rgba(172, 52, 48, 0.5);
+  text-shadow: 0 0 30px rgba(117, 19, 18, 0.5);
 }
 
 .stat-label {
   font-size: 1.125rem;
-  color: var(--beige);
+  color: var(--linen);
   font-weight: 500;
 }
 
@@ -488,7 +498,7 @@ p {
   justify-content: center;
   width: 60px;
   height: 60px;
-  background: var(--rust);
+  background: var(--dark-wine);
   color: white;
   border-radius: 50%;
   font-size: 1.5rem;
@@ -511,7 +521,7 @@ p {
 
 .cta-section {
   padding: var(--space-3xl) 0;
-  background: linear-gradient(135deg, rgba(172, 52, 48, 0.05) 0%, rgba(50, 52, 90, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(117, 19, 18, 0.05) 0%, rgba(2, 30, 51, 0.05) 100%);
 }
 
 .cta-content {
@@ -572,7 +582,7 @@ p {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: var(--space-md);
-  color: var(--indigo);
+  color: var(--prussian-blue);
 }
 
 .footer-col a {
@@ -583,7 +593,7 @@ p {
 }
 
 .footer-col a:hover {
-  color: var(--rust);
+  color: var(--dark-wine);
 }
 
 .footer-bottom {
@@ -606,22 +616,22 @@ p {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
   }
-  
+
   .footer-links {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
-  
+
   .stats-grid,
   .services-grid,
   .process-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .hero {
     padding: var(--space-2xl) 0;
   }
-  
+
   .stat-number {
     font-size: 3rem;
   }
@@ -649,7 +659,7 @@ p {
   position: relative;
   width: 24px;
   height: 2px;
-  background: var(--indigo);
+  background: var(--prussian-blue);
   transition: all 0.3s ease;
 }
 
@@ -659,7 +669,7 @@ p {
   position: absolute;
   width: 24px;
   height: 2px;
-  background: var(--indigo);
+  background: var(--prussian-blue);
   transition: all 0.3s ease;
 }
 
@@ -723,7 +733,7 @@ p {
   transition: color 0.2s;
 }
 
-.footer-legal a:hover { color: var(--rust); }
+.footer-legal a:hover { color: var(--dark-wine); }
 
 @media (max-width: 768px) {
   .footer-bottom {
@@ -892,7 +902,7 @@ p {
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--rust);
+  color: var(--dark-wine);
   font-weight: 700;
   font-size: 1.25rem;
 }
@@ -907,7 +917,7 @@ p {
 
 .audience-card {
   background: var(--gray-50);
-  border-left: 4px solid var(--rust);
+  border-left: 4px solid var(--dark-wine);
   padding: var(--space-lg);
   border-radius: 8px;
 }
@@ -919,8 +929,8 @@ p {
 
 /* "What This Is Not" callout */
 .not-this-box {
-  background: rgba(220, 206, 170, 0.3);
-  border-left: 4px solid var(--indigo);
+  background: rgba(182, 135, 72, 0.15);
+  border-left: 4px solid var(--prussian-blue);
   padding: var(--space-lg);
   border-radius: 8px;
   margin: var(--space-lg) 0;
@@ -934,7 +944,7 @@ p {
 
 /* "The Outcome" highlight box */
 .outcome-box {
-  background: var(--indigo);
+  background: var(--prussian-blue);
   color: white;
   padding: var(--space-xl);
   border-radius: 12px;
@@ -947,7 +957,7 @@ p {
 }
 
 .outcome-box p {
-  color: var(--beige);
+  color: var(--linen);
   font-size: 1.125rem;
   margin: 0;
 }

@@ -20,12 +20,13 @@ const formattedDate = pubDate.toLocaleDateString('en-US', { year: 'numeric', mon
 
   <style>
     :root {
-      --indigo:    #32345a;
-      --indigo-md: #44467a;
-      --red:       #ac3430;
-      --red-lt:    #c94540;
-      --beige:     #f9eac5;
-      --blush:     #f4e5e2;
+      /* 2026 rebrand tokens */
+      --indigo:    #021e33; /* prussian-blue */
+      --indigo-md: #0a3454; /* lighter prussian-blue, for gradients/hover */
+      --red:       #751312; /* dark-wine */
+      --red-lt:    #9c1c1a; /* lighter dark-wine, for hover states */
+      --beige:     #f7f0e7; /* linen */
+      --blush:     #f7f0e7; /* linen */
       --white:     #fdfbfb;
       --charcoal:  #2c3e50;
       --mid:       #6b7a8d;
@@ -42,7 +43,7 @@ const formattedDate = pubDate.toLocaleDateString('en-US', { year: 'numeric', mon
 
     /* ── Hero ── */
     .post-hero { background: var(--indigo); padding: 64px 24px 72px; text-align: center; position: relative; overflow: hidden; }
-    .post-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(172,52,48,0.1) 0%, transparent 65%); }
+    .post-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(117,19,18,0.1) 0%, transparent 65%); }
     .hero-inner { max-width: 680px; margin: 0 auto; position: relative; }
     .hero-category { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--beige); opacity: 0.8; margin-bottom: 20px; }
     .post-hero h1 { font-family: 'Playfair Display', serif !important; font-size: clamp(1.8rem, 4vw, 2.8rem) !important; font-weight: 700 !important; color: white !important; line-height: 1.2 !important; margin-bottom: 20px !important; margin-top: 0 !important; }
