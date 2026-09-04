@@ -7,7 +7,7 @@ category: "Nonprofit Strategy"
 audience: [both]
 tags: [fractional digital strategy, digital strategist, chief digital officer, digital strategy for nonprofits, fractional cmo]
 featured: false
-draft: true
+draft: false
 coverImage: /images/fractional-digital-strategy-blog.webp
 coverAlt: A strategist reviewing digital roadmap plans with a small organization's leadership team
 linkedin:
