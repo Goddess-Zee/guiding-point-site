@@ -1,13 +1,13 @@
 ---
-title: "You Need a Digital Strategist, Not a Full-Time Hire"
+title: "You Need a Fractional Digital Strategist, Not Full-Time"
 description: "Fractional digital strategy gives nonprofits and government contractors senior-level direction without the overhead of a full-time hire."
 pubDate: 2026-09-01
 author: Zipporah Banyay
 category: "Nonprofit Strategy"
 audience: [both]
-tags: [fractional digital strategy, digital strategist, chief digital officer, digital strategy for nonprofits, fractional cmo]
+tags: [fractional digital strategy, digital strategist, chief digital officer, digital strategy for nonprofits, fractional cfo]
 featured: false
-draft: false
+draft: true
 coverImage: /images/fractional-digital-strategy-blog.webp
 coverAlt: A strategist reviewing digital roadmap plans with a small organization's leadership team
 linkedin:
@@ -15,8 +15,6 @@ linkedin:
   cta: "Curious what fractional digital strategy could look like for your organization? Let's talk."
   hashtags: [FractionalStrategy, Nonprofits, GovCon, DigitalStrategy]
 ---
-
-# You Need a Digital Strategist, Not a Full-Time Hire
 
 Most nonprofits and small government contractors hit the same wall eventually. The website needs a relaunch. Nobody quite remembers why half the tech stack looks the way it does.
 
