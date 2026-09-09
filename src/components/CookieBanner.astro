@@ -5,10 +5,11 @@
 <div id="cookie-banner" class="cookie-banner" style="display: none;">
   <div class="cookie-content">
     <div class="cookie-text">
-      <p>Guiding Point Consulting uses cookies to make your experience even better. By clicking "Accept All", you consent to the use of ALL cookies outlined in our <a href="/cookie-statement" class="cookie-learn-more">Cookie Statement</a>, <a href="/privacy" class="cookie-learn-more">Privacy Policy</a>, and <a href="/terms" class="cookie-learn-more">Terms of Service</a>.</p>
+      <p>Guiding Point Consulting uses cookies to make your experience even better. Choose which cookies you're comfortable with. Details are in our <a href="/cookie-statement" class="cookie-learn-more">Cookie Statement</a>, <a href="/privacy" class="cookie-learn-more">Privacy Policy</a>, and <a href="/terms" class="cookie-learn-more">Terms of Service</a>.</p>
     </div>
     <div class="cookie-actions">
       <button id="cookie-accept" class="cookie-btn cookie-accept">Accept All</button>
+      <button id="cookie-necessary" class="cookie-btn cookie-necessary">Necessary Only</button>
       <button id="cookie-decline" class="cookie-btn cookie-decline">Decline</button>
     </div>
   </div>
@@ -76,14 +77,15 @@
   .cookie-actions {
     display: flex;
     gap: var(--space-md);
+    flex-wrap: wrap;
   }
 
   .cookie-btn {
-    padding: 0.75rem 1.75rem;
+    padding: 0.75rem 1.5rem;
     border: 2px solid transparent;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.2s ease;
     white-space: nowrap;
@@ -99,6 +101,17 @@
     background: #f5f5f5;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+  }
+
+  .cookie-necessary {
+    background: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .cookie-necessary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
   }
 
   .cookie-decline {
@@ -135,10 +148,11 @@
 
     .cookie-actions {
       width: 100%;
+      flex-direction: column;
     }
 
     .cookie-btn {
-      flex: 1;
+      width: 100%;
       text-align: center;
     }
   }
@@ -148,6 +162,7 @@
   // Cookie banner logic
   const banner = document.getElementById('cookie-banner');
   const acceptBtn = document.getElementById('cookie-accept');
+  const necessaryBtn = document.getElementById('cookie-necessary');
   const declineBtn = document.getElementById('cookie-decline');
 
   // Check if user has already made a choice
@@ -160,26 +175,39 @@
     }
   }
 
-  // Accept cookies
+  function recordConsent(value: string) {
+    localStorage.setItem('cookieConsent', value);
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+    if (banner) {
+      banner.style.display = 'none';
+    }
+  }
+
+  // Accept all cookies — enables analytics/marketing (GTM)
   if (acceptBtn) {
     acceptBtn.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'accepted');
-      if (banner) {
-        banner.style.display = 'none';
+      recordConsent('accepted');
+      // Layout.astro exposes this so GTM can load immediately on consent,
+      // not just on the next page load.
+      if (typeof (window as any).__gpcLoadGTM === 'function') {
+        (window as any).__gpcLoadGTM();
       }
-      // You can add analytics/tracking code here if needed
-      console.log('Cookies accepted');
     });
   }
 
-  // Decline cookies
+  // Necessary only — no analytics/marketing scripts are loaded
+  if (necessaryBtn) {
+    necessaryBtn.addEventListener('click', () => {
+      recordConsent('necessary');
+    });
+  }
+
+  // Decline — same practical effect as Necessary Only (no non-essential
+  // cookies), kept as a separate stored value in case you want to report
+  // on decline vs. necessary-only rates later.
   if (declineBtn) {
     declineBtn.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'declined');
-      if (banner) {
-        banner.style.display = 'none';
-      }
-      console.log('Cookies declined');
+      recordConsent('declined');
     });
   }
 </script>

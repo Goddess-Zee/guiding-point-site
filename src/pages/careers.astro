@@ -1,0 +1,452 @@
+---
+import Layout from '../layouts/Layout.astro';
+// Adjust the Layout import path above if your project structure differs.
+
+const positions = [
+  {
+    title: "SEO / AEO / GEO Strategist",
+    tags: ["1099 Contractor", "Remote", "Part-Time & Full-Time"],
+    summary:
+      "Own search visibility across traditional SEO, answer-engine optimization, and generative-engine optimization for Guiding Point and select clients, with a focus on nonprofit and public-sector search behavior.",
+    responsibilities: [
+      "Run technical SEO audits and translate findings into prioritized action plans",
+      "Build and maintain content/keyword maps aligned to GovCon and nonprofit search intent",
+      "Optimize for answer engines and LLM-visible content (structured data, entity/schema markup, FAQ formatting)",
+      "Monitor Google Search Console and GA4 for indexing issues, ranking shifts, and crawl errors",
+      "Report on organic performance in plain language for non-technical stakeholders",
+    ],
+    requirements: [
+      "3+ years hands-on SEO strategy, including technical audits and content mapping",
+      "Working knowledge of AEO/GEO principles (structured data, entity optimization, LLM-visible content)",
+      "Proficient with Google Search Console, GA4, and keyword research tools (Ahrefs, SEMrush, or similar)",
+      "Comfortable translating search data into plain-language recommendations for non-technical stakeholders",
+      "Nonprofit or government contracting sector experience strongly preferred",
+    ],
+  },
+  {
+    title: "Brand Strategist",
+    tags: ["1099 Contractor", "Remote", "Part-Time & Full-Time"],
+    summary:
+      "Shape positioning, messaging, and voice for Guiding Point and its clients — helping mission-driven organizations and GovCon primes/subs communicate credibly without losing the human element.",
+    responsibilities: [
+      "Lead brand discovery sessions with founders/executives to define positioning and voice",
+      "Develop messaging frameworks, value propositions, and brand guidelines",
+      "Audit existing brand materials (web, sales collateral, proposals) for consistency",
+      "Partner with content and web teams to ensure brand voice carries through execution",
+      "Advise on differentiation strategy for competitive GovCon and nonprofit markets",
+    ],
+    requirements: [
+      "3+ years developing brand positioning and messaging frameworks, agency or consulting background preferred",
+      "Strong writing sample portfolio showing range across sectors or tones",
+      "Ability to translate strategy into practical brand guidelines a small team can execute",
+      "Comfortable working directly with founders/executives on brand voice decisions",
+      "Nonprofit or government contracting sector experience strongly preferred",
+    ],
+  },
+  {
+    title: "Web Developer",
+    tags: ["1099 Contractor", "Remote", "Part-Time & Full-Time"],
+    summary:
+      "Support ongoing site builds and modernization projects across the Astro/Netlify/GitHub stack — from new page builds to accessibility remediation and performance tuning.",
+    responsibilities: [
+      "Build and maintain pages/components in Astro, following existing design tokens and patterns",
+      "Fix accessibility issues (WCAG 2.1 AA) flagged by automated and manual audits",
+      "Improve Core Web Vitals and mobile performance (LCP, CLS, load time)",
+      "Manage Git-based workflows and coordinate Netlify deployments",
+      "Troubleshoot cross-browser and cross-device rendering issues",
+    ],
+    requirements: [
+      "2+ years professional front-end development experience",
+      "Proficiency in HTML, CSS, and modern JavaScript (ES6+); TypeScript a plus",
+      "Experience with Astro specifically preferred; strong candidates with React, Vue, or similar component frameworks will also be considered",
+      "Comfortable with Git-based workflows and Netlify (or comparable CI/CD) deployments",
+      "Working knowledge of WCAG 2.1 AA accessibility standards and remediation practices",
+      "Attention to performance (Core Web Vitals, mobile optimization)",
+      "Nonprofit or government contracting sector experience a plus",
+    ],
+  },
+  {
+    title: "Content Strategist",
+    tags: ["1099 Contractor", "Remote", "Part-Time & Full-Time"],
+    summary:
+      "Plan and structure content across web, blog, and AI-assisted content operations — ensuring messaging stays consistent, on-brand, and search-optimized across every touchpoint.",
+    responsibilities: [
+      "Build and maintain content calendars across web, blog, and social",
+      "Structure content architecture for new pages and campaigns",
+      "Edit and quality-check AI-assisted drafts for accuracy, tone, and brand fit",
+      "Apply on-page SEO best practices (metadata, headers, internal linking)",
+      "Collaborate with the Brand Strategist and SEO Strategist to keep messaging aligned",
+    ],
+    requirements: [
+      "2+ years building content calendars, content architecture, or editorial strategy",
+      "Strong editing skills and comfort working within brand voice guidelines",
+      "Familiarity with AI-assisted content workflows (prompting, review, quality control)",
+      "Basic SEO literacy (metadata, keyword placement, on-page structure)",
+      "Nonprofit or government contracting sector experience strongly preferred",
+    ],
+  },
+  {
+    title: "Executive Assistant",
+    tags: ["1099 Contractor", "Remote", "Part-Time & Full-Time"],
+    summary:
+      "Provide high-trust operational and administrative support to the founder — managing scheduling, inbox triage, client communications, and day-to-day project coordination.",
+    responsibilities: [
+      "Manage calendar scheduling, meeting prep, and inbox triage",
+      "Draft and proofread client-facing emails and correspondence",
+      "Coordinate logistics for client meetings, consultations, and internal deadlines",
+      "Maintain organized records across shared drives and project trackers",
+      "Handle sensitive business and client information with discretion",
+    ],
+    requirements: [
+      "2+ years supporting a founder, executive, or small-business owner",
+      "Excellent written communication and discretion with sensitive information",
+      "Comfortable with common productivity tools (Google Workspace, project trackers)",
+      "Self-directed and reliable with minimal oversight",
+      "Nonprofit or government contracting sector experience a plus",
+    ],
+  },
+  {
+    title: "Project Manager",
+    tags: ["1099 Contractor", "Remote", "Part-Time & Full-Time"],
+    summary:
+      "Keep client engagements — website builds, AI implementations, strategy projects — on time, on scope, and clearly communicated across a small, distributed team.",
+    responsibilities: [
+      "Own project timelines, scope, and deliverables across concurrent client engagements",
+      "Set up and maintain lightweight, repeatable project tracking processes",
+      "Run client check-ins and status updates, flagging risks before they become blockers",
+      "Coordinate handoffs between strategy, content, and development contractors",
+      "Maintain documentation so engagements stay organized after handoff",
+    ],
+    requirements: [
+      "2+ years managing digital/creative or consulting projects end to end",
+      "Comfort with project tracking tools (Asana, ClickUp, Monday, or similar) and setting up lightweight, repeatable processes",
+      "Strong client-facing communication skills",
+      "Ability to manage multiple concurrent engagements",
+      "Nonprofit or government contracting sector experience strongly preferred",
+    ],
+  },
+];
+---
+
+<Layout
+  title="Careers | Guiding Point Consulting"
+  description="Join Guiding Point Consulting as a 1099 contractor. Open roles across strategy, content, development, and operations — supporting government contractors and mission-driven nonprofits."
+>
+  <section class="careers-hero">
+    <div class="container">
+      <p class="eyebrow">Careers at Guiding Point</p>
+      <h1>Bridging tech, creativity, and human connection — together.</h1>
+      <p class="lede">
+        We're a WBE/MBE-certified digital and AI consulting firm based in Tampa, FL,
+        working with government prime contractors and mission-driven nonprofits. We're
+        building out our contractor bench and looking for people who care as much about
+        the human side of AI adoption as the technical side.
+      </p>
+      <p class="note">
+        All roles below are <strong>1099 independent contractor</strong> positions. Nonprofit
+        and/or government contracting (GovCon) experience is preferred across the board.
+      </p>
+    </div>
+  </section>
+
+  <section class="positions">
+    <div class="container">
+      <h2>Open Positions</h2>
+      <div class="positions-grid">
+        {positions.map((role) => (
+          <article class="position-card">
+            <h3>{role.title}</h3>
+            <div class="tag-row">
+              {role.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+            <p class="summary">{role.summary}</p>
+
+            <details class="job-details">
+              <summary>View Full Job Description</summary>
+              <div class="job-details-body">
+                <p class="detail-label">Key Responsibilities</p>
+                <ul>
+                  {role.responsibilities.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+
+                <p class="detail-label">What We're Looking For</p>
+                <ul>
+                  {role.requirements.map((req) => (
+                    <li>{req}</li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+
+            <a
+              href="https://airtable.com/app46lmiqOg2Jdc3a/pagF7SxY1doMfqthr/form"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-apply-button"
+            >
+              Apply for this role
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="apply">
+    <div class="container">
+      <h2>Don't See Your Role?</h2>
+      <p>
+        We're not always hiring for every position listed above. Add your resume to
+        our contractor database and we'll reach out when a project aligns with your
+        skills.
+      </p>
+      <a
+        href="https://airtable.com/app46lmiqOg2Jdc3a/pagF7SxY1doMfqthr/form"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="apply-button"
+      >
+        Add Your Resume
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .careers-hero {
+    background: var(--prussian-blue, #021e33);
+    color: var(--linen, #f7f0e7);
+    padding: 3rem 0 2.5rem;
+  }
+
+  .careers-hero .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    color: var(--camel, #b68748);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .careers-hero h1 {
+    font-size: clamp(1.6rem, 3vw, 2.15rem);
+    line-height: 1.2;
+    color: var(--linen, #f7f0e7);
+    margin: 0 0 1rem;
+    max-width: 42ch;
+  }
+
+  .careers-hero .lede {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 62ch;
+    color: var(--linen, #f7f0e7);
+    margin-bottom: 1rem;
+  }
+
+  .careers-hero .note {
+    font-size: 0.95rem;
+    max-width: 62ch;
+    color: var(--linen, #f7f0e7);
+  }
+
+  .careers-hero .note strong {
+    color: var(--camel, #b68748);
+  }
+
+  .positions {
+    padding: 4rem 0;
+    background: var(--linen, #f7f0e7);
+  }
+
+  .positions h2 {
+    color: var(--prussian-blue, #021e33);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .positions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .position-card {
+    background: #fff;
+    border: 1px solid rgba(2, 30, 51, 0.1);
+    border-top: 3px solid var(--dark-wine, #751312);
+    border-radius: 8px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .position-card h3 {
+    color: var(--prussian-blue, #021e33);
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .position-card .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .position-card .tag {
+    display: inline-block;
+    background: var(--dark-wine, #751312);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+  }
+
+  .position-card .summary {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #333;
+    margin-bottom: 0.5rem;
+    min-height: 5.6em;
+  }
+
+  .job-details {
+    margin-bottom: 1.25rem;
+  }
+
+  .job-details summary {
+    cursor: pointer;
+    list-style: none;
+    color: var(--prussian-blue, #021e33);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(2, 30, 51, 0.12);
+  }
+
+  .job-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .job-details summary::after {
+    content: "+";
+    float: right;
+    font-size: 1.1rem;
+    color: var(--dark-wine, #751312);
+  }
+
+  .job-details[open] summary::after {
+    content: "\2212";
+  }
+
+  .job-details[open] summary {
+    margin-bottom: 0.75rem;
+  }
+
+  .detail-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--dark-wine, #751312);
+    margin: 1rem 0 0.5rem;
+  }
+
+  .detail-label:first-child {
+    margin-top: 0;
+  }
+
+  .job-details-body ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  .job-details-body li {
+    margin-bottom: 0.4rem;
+  }
+
+  .position-card .card-apply-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--prussian-blue, #021e33) !important;
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none !important;
+    padding: 0.8rem 1.25rem;
+    border-radius: 6px;
+    border: none;
+    transition: background 0.2s ease;
+    align-self: stretch;
+    margin-top: auto;
+  }
+
+  .position-card .card-apply-button:hover,
+  .position-card .card-apply-button:focus-visible {
+    background: var(--dark-wine, #751312) !important;
+    color: #fff !important;
+  }
+
+  .position-card .card-apply-button:visited {
+    color: #fff !important;
+  }
+
+  .apply {
+    padding: 4rem 0 5rem;
+    background: #fff;
+  }
+
+  .apply h2 {
+    color: var(--prussian-blue, #021e33);
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .apply p {
+    max-width: 62ch;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .apply-button {
+    display: inline-block;
+    background: var(--dark-wine, #751312);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.9rem 2.25rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: background 0.2s ease;
+  }
+
+  .apply-button:hover,
+  .apply-button:focus-visible {
+    background: #5c0e0e;
+  }
+
+  @media (max-width: 640px) {
+    .careers-hero {
+      padding: 3.5rem 0 2.5rem;
+    }
+  }
+</style>

@@ -40,7 +40,8 @@ const {
       />
     </noscript>
 
-    <!-- GTM: injected 2s after load on all devices, never blocks paint -->
+    <!-- GTM: only loads if the visitor has accepted analytics cookies via the -->
+    <!-- cookie banner. Injected ~2s after load so it never blocks paint. -->
     <script is:inline>
       (function () {
         function loadGTM() {
@@ -55,23 +56,25 @@ const {
             f.parentNode.insertBefore(j, f);
           })(window, document, 'script', 'dataLayer', 'GTM-PDKGQHB4');
         }
+
+        // Exposed so CookieBanner.astro can trigger this the moment someone
+        // clicks "Accept All", rather than waiting for their next page load.
+        window.__gpcLoadGTM = loadGTM;
+
+        function hasAnalyticsConsent() {
+          return window.localStorage.getItem('cookieConsent') === 'accepted';
+        }
+
         window.addEventListener('load', function () {
-          setTimeout(loadGTM, 2000);
+          if (hasAnalyticsConsent()) {
+            setTimeout(loadGTM, 2000);
+          }
         });
       })();
     </script>
   </head>
 
   <body>
-    <!-- GTM noscript fallback -->
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-PDKGQHB4"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"
-      ></iframe>
-    </noscript>
 
     <!-- Header -->
     <header class="site-header">
@@ -118,10 +121,22 @@ const {
               </div>
             </div>
 
-            <a href="/case-studies">Case Studies</a>
-            <a href="/capability-statement">Capability Statement</a>
-            <a href="/faq">FAQ</a>
-            <a href="/blog">Blog</a>
+            <div class="nav-dropdown">
+              <button class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+                Company
+                <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true" focusable="false">
+                  <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="dropdown-menu">
+                <a href="/case-studies">Case Studies</a>
+                <a href="/capability-statement">Capability Statement</a>
+                <a href="/faq">FAQ</a>
+                <a href="/blog">Blog</a>
+                <a href="/careers">Careers</a>
+              </div>
+            </div>
+
             <a href="/contact" class="nav-cta">Request a Consult</a>
           </nav>
         </div>
@@ -159,6 +174,7 @@ const {
               <a href="/capability-statement">Capability Statement</a>
               <a href="/blog">Blog</a>
               <a href="/faq">FAQ</a>
+              <a href="/careers">Careers</a>
               <a href="/contact">Contact</a>
             </div>
             <div class="footer-col">
