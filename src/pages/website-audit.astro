@@ -1,0 +1,865 @@
+---
+// src/pages/website-audit.astro
+import BaseLayout from "../layouts/Layout.astro";
+
+const pageTitle = "Free Website Audit | Guiding Point Consulting";
+const pageDescription =
+  "Get a free, instant audit of your website's SEO, accessibility, mobile performance, and messaging clarity — built for nonprofits and public sector subcontractors.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- HERO -->
+  <section class="audit-hero">
+    <div class="audit-hero__grid">
+      <div class="audit-hero__copy">
+        <p class="audit-eyebrow">Free Website Audit</p>
+        <h1>Find out what's costing you visibility — and grant dollars.</h1>
+        <p class="audit-sub">
+          Get an instant read on your site's SEO fundamentals, accessibility (Section 508 / WCAG),
+          mobile performance, and messaging clarity. No credit card, no sales call required.
+        </p>
+        <div class="audit-trust">
+          <span>⏱ Under 60 seconds</span>
+          <span>🔒 No credit card</span>
+          <span>✓ 100% free</span>
+        </div>
+        <a href="#audit-tool" class="btn-primary btn-hero">Run My Free Audit →</a>
+      </div>
+
+      <div class="audit-hero__preview" aria-hidden="true">
+        <div class="preview-card">
+          <p class="preview-label">SAMPLE AUDIT SCORE</p>
+          <div class="preview-score-row">
+            <div class="preview-score-ring">
+              <span>74</span>
+            </div>
+            <div class="preview-score-text">
+              <p class="preview-score-out-of">out of 100</p>
+              <p class="preview-status">Analysis Ready</p>
+            </div>
+          </div>
+          <div class="preview-bars">
+            <div class="preview-bar-row">
+              <span>SEO Fundamentals</span>
+              <div class="preview-bar"><div class="preview-bar-fill" style="width: 78%; background:#021e33;"></div></div>
+            </div>
+            <div class="preview-bar-row">
+              <span>Accessibility</span>
+              <div class="preview-bar"><div class="preview-bar-fill" style="width: 65%; background:#751312;"></div></div>
+            </div>
+            <div class="preview-bar-row">
+              <span>Mobile Performance</span>
+              <div class="preview-bar"><div class="preview-bar-fill" style="width: 82%; background:#c9a24b;"></div></div>
+            </div>
+            <div class="preview-bar-row">
+              <span>Messaging Clarity</span>
+              <div class="preview-bar"><div class="preview-bar-fill" style="width: 70%; background:#6b6f9e;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="audit-coverage">
+    <div class="section-inner">
+      <p class="section-eyebrow">What Your Audit Covers</p>
+      <h2>A real read on why visitors leave without converting</h2>
+      <p class="section-sub">
+        We check the technical and messaging factors that most free grader tools skip —
+        the ones that actually affect whether a funder, partner, or contracting officer sticks around.
+      </p>
+
+      <div class="coverage-grid">
+        <div class="coverage-card">
+          <div class="coverage-icon">🔍</div>
+          <h3>SEO Fundamentals</h3>
+          <p>Title tags, meta descriptions, heading structure, and schema markup — the on-page basics that determine whether you show up in search at all.</p>
+        </div>
+        <div class="coverage-card">
+          <div class="coverage-icon">♿</div>
+          <h3>Accessibility & Compliance</h3>
+          <p>Alt text, viewport configuration, and other WCAG-aligned signals — directly relevant if you're pursuing Section 508 compliance for public sector work.</p>
+        </div>
+        <div class="coverage-card">
+          <div class="coverage-icon">⚡</div>
+          <h3>Mobile Performance</h3>
+          <p>Real PageSpeed Insights scores for load speed and mobile usability — where most funders and partners will actually view your site first.</p>
+        </div>
+        <div class="coverage-card">
+          <div class="coverage-icon">💬</div>
+          <h3>Messaging & Value Prop</h3>
+          <p>An AI-assisted read on whether your homepage speaks clearly to your intended audience and whether your calls to action are doing their job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="audit-how">
+    <div class="section-inner">
+      <p class="section-eyebrow section-eyebrow--light">How It Works</p>
+      <h2 class="how-heading">Two steps to a clearer picture of your site</h2>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3>Enter your URL</h3>
+          <p>Just your homepage link — we start scanning immediately, no contact info needed yet.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3>See your score</h3>
+          <p>Your overall score appears right away. Enter your email to unlock the full findings and get a copy sent to your inbox.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE TOOL -->
+  <section class="audit-tool" id="audit-tool">
+    <div class="audit-tool__inner">
+      <h2 class="tool-heading">Run Your Free Audit</h2>
+
+      <!-- STEP 1: URL only -->
+      <form id="scan-form" class="audit-form">
+        <div class="field">
+          <label for="url">Your website URL</label>
+          <input type="text" id="url" name="url" placeholder="yourorganization.org" required />
+        </div>
+        <button type="submit" id="scan-submit" class="btn-primary">
+          Analyze My Site →
+        </button>
+        <p class="audit-disclaimer">Free. No credit card. Results in under a minute.</p>
+      </form>
+
+      <!-- LOADING (shared by both steps) -->
+      <div id="audit-loading" class="audit-loading" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <p id="loading-text">Scanning your site...</p>
+      </div>
+
+      <!-- STEP 2: teaser score + email gate -->
+      <div id="teaser-block" class="teaser-block" hidden>
+        <div class="score-badge" id="teaser-score-badge">--</div>
+        <h2 class="teaser-heading">Your site scored <span id="teaser-score-text">--</span>/100</h2>
+        <p class="teaser-sub">Enter your email to see the full breakdown — findings by category, your messaging read, and what to fix first.</p>
+
+        <form id="lead-form" class="audit-form">
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="orgType">Organization type</label>
+              <select id="orgType" name="orgType" required>
+                <option value="">Select one</option>
+                <option value="Nonprofit">Nonprofit</option>
+                <option value="Public sector subcontractor">Public sector subcontractor</option>
+                <option value="Small business / other">Small business / other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="goal">Main goal</label>
+              <select id="goal" name="goal" required>
+                <option value="">Select one</option>
+                <option value="Strengthen grant/funder credibility">Strengthen grant/funder credibility</option>
+                <option value="Improve accessibility compliance">Improve accessibility compliance</option>
+                <option value="Increase conversions/leads">Increase conversions/leads</option>
+                <option value="Modernize an outdated site">Modernize an outdated site</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" id="lead-submit" class="btn-primary">
+            Unlock My Full Report →
+          </button>
+          <p class="audit-disclaimer">We'll email you a copy too. No spam, ever.</p>
+        </form>
+      </div>
+
+      <!-- STEP 3: full results -->
+      <div id="audit-results" class="audit-results" hidden></div>
+      <div id="audit-error" class="audit-error" role="alert" hidden></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="audit-cta">
+    <div class="section-inner">
+      <h2>Want help acting on your results?</h2>
+      <p>
+        Guiding Point specializes in accessible, public-sector-ready websites for nonprofits and
+        subcontractors. Book a free 30-minute strategy call — no pitch, just a walkthrough of your findings.
+      </p>
+      <a href="/contact" class="btn-cta">Book a Free Strategy Call →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  :root {
+    --prussian-blue: #021e33;
+    --dark-wine: #751312;
+    --camel: #b68748;
+    --linen: #f7f0e7;
+  }
+
+  /* ---------- HERO ---------- */
+  .audit-hero {
+    background: linear-gradient(135deg, #021e33 0%, #010f1c 100%);
+    color: #ffffff;
+    padding: 5rem 1.5rem;
+  }
+  .audit-hero__grid {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .audit-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    color: var(--camel);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+  .audit-hero h1 {
+    font-size: clamp(2rem, 4vw, 2.85rem);
+    line-height: 1.15;
+    margin: 0 0 1.1rem;
+    color: #ffffff;
+  }
+  .audit-sub {
+    font-size: 1.05rem;
+    color: #e7e4f0;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+  .audit-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    font-size: 0.9rem;
+    color: #cfcde3;
+    margin-bottom: 1.75rem;
+  }
+  .btn-hero {
+    display: inline-block;
+    width: auto;
+    padding: 0.9rem 1.75rem;
+  }
+
+  /* ---------- HERO PREVIEW CARD ---------- */
+  .preview-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+  .preview-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: #8a8aa0;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .preview-score-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .preview-score-ring {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: conic-gradient(var(--camel) 0% 74%, #eee 74% 100%);
+    position: relative;
+  }
+  .preview-score-ring::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    background: #fff;
+    border-radius: 50%;
+  }
+  .preview-score-ring span {
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--prussian-blue);
+  }
+  .preview-score-out-of {
+    color: #8a8aa0;
+    font-size: 0.85rem;
+    margin: 0;
+  }
+  .preview-status {
+    color: #3a8f5c;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin: 0.2rem 0 0;
+  }
+  .preview-bar-row {
+    font-size: 0.85rem;
+    color: var(--prussian-blue);
+    margin-bottom: 0.85rem;
+  }
+  .preview-bar-row span {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+  }
+  .preview-bar {
+    height: 7px;
+    background: #eeeef3;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .preview-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+  }
+
+  /* ---------- SHARED SECTION STYLES ---------- */
+  .section-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem;
+    text-align: center;
+  }
+  .section-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--dark-wine);
+    margin-bottom: 0.6rem;
+  }
+  .section-eyebrow--light {
+    color: var(--camel);
+  }
+  .audit-coverage h2,
+  .audit-how h2,
+  .audit-cta h2 {
+    color: var(--prussian-blue);
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    margin: 0 0 0.75rem;
+  }
+  .section-sub {
+    color: #5a5a6e;
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+  }
+
+  /* ---------- COVERAGE GRID ---------- */
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    text-align: left;
+  }
+  .coverage-card {
+    background: var(--linen);
+    border: 1px solid #ece9e0;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .coverage-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .coverage-card h3 {
+    color: var(--prussian-blue);
+    font-size: 1.05rem;
+    margin: 0 0 0.5rem;
+  }
+  .coverage-card p {
+    color: #5a5a6e;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .audit-how {
+    background: var(--prussian-blue);
+    color: #fff;
+  }
+  .how-heading {
+    color: #fff !important;
+  }
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+    text-align: left;
+  }
+  .how-step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--dark-wine);
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.9rem;
+  }
+  .how-step h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.05rem;
+  }
+  .how-step p {
+    color: #cfcde3;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ---------- TOOL FORM ---------- */
+  .audit-tool {
+    padding: 4rem 1.5rem 5rem;
+    background: var(--linen);
+  }
+  .tool-heading {
+    text-align: center;
+    color: var(--prussian-blue);
+    max-width: 640px;
+    margin: 0 auto 1.75rem;
+  }
+  .audit-tool__inner {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(50, 52, 90, 0.12);
+    padding: 2.25rem;
+  }
+
+  .audit-form .field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+    flex: 1;
+  }
+  .field-row {
+    display: flex;
+    gap: 1rem;
+  }
+  .audit-form label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--prussian-blue);
+    margin-bottom: 0.35rem;
+  }
+  .audit-form input,
+  .audit-form select {
+    padding: 0.7rem 0.85rem;
+    border: 1px solid #d7d5e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  .audit-form input:focus,
+  .audit-form select:focus {
+    outline: 2px solid var(--dark-wine);
+    outline-offset: 1px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    background: var(--dark-wine);
+    color: #fff;
+    border: none;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+  }
+  .btn-primary:hover {
+    background: #5c0e0d;
+  }
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .audit-disclaimer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #7a7a8a;
+    margin-top: 0.75rem;
+  }
+
+  .audit-loading {
+    text-align: center;
+    padding: 2.5rem 0;
+  }
+  .spinner {
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 1rem;
+    border: 4px solid #e7e4f0;
+    border-top-color: var(--dark-wine);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .spinner {
+      animation: none;
+    }
+  }
+
+  /* ---------- TEASER (score-only gate) ---------- */
+  .teaser-block {
+    text-align: center;
+  }
+  .teaser-heading {
+    color: var(--prussian-blue);
+    font-size: 1.3rem;
+    margin: 0.5rem 0 0.5rem;
+  }
+  .teaser-heading span {
+    color: var(--dark-wine);
+    font-weight: 800;
+  }
+  .teaser-sub {
+    color: #5a5a6e;
+    max-width: 440px;
+    margin: 0 auto 1.75rem;
+    line-height: 1.5;
+  }
+  .teaser-block .audit-form {
+    text-align: left;
+  }
+
+  .audit-results {
+    padding-top: 0.5rem;
+  }
+  .score-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: var(--prussian-blue);
+    color: #fff;
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin: 0 auto 1.25rem;
+  }
+  .audit-results h2 {
+    text-align: center;
+    color: var(--prussian-blue);
+    margin-bottom: 1.5rem;
+  }
+  .finding {
+    border-left: 4px solid #d7d5e0;
+    padding: 0.6rem 0.9rem;
+    margin-bottom: 0.6rem;
+    background: var(--linen);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.95rem;
+  }
+  .finding.high {
+    border-left-color: var(--dark-wine);
+  }
+  .finding.medium {
+    border-left-color: var(--camel);
+  }
+  .finding.low {
+    border-left-color: #a7a7b8;
+  }
+  .finding strong {
+    color: var(--prussian-blue);
+  }
+  .messaging-block {
+    margin-top: 1.5rem;
+    padding: 1.1rem;
+    background: #f2f0e8;
+    border-radius: 8px;
+  }
+  .messaging-block h3 {
+    color: var(--prussian-blue);
+    margin-top: 0;
+    font-size: 1.05rem;
+  }
+  .cta-block {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+  }
+  .cta-block a {
+    display: inline-block;
+    background: var(--prussian-blue);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .audit-error {
+    text-align: center;
+    color: var(--dark-wine);
+    padding: 1.5rem 0;
+  }
+
+  /* ---------- BOTTOM CTA ---------- */
+  .audit-cta {
+    background: #ffffff;
+  }
+  .audit-cta p {
+    color: #5a5a6e;
+    max-width: 560px;
+    margin: 0 auto 1.75rem;
+    line-height: 1.6;
+  }
+  .btn-cta {
+    display: inline-block;
+    background: var(--dark-wine);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.9rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px) {
+    .audit-hero__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 560px) {
+    .field-row {
+      flex-direction: column;
+      gap: 0;
+    }
+    .audit-tool__inner {
+      padding: 1.5rem;
+    }
+    .audit-trust {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>
+
+<script>
+  function initAuditFlow() {
+    const scanForm = document.getElementById("scan-form");
+    if (!scanForm || scanForm.dataset.bound === "true") return;
+    scanForm.dataset.bound = "true";
+
+    const leadForm = document.getElementById("lead-form") as HTMLFormElement | null;
+    const loadingEl = document.getElementById("audit-loading") as HTMLElement | null;
+    const teaserEl = document.getElementById("teaser-block") as HTMLElement | null;
+    const resultsEl = document.getElementById("audit-results") as HTMLElement | null;
+    const errorEl = document.getElementById("audit-error") as HTMLElement | null;
+    const scanSubmitBtn = document.getElementById("scan-submit") as HTMLButtonElement | null;
+    const leadSubmitBtn = document.getElementById("lead-submit") as HTMLButtonElement | null;
+    const loadingTextEl = document.getElementById("loading-text") as HTMLElement | null;
+    const urlInput = document.getElementById("url") as HTMLInputElement | null;
+    const nameInput = document.getElementById("name") as HTMLInputElement | null;
+    const emailInput = document.getElementById("email") as HTMLInputElement | null;
+    const orgTypeInput = document.getElementById("orgType") as HTMLSelectElement | null;
+    const goalInput = document.getElementById("goal") as HTMLSelectElement | null;
+    const teaserScoreBadge = document.getElementById("teaser-score-badge") as HTMLElement | null;
+    const teaserScoreText = document.getElementById("teaser-score-text") as HTMLElement | null;
+
+    if (
+      !leadForm ||
+      !loadingEl ||
+      !teaserEl ||
+      !resultsEl ||
+      !errorEl ||
+      !scanSubmitBtn ||
+      !leadSubmitBtn ||
+      !loadingTextEl ||
+      !urlInput ||
+      !nameInput ||
+      !emailInput ||
+      !orgTypeInput ||
+      !goalInput ||
+      !teaserScoreBadge ||
+      !teaserScoreText
+    ) {
+      return;
+    }
+
+    const loadingMessages = [
+      "Scanning your site...",
+      "Checking SEO and accessibility signals...",
+      "Analyzing messaging and conversion paths...",
+      "Putting together your report...",
+    ];
+    let loadingInterval: ReturnType<typeof setInterval>;
+
+    function startLoading() {
+      let msgIndex = 0;
+      loadingTextEl!.textContent = loadingMessages[0];
+      loadingInterval = setInterval(() => {
+        msgIndex = (msgIndex + 1) % loadingMessages.length;
+        loadingTextEl!.textContent = loadingMessages[msgIndex];
+      }, 3000);
+      loadingEl!.hidden = false;
+    }
+
+    function stopLoading() {
+      clearInterval(loadingInterval);
+      loadingEl!.hidden = true;
+    }
+
+    // Holds the scan result in memory between step 1 and step 2 —
+    // no need to re-run the scan when the lead form is submitted.
+    let scanResult: any = null;
+    let scannedUrl = "";
+
+    // ---- STEP 1: URL-only scan ----
+    scanForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      errorEl!.hidden = true;
+      (scanForm as HTMLElement).hidden = true;
+      scanSubmitBtn.disabled = true;
+      startLoading();
+
+      scannedUrl = urlInput.value.trim();
+
+      try {
+        const res = await fetch("/.netlify/functions/audit-scan", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url: scannedUrl }),
+        });
+
+        if (!res.ok) {
+          throw new Error("Scan request failed");
+        }
+
+        scanResult = await res.json();
+        stopLoading();
+        teaserScoreBadge.textContent = String(scanResult.score);
+        teaserScoreText.textContent = String(scanResult.score);
+        teaserEl!.hidden = false;
+      } catch (err) {
+        stopLoading();
+        errorEl!.hidden = false;
+        errorEl!.textContent =
+          "Something went wrong analyzing your site. Please double-check the URL and try again.";
+        (scanForm as HTMLElement).hidden = false;
+        scanSubmitBtn.disabled = false;
+      }
+    });
+
+    // ---- STEP 2: email gate, reveal full results ----
+    leadForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (!scanResult) return;
+
+      errorEl!.hidden = true;
+      teaserEl!.hidden = true;
+      leadSubmitBtn.disabled = true;
+      startLoading();
+      loadingTextEl!.textContent = "Unlocking your full report...";
+
+      const payload = {
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        orgType: orgTypeInput.value,
+        goal: goalInput.value,
+        url: scannedUrl,
+        result: scanResult,
+      };
+
+      try {
+        const res = await fetch("/.netlify/functions/submit-lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          throw new Error("Lead submission failed");
+        }
+
+        stopLoading();
+        renderResults(scanResult);
+      } catch (err) {
+        stopLoading();
+        errorEl!.hidden = false;
+        errorEl!.textContent = "Something went wrong unlocking your report. Please try again.";
+        teaserEl!.hidden = false;
+        leadSubmitBtn.disabled = false;
+      }
+    });
+
+    function renderResults(data: any) {
+      resultsEl!.hidden = false;
+
+      const findingsHtml = data.findings
+        .map(
+          (f: { severity: string; category: string; issue: string }) =>
+            `<div class="finding ${f.severity}"><strong>${f.category}:</strong> ${f.issue}</div>`
+        )
+        .join("");
+
+      const messagingHtml = data.messagingAnalysis
+        ? `<div class="messaging-block">
+            <h3>Messaging & Conversion Read</h3>
+            <p><strong>Value proposition:</strong> ${data.messagingAnalysis.value_prop_clarity || ""}</p>
+            <p><strong>Audience fit:</strong> ${data.messagingAnalysis.icp_alignment || ""}</p>
+            <p><strong>Calls to action:</strong> ${data.messagingAnalysis.cta_effectiveness || ""}</p>
+            <p><strong>Top recommendation:</strong> ${data.messagingAnalysis.top_recommendation || ""}</p>
+          </div>`
+        : "";
+
+      resultsEl!.innerHTML = `
+        <div style="text-align:center;">
+          <div class="score-badge">${data.score}</div>
+        </div>
+        <h2>Your Full Website Audit Results</h2>
+        ${findingsHtml || "<p style='text-align:center;'>No major issues found — nice work!</p>"}
+        ${messagingHtml}
+        <div class="cta-block">
+          <p>Want help fixing these? Guiding Point specializes in public-sector-ready, accessible websites.</p>
+          <a href="/contact">Book a Free Strategy Call</a>
+        </div>
+      `;
+    }
+  }
+
+  initAuditFlow();
+  document.addEventListener("astro:page-load", initAuditFlow);
+</script>
