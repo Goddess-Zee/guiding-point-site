@@ -49,9 +49,9 @@ exports.handler = async (event) => {
 };
 
 async function getGraphToken() {
-  const tenantId = process.env.MS_TENANT_ID;
-  const clientId = process.env.MS_CLIENT_ID;
-  const clientSecret = process.env.MS_CLIENT_SECRET;
+  const tenantId = (process.env.MS_TENANT_ID || "").trim();
+  const clientId = (process.env.MS_CLIENT_ID || "").trim();
+  const clientSecret = (process.env.MS_CLIENT_SECRET || "").trim();
 
   const tokenRes = await fetch(`https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`, {
     method: "POST",
@@ -65,7 +65,8 @@ async function getGraphToken() {
   });
 
   if (!tokenRes.ok) {
-    throw new Error(`Failed to get Graph token: ${tokenRes.status}`);
+    const errBody = await tokenRes.text();
+    throw new Error(`Failed to get Graph token: ${tokenRes.status} ${errBody}`);
   }
   const tokenData = await tokenRes.json();
   return tokenData.access_token;
