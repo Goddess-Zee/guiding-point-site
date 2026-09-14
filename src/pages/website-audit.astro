@@ -782,6 +782,16 @@ const pageDescription =
 
 <script>
   function initAuditFlow() {
+    function escapeHtml(str: string): string {
+      if (str == null) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
     const scanForm = document.getElementById("scan-form");
     if (!scanForm || scanForm.dataset.bound === "true") return;
     scanForm.dataset.bound = "true";
@@ -942,9 +952,9 @@ const pageDescription =
             <div class="finding-card ${f.severity}">
               <div class="finding-card__top">
                 <span class="severity-pill ${f.severity}">${severityIcon[f.severity] || "•"} ${severityLabel[f.severity] || f.severity}</span>
-                <span class="finding-category">${f.category}</span>
+                <span class="finding-category">${escapeHtml(f.category)}</span>
               </div>
-              <p class="finding-issue">${f.issue}</p>
+              <p class="finding-issue">${escapeHtml(f.issue)}</p>
             </div>`
         )
         .join("");
@@ -955,20 +965,20 @@ const pageDescription =
             <div class="messaging-grid">
               <div class="messaging-item">
                 <span class="messaging-label">Value proposition</span>
-                <p>${data.messagingAnalysis.value_prop_clarity || ""}</p>
+                <p>${escapeHtml(data.messagingAnalysis.value_prop_clarity || "")}</p>
               </div>
               <div class="messaging-item">
                 <span class="messaging-label">Audience fit</span>
-                <p>${data.messagingAnalysis.icp_alignment || ""}</p>
+                <p>${escapeHtml(data.messagingAnalysis.icp_alignment || "")}</p>
               </div>
               <div class="messaging-item">
                 <span class="messaging-label">Calls to action</span>
-                <p>${data.messagingAnalysis.cta_effectiveness || ""}</p>
+                <p>${escapeHtml(data.messagingAnalysis.cta_effectiveness || "")}</p>
               </div>
             </div>
             <div class="messaging-recommendation">
               <span class="messaging-label">Top recommendation</span>
-              <p>${data.messagingAnalysis.top_recommendation || ""}</p>
+              <p>${escapeHtml(data.messagingAnalysis.top_recommendation || "")}</p>
             </div>
           </div>`
         : "";

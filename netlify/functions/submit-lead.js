@@ -57,9 +57,19 @@ exports.handler = async (event) => {
   };
 };
 
+function escapeHtml(str) {
+  if (str == null) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 function buildFindingsHtml(findings) {
   return (findings || [])
-    .map((f) => `<li><strong>[${f.severity.toUpperCase()}] ${f.category}:</strong> ${f.issue}</li>`)
+    .map((f) => `<li><strong>[${f.severity.toUpperCase()}] ${escapeHtml(f.category)}:</strong> ${escapeHtml(f.issue)}</li>`)
     .join("");
 }
 
@@ -68,10 +78,10 @@ function buildMessagingHtml(messagingAnalysis) {
   return `
     <h3>Messaging Analysis</h3>
     <ul>
-      <li><strong>Value prop clarity:</strong> ${messagingAnalysis.value_prop_clarity || "-"}</li>
-      <li><strong>Audience fit:</strong> ${messagingAnalysis.icp_alignment || "-"}</li>
-      <li><strong>CTA effectiveness:</strong> ${messagingAnalysis.cta_effectiveness || "-"}</li>
-      <li><strong>Top recommendation:</strong> ${messagingAnalysis.top_recommendation || "-"}</li>
+      <li><strong>Value prop clarity:</strong> ${escapeHtml(messagingAnalysis.value_prop_clarity || "-")}</li>
+      <li><strong>Audience fit:</strong> ${escapeHtml(messagingAnalysis.icp_alignment || "-")}</li>
+      <li><strong>CTA effectiveness:</strong> ${escapeHtml(messagingAnalysis.cta_effectiveness || "-")}</li>
+      <li><strong>Top recommendation:</strong> ${escapeHtml(messagingAnalysis.top_recommendation || "-")}</li>
     </ul>`;
 }
 
@@ -81,11 +91,11 @@ async function sendInternalNotification({ name, email, orgType, goal, url, resul
 
   const htmlBody = `
     <h2>New Website Audit Submission</h2>
-    <p><strong>Name:</strong> ${name || "-"}<br/>
-    <strong>Email:</strong> ${email}<br/>
-    <strong>Org type:</strong> ${orgType || "-"}<br/>
-    <strong>Goal:</strong> ${goal || "-"}<br/>
-    <strong>Audited URL:</strong> ${url}</p>
+    <p><strong>Name:</strong> ${escapeHtml(name) || "-"}<br/>
+    <strong>Email:</strong> ${escapeHtml(email)}<br/>
+    <strong>Org type:</strong> ${escapeHtml(orgType) || "-"}<br/>
+    <strong>Goal:</strong> ${escapeHtml(goal) || "-"}<br/>
+    <strong>Audited URL:</strong> ${escapeHtml(url)}</p>
     <h3>Score: ${result.score}/100</h3>
     ${
       result.pageSpeedScores
@@ -123,13 +133,13 @@ async function sendInternalNotification({ name, email, orgType, goal, url, resul
 async function sendVisitorReport({ name, email, url, result }) {
   const apiKey = (process.env.RESEND_API_KEY || "").trim();
   const firstName = (name || "").trim().split(" ")[0];
-  const greeting = firstName ? `Hi ${firstName},` : "Hi there,";
+  const greeting = firstName ? `Hi ${escapeHtml(firstName)},` : "Hi there,";
 
   const htmlBody = `
     <div style="font-family: Arial, Helvetica, sans-serif; max-width: 600px; margin: 0 auto;">
       <h2 style="color: #021e33;">Your Free Website Audit Report</h2>
       <p>${greeting}</p>
-      <p>Thanks for running a free audit on <strong>${url}</strong>. Here's your full report.</p>
+      <p>Thanks for running a free audit on <strong>${escapeHtml(url)}</strong>. Here's your full report.</p>
 
       <div style="text-align: center; margin: 1.5rem 0;">
         <div style="display: inline-block; width: 90px; height: 90px; line-height: 90px; border-radius: 50%; background: #021e33; color: #fff; font-size: 1.8rem; font-weight: 700;">
