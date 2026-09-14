@@ -3,12 +3,12 @@
 // POST body: { name, email, orgType, goal, url, result }
 //   where `result` is the exact object returned by audit-scan.js
 //
-// Sends the lead notification email via Microsoft Graph. Returns { ok: true }
+// Sends the lead notification email via Resend. Returns { ok: true }
 // on success so the front end can reveal the full report.
 //
 // Required environment variables:
-//   MS_CLIENT_ID, MS_TENANT_ID, MS_CLIENT_SECRET  - Azure app registration
-//   NOTIFY_EMAIL  - where lead notifications are sent (e.g. hello@guidingpointconsults.com)
+//   RESEND_API_KEY  - Resend API key
+//   NOTIFY_EMAIL    - where lead notifications are sent (e.g. hello@guidingpointconsults.com)
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -48,32 +48,9 @@ exports.handler = async (event) => {
   };
 };
 
-async function getGraphToken() {
-  const tenantId = (process.env.MS_TENANT_ID || "").trim();
-  const clientId = (process.env.MS_CLIENT_ID || "").trim();
-  const clientSecret = (process.env.MS_CLIENT_SECRET || "").trim();
-
-  const tokenRes = await fetch(`https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({
-      client_id: clientId,
-      client_secret: clientSecret,
-      scope: "https://graph.microsoft.com/.default",
-      grant_type: "client_credentials",
-    }),
-  });
-
-  if (!tokenRes.ok) {
-    const errBody = await tokenRes.text();
-    throw new Error(`Failed to get Graph token: ${tokenRes.status} ${errBody}`);
-  }
-  const tokenData = await tokenRes.json();
-  return tokenData.access_token;
-}
-
 async function sendNotificationEmail({ name, email, orgType, goal, url, result }) {
-  const token = await getGraphToken();
+  const apiKey = (process.env.RESEND_API_KEY || "").trim();
+  const notifyEmail = (process.env.NOTIFY_EMAIL || "hello@guidingpointconsults.com").trim();
 
   const findingsHtml = (result.findings || [])
     .map((f) => `<li><strong>[${f.severity.toUpperCase()}] ${f.category}:</strong> ${f.issue}</li>`)
@@ -110,26 +87,23 @@ async function sendNotificationEmail({ name, email, orgType, goal, url, result }
     ${messagingHtml}
   `;
 
-  const sender = process.env.NOTIFY_EMAIL || "hello@guidingpointconsults.com";
-
-  const sendRes = await fetch(`https://graph.microsoft.com/v1.0/users/${sender}/sendMail`, {
+  const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      message: {
-        subject: `New Website Audit Lead: ${name || email}`,
-        body: { contentType: "HTML", content: htmlBody },
-        toRecipients: [{ emailAddress: { address: sender } }],
-        replyTo: [{ emailAddress: { address: email } }],
-      },
+      from: `GPC Audit Tool <notifications@guidingpointconsults.com>`,
+      to: [notifyEmail],
+      reply_to: email,
+      subject: `New Website Audit Lead: ${name || email}`,
+      html: htmlBody,
     }),
   });
 
-  if (!sendRes.ok) {
-    const errText = await sendRes.text();
-    throw new Error(`Graph sendMail failed: ${sendRes.status} ${errText}`);
+  if (!res.ok) {
+    const errBody = await res.text();
+    throw new Error(`Resend send failed: ${res.status} ${errBody}`);
   }
 }
