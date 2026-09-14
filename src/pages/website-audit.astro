@@ -195,14 +195,15 @@ const pageDescription =
     <div class="section-inner">
       <h2>Want help acting on your results?</h2>
       <p>
-        Book a free 30-minute strategy call — no pitch, just a walkthrough of your findings.
+        Guiding Point specializes in accessible, public-sector-ready websites for nonprofits and
+        subcontractors. Book a free 30-minute strategy call — no pitch, just a walkthrough of your findings.
       </p>
       <a href="/contact" class="btn-cta">Book a Free Strategy Call →</a>
     </div>
   </section>
 </BaseLayout>
 
-<style>
+<style is:global>
   :root {
     --prussian-blue: #021e33;
     --dark-wine: #751312;
@@ -562,69 +563,174 @@ const pageDescription =
   .audit-results {
     padding-top: 0.5rem;
   }
+  .results-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
   .score-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 96px;
-    height: 96px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background: var(--prussian-blue);
+    background: linear-gradient(135deg, var(--prussian-blue) 0%, #010f1c 100%);
     color: #fff;
-    font-size: 1.9rem;
-    font-weight: 700;
+    font-size: 2.1rem;
+    font-weight: 800;
     margin: 0 auto 1.25rem;
+    box-shadow: 0 8px 24px rgba(2, 30, 51, 0.25);
   }
-  .audit-results h2 {
-    text-align: center;
+  .results-header h2 {
     color: var(--prussian-blue);
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    margin: 0 0 0.4rem;
   }
-  .finding {
-    border-left: 4px solid #d7d5e0;
-    padding: 0.6rem 0.9rem;
-    margin-bottom: 0.6rem;
-    background: var(--linen);
-    border-radius: 0 6px 6px 0;
+  .results-sub {
+    color: #6b6b7d;
     font-size: 0.95rem;
+    margin: 0;
   }
-  .finding.high {
+
+  .findings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+  }
+  .finding-card {
+    background: var(--linen);
+    border: 1px solid #ece5d8;
+    border-left: 4px solid #c9c2b3;
+    border-radius: 0 10px 10px 0;
+    padding: 0.9rem 1.1rem;
+  }
+  .finding-card.high {
     border-left-color: var(--dark-wine);
   }
-  .finding.medium {
+  .finding-card.medium {
     border-left-color: var(--camel);
   }
-  .finding.low {
+  .finding-card.low {
     border-left-color: #a7a7b8;
   }
-  .finding strong {
-    color: var(--prussian-blue);
+  .finding-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
+  .severity-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+  }
+  .severity-pill.high {
+    background: rgba(117, 19, 18, 0.1);
+    color: var(--dark-wine);
+  }
+  .severity-pill.medium {
+    background: rgba(182, 135, 72, 0.15);
+    color: #8a6330;
+  }
+  .severity-pill.low {
+    background: rgba(90, 90, 110, 0.1);
+    color: #5a5a6e;
+  }
+  .finding-category {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--prussian-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .finding-issue {
+    margin: 0;
+    color: #3a3a4a;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .no-findings {
+    text-align: center;
+    color: #5a5a6e;
+    padding: 1rem 0;
+  }
+
   .messaging-block {
     margin-top: 1.5rem;
-    padding: 1.1rem;
-    background: #f2f0e8;
-    border-radius: 8px;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f2ede2 0%, var(--linen) 100%);
+    border-radius: 12px;
+    border: 1px solid #ece5d8;
   }
   .messaging-block h3 {
     color: var(--prussian-blue);
-    margin-top: 0;
-    font-size: 1.05rem;
+    margin: 0 0 1.1rem;
+    font-size: 1.1rem;
   }
+  .messaging-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.1rem;
+    margin-bottom: 1.1rem;
+  }
+  .messaging-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--camel);
+    margin-bottom: 0.3rem;
+  }
+  .messaging-item p,
+  .messaging-recommendation p {
+    margin: 0;
+    color: #3a3a4a;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .messaging-recommendation {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(2, 30, 51, 0.1);
+  }
+  .messaging-recommendation p {
+    font-weight: 600;
+    color: var(--prussian-blue);
+  }
+
   .cta-block {
     text-align: center;
     margin-top: 2rem;
-    padding-top: 1.5rem;
+    padding-top: 1.75rem;
     border-top: 1px solid #eee;
+  }
+  .cta-block p {
+    color: #5a5a6e;
+    margin-bottom: 1rem;
   }
   .cta-block a {
     display: inline-block;
-    background: var(--prussian-blue);
+    background: var(--dark-wine);
     color: #fff;
     text-decoration: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.85rem 1.75rem;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 700;
+    transition: background 0.2s ease;
+  }
+  .cta-block a:hover {
+    background: #5c0e0d;
   }
 
   .audit-error {
@@ -827,33 +933,59 @@ const pageDescription =
     function renderResults(data: any) {
       resultsEl!.hidden = false;
 
+      const severityIcon: Record<string, string> = { high: "⚠", medium: "●", low: "○" };
+      const severityLabel: Record<string, string> = { high: "Fix first", medium: "Worth fixing", low: "Minor" };
+
       const findingsHtml = data.findings
         .map(
-          (f: { severity: string; category: string; issue: string }) =>
-            `<div class="finding ${f.severity}"><strong>${f.category}:</strong> ${f.issue}</div>`
+          (f: { severity: string; category: string; issue: string }) => `
+            <div class="finding-card ${f.severity}">
+              <div class="finding-card__top">
+                <span class="severity-pill ${f.severity}">${severityIcon[f.severity] || "•"} ${severityLabel[f.severity] || f.severity}</span>
+                <span class="finding-category">${f.category}</span>
+              </div>
+              <p class="finding-issue">${f.issue}</p>
+            </div>`
         )
         .join("");
 
       const messagingHtml = data.messagingAnalysis
         ? `<div class="messaging-block">
             <h3>Messaging & Conversion Read</h3>
-            <p><strong>Value proposition:</strong> ${data.messagingAnalysis.value_prop_clarity || ""}</p>
-            <p><strong>Audience fit:</strong> ${data.messagingAnalysis.icp_alignment || ""}</p>
-            <p><strong>Calls to action:</strong> ${data.messagingAnalysis.cta_effectiveness || ""}</p>
-            <p><strong>Top recommendation:</strong> ${data.messagingAnalysis.top_recommendation || ""}</p>
+            <div class="messaging-grid">
+              <div class="messaging-item">
+                <span class="messaging-label">Value proposition</span>
+                <p>${data.messagingAnalysis.value_prop_clarity || ""}</p>
+              </div>
+              <div class="messaging-item">
+                <span class="messaging-label">Audience fit</span>
+                <p>${data.messagingAnalysis.icp_alignment || ""}</p>
+              </div>
+              <div class="messaging-item">
+                <span class="messaging-label">Calls to action</span>
+                <p>${data.messagingAnalysis.cta_effectiveness || ""}</p>
+              </div>
+            </div>
+            <div class="messaging-recommendation">
+              <span class="messaging-label">Top recommendation</span>
+              <p>${data.messagingAnalysis.top_recommendation || ""}</p>
+            </div>
           </div>`
         : "";
 
       resultsEl!.innerHTML = `
-        <div style="text-align:center;">
+        <div class="results-header">
           <div class="score-badge">${data.score}</div>
+          <h2>Your Full Website Audit Results</h2>
+          <p class="results-sub">Here's everything we found, ordered by what matters most.</p>
         </div>
-        <h2>Your Full Website Audit Results</h2>
-        ${findingsHtml || "<p style='text-align:center;'>No major issues found — nice work!</p>"}
+        <div class="findings-list">
+          ${findingsHtml || "<p class='no-findings'>No major issues found — nice work!</p>"}
+        </div>
         ${messagingHtml}
         <div class="cta-block">
           <p>Want help fixing these? Guiding Point specializes in public-sector-ready, accessible websites.</p>
-          <a href="/contact">Book a Free Strategy Call</a>
+          <a href="/contact">Book a Free Strategy Call →</a>
         </div>
       `;
     }
