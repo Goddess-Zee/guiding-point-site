@@ -139,6 +139,7 @@ p {
 ======================================== */
 
 .site-header {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -715,7 +716,15 @@ p {
     width: 100%;
   }
 
-  body.menu-open { overflow: hidden; }
+  /* Scroll-lock while the mobile menu is open.
+     This used to be `body.menu-open { overflow: hidden; }`, which turned <body>
+     into a clipping box (because html/body carry overflow-x: clip !important
+     below) and made the sticky header scroll away with the page.
+     Locking <html> instead keeps the header pinned to the viewport.
+     Browsers without :has() simply skip the lock; the header stays sticky. */
+  html:has(body.menu-open) {
+    overflow-y: hidden;
+  }
 }
 
 .footer-legal {
