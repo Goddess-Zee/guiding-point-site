@@ -1,16 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { getAllPosts } from '../../lib/sanity';
 
-const allPosts = (
-  await getCollection('blog', ({ data }) => !data.draft)
-).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const allPosts = await getAllPosts();
 
 const featured = allPosts.filter(p => p.data.featured)[0];
 const rest = allPosts.filter(p => p !== featured);
 
-function postUrl(id: string) {
-  return `/blog/${id.replace(/\.mdx?$/, '')}`;
+function postUrl(slug: string) {
+  return `/blog/${slug}`;
 }
 
 const categories = [
@@ -152,7 +150,7 @@ const categories = [
   <main class="blog-main">
 
     {featured && (
-      <a href={postUrl(featured.id)} class="featured-post" data-category={featured.data.category}>
+      <a href={postUrl(featured.slug)} class="featured-post" data-category={featured.data.category}>
         <div class="featured-image">
           {featured.data.coverImage
             ? <img src={featured.data.coverImage} alt={featured.data.coverAlt || featured.data.title} />
@@ -192,7 +190,7 @@ const categories = [
                 <p>{post.data.description}</p>
                 <div class="card-footer">
                   <span class="card-date">{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                  <a href={postUrl(post.id)} class="card-link">Read →</a>
+                  <a href={postUrl(post.slug)} class="card-link">Read →</a>
                 </div>
               </div>
             </article>
