@@ -860,6 +860,14 @@ const pageDescription =
     let scanResult: any = null;
     let scannedUrl = "";
 
+    // GA4 tracking via GTM. dataLayer only exists after cookie consent loads GTM;
+    // pushes before that are harmless. Never send name/email (no PII to GA).
+    function trackEvent(event: string, params: Record<string, unknown> = {}) {
+      const w = window as any;
+      w.dataLayer = w.dataLayer || [];
+      w.dataLayer.push({ event, ...params });
+    }
+
     // ---- STEP 1: URL-only scan ----
     scanForm.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -887,6 +895,7 @@ const pageDescription =
         teaserScoreBadge.textContent = String(scanResult.score);
         teaserScoreText.textContent = String(scanResult.score);
         teaserEl!.hidden = false;
+        trackEvent("audit_scan_completed", { audit_score: scanResult.score });
       } catch (err) {
         stopLoading();
         errorEl!.hidden = false;
@@ -931,6 +940,12 @@ const pageDescription =
 
         stopLoading();
         renderResults(scanResult);
+        trackEvent("generate_lead", {
+          lead_source: "website_audit",
+          org_type: payload.orgType,
+          audit_goal: payload.goal,
+          audit_score: scanResult.score,
+        });
       } catch (err) {
         stopLoading();
         errorEl!.hidden = false;
