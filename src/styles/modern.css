@@ -578,7 +578,7 @@ p {
   gap: var(--space-xl);
 }
 
-.footer-col h4 {
+.footer-col h3 {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
