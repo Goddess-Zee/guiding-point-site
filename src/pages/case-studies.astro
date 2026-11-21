@@ -1607,6 +1607,68 @@ import Layout from "../layouts/Layout.astro";
     .case-grid { grid-template-columns: 1fr; }
   }
 
+  /* ── Case Study Animations ───────────────────── */
+  /* Only hidden once JS has run, so content never depends on the script */
+  .case-grid.anim-ready .case-study-card {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .case-grid.anim-ready .case-study-card.in-view {
+    opacity: 1;
+    transform: none;
+  }
+
+  .case-grid.anim-ready .case-study-card.in-view:not(.is-open):hover {
+    transform: translateY(-4px);
+    transition-delay: 0ms;
+  }
+
+  .case-grid .toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .case-grid .case-study-card:not(.is-open) .expand-toggle:hover .toggle-icon {
+    transform: rotate(90deg) scale(1.15);
+  }
+
+  @keyframes case-open {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .case-grid .case-study-card.is-open .case-study-content > *,
+  .case-grid .case-study-card.is-open .case-study-image {
+    animation: case-open 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .case-grid .case-study-card.is-open .case-study-content > :nth-child(n+4) {
+    animation-delay: 0.08s;
+  }
+
+  .case-grid .case-study-card.is-open .case-study-content > :nth-child(n+6) {
+    animation-delay: 0.16s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .case-grid.anim-ready .case-study-card {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .case-grid .case-study-card.is-open .case-study-content > *,
+    .case-grid .case-study-card.is-open .case-study-image {
+      animation: none;
+    }
+    .case-grid .toggle-icon { transition: none; }
+  }
+
   /* ── Responsive ──────────────────────────────── */
   @media (max-width: 768px) {
     .case-study-content { padding: var(--space-lg); }
@@ -1619,6 +1681,25 @@ import Layout from "../layouts/Layout.astro";
 </style>
 
 <script>
+  // Fade case study boxes up as they scroll into view, row by row
+  const caseGrid = document.querySelector('.case-grid');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (caseGrid && 'IntersectionObserver' in window && !reduceMotion) {
+    const cards = Array.from(caseGrid.querySelectorAll<HTMLElement>('.case-study-card'));
+    const cols = () => getComputedStyle(caseGrid).gridTemplateColumns.split(' ').length || 1;
+    cards.forEach((card, i) => card.style.setProperty('--reveal-delay', `${(i % cols()) * 110}ms`));
+    caseGrid.classList.add('anim-ready');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    cards.forEach((card) => io.observe(card));
+  }
+
   document.querySelectorAll('.expand-toggle').forEach(button => {
     button.addEventListener('click', () => {
       const expanded = button.getAttribute('aria-expanded') === 'true';
@@ -1630,7 +1711,8 @@ import Layout from "../layouts/Layout.astro";
       if (label) label.textContent = expanded ? 'Read Full Case Study' : 'Close Case Study';
       if (card) {
         card.classList.toggle('is-open', !expanded);
-        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        card.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
       }
     });
   });
