@@ -26,7 +26,7 @@ import Layout from "../layouts/Layout.astro";
 
   <!-- Case Studies Grid -->
   <section class="case-studies">
-    <div class="container">
+    <div class="container case-grid">
       
       <!-- Case Study 1 -->
       <div class="case-study-card featured">
@@ -1477,6 +1477,136 @@ import Layout from "../layouts/Layout.astro";
     transform: translateY(-2px);
   }
 
+  /* ── Case Study Grid (boxes) ─────────────────── */
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    gap: var(--space-xl);
+    align-items: stretch;
+  }
+
+  .case-grid .case-study-card {
+    max-width: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 14px;
+    scroll-margin-top: 110px;
+  }
+
+  .case-grid .case-study-card:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Collapsed box: alternate the two brand colors */
+  .case-grid .case-study-card:not(.is-open) {
+    background: #021e33;
+    box-shadow: 0 10px 30px rgba(2, 30, 51, 0.18);
+  }
+
+  .case-grid .case-study-card:nth-child(even):not(.is-open) {
+    background: #751312;
+    box-shadow: 0 10px 30px rgba(117, 19, 18, 0.18);
+  }
+
+  .case-grid .case-study-card:not(.is-open) .case-study-image,
+  .case-grid .case-study-card:not(.is-open) .subcontractor-framing,
+  .case-grid .case-study-card:not(.is-open) .case-snapshot,
+  .case-grid .case-study-card:not(.is-open) .case-section p.context-impact,
+  .case-grid .case-study-card:not(.is-open) .expandable-section ~ .case-section,
+  .case-grid .case-study-card:not(.is-open) .capabilities-section,
+  .case-grid .case-study-card:not(.is-open) .case-section h3 {
+    display: none;
+  }
+
+  .case-grid .case-study-card:not(.is-open) .case-study-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: var(--space-xl);
+  }
+
+  .case-grid .case-study-card:not(.is-open) .case-subtitle {
+    order: -1;
+    color: #f7f0e7;
+    opacity: 0.85;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-sm);
+  }
+
+  .case-grid .case-study-card:not(.is-open) h2 {
+    color: #ffffff;
+    font-size: 1.35rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .case-grid .case-study-card:not(.is-open) .case-section {
+    margin-bottom: 0;
+  }
+
+  .case-grid .case-study-card:not(.is-open) .case-section p {
+    color: rgba(247, 240, 231, 0.88);
+    font-size: 0.95rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .case-grid .case-study-card:not(.is-open) .expandable-section {
+    margin: auto 0 0;
+    padding-top: var(--space-lg);
+  }
+
+  .case-grid .case-study-card:not(.is-open) .expand-toggle {
+    background: transparent;
+    border: 2px solid rgba(247, 240, 231, 0.6);
+    color: #f7f0e7;
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .case-grid .case-study-card:not(.is-open) .expand-toggle:hover {
+    border-color: #f7f0e7;
+    background: rgba(247, 240, 231, 0.1);
+  }
+
+  .case-grid .case-study-card:not(.is-open) .toggle-icon {
+    color: #f7f0e7;
+  }
+
+  /* Open box: full row, light background for easy reading */
+  .case-grid .case-study-card.is-open {
+    grid-column: 1 / -1;
+    background: #ffffff;
+    border-top: 8px solid #021e33;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    transform: none;
+  }
+
+  .case-grid .case-study-card.is-open:nth-child(even) {
+    border-top-color: #751312;
+  }
+
+  .case-grid .case-study-card.is-open .case-study-image {
+    background: #021e33;
+  }
+
+  .case-grid .case-study-card.is-open:nth-child(even) .case-study-image {
+    background: #751312;
+  }
+
+  @media (max-width: 1024px) {
+    .case-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 680px) {
+    .case-grid { grid-template-columns: 1fr; }
+  }
+
   /* ── Responsive ──────────────────────────────── */
   @media (max-width: 768px) {
     .case-study-content { padding: var(--space-lg); }
@@ -1495,6 +1625,13 @@ import Layout from "../layouts/Layout.astro";
       button.setAttribute('aria-expanded', (!expanded).toString());
       const content = button.nextElementSibling as HTMLElement;
       if (content) content.classList.toggle('expanded');
+      const card = button.closest('.case-study-card') as HTMLElement | null;
+      const label = button.querySelector('.toggle-text');
+      if (label) label.textContent = expanded ? 'Read Full Case Study' : 'Close Case Study';
+      if (card) {
+        card.classList.toggle('is-open', !expanded);
+        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 </script>
