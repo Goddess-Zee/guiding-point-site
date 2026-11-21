@@ -29,6 +29,20 @@ import Layout from '../../layouts/Layout.astro';
     .lane-image {
       aspect-ratio: 4 / 3;
     }
+    .lane-image--square {
+      aspect-ratio: 1 / 1;
+    }
+
+    /* Why Guiding Point: photo beside the dark box */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .why-grid .outcome-box {
+      margin: 0;
+    }
 
     /* Consulting lanes: image + text, alternating sides on desktop */
     .lane {
@@ -109,7 +123,8 @@ import Layout from '../../layouts/Layout.astro';
       .lane--reverse .lane-media {
         order: -1;
       }
-      .engage-grid {
+      .engage-grid,
+      .why-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -136,13 +151,13 @@ import Layout from '../../layouts/Layout.astro';
           </div>
         </div>
         <div class="hero-image-wrap">
-          <!-- PLACEHOLDER: swap with a new consulting photo -->
           <img
-            src="/images/fractional-digital-strategy-lead-page.webp"
-            alt="Team gathered around a table working through a strategy session"
+            src="/images/consulting-hero.webp"
+            alt="Four colleagues reviewing charts together in front of a chalkboard covered in planning notes"
             class="hero-image"
-            width="2000"
-            height="1414"
+            width="1600"
+            height="900"
+            fetchpriority="high"
           />
         </div>
       </div>
@@ -152,13 +167,12 @@ import Layout from '../../layouts/Layout.astro';
     <section class="service-section container" id="fractional-leadership">
       <div class="lane">
         <div class="lane-media">
-          <!-- PLACEHOLDER: swap with a new photo (e.g., you leading a planning session) -->
           <img
-            src="/images/ai-content-operations-page.webp"
-            alt="Planning board connecting strategy, team, productivity, and workflow"
+            src="/images/consulting-fractional-leadership.webp"
+            alt="A team of women talking through decisions around a conference table"
             class="lane-image"
-            width="2000"
-            height="1414"
+            width="1600"
+            height="1200"
             loading="lazy"
           />
         </div>
@@ -191,13 +205,12 @@ import Layout from '../../layouts/Layout.astro';
     <section class="service-section container" id="website-marketing-systems">
       <div class="lane lane--reverse">
         <div class="lane-media">
-          <!-- PLACEHOLDER: swap with a new photo -->
           <img
-            src="/images/website-modernization-page.webp"
-            alt="Modern website displayed across desktop, laptop, and tablet screens"
-            class="lane-image"
-            width="2000"
-            height="1414"
+            src="/images/consulting-website-systems.webp"
+            alt="Smiling professional in a red top working on her laptop"
+            class="lane-image lane-image--square"
+            width="1200"
+            height="1200"
             loading="lazy"
           />
         </div>
@@ -229,7 +242,6 @@ import Layout from '../../layouts/Layout.astro';
     <section class="service-section container" id="ai-training-workforce">
       <div class="lane">
         <div class="lane-media">
-          <!-- PLACEHOLDER: swap with a photo from one of your trainings -->
           <img
             src="/images/ai-team-training-page.webp"
             alt="Professional working with AI tools on a laptop"
@@ -302,6 +314,15 @@ import Layout from '../../layouts/Layout.astro';
 
     <!-- Why Guiding Point -->
     <section class="service-section container">
+      <div class="why-grid">
+        <img
+          src="/images/consulting-why-gpc.webp"
+          alt="Three women smiling and talking at a shared work table with a tablet and laptop"
+          class="lane-image"
+          width="1600"
+          height="1200"
+          loading="lazy"
+        />
       <div class="outcome-box">
         <h2>Why Guiding Point</h2>
         <p>
@@ -310,6 +331,7 @@ import Layout from '../../layouts/Layout.astro';
           guidance, so our advice holds up when it's time to put it into action. Above all, we believe
           technology should bring people closer, not replace the connection between them.
         </p>
+      </div>
       </div>
     </section>
 
