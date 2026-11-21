@@ -1,6 +1,6 @@
 # Guiding Point Consulting
 
-> Guiding Point Consulting is a certified WBE/MBE digital strategy and web consulting firm based in Tampa, Florida. We partner with public sector prime contractors as a subcontract delivery partner, and work directly with mission-driven nonprofits, to modernize websites, build AI-supported content systems, and train the people who run them.
+> Guiding Point Consulting is a certified WBE, MBE, and SBE digital strategy and web consulting firm based in Tampa, Florida. We partner with public sector prime contractors as a subcontract delivery partner, and work directly with mission-driven nonprofits, to modernize websites, build AI-supported content systems, and train the people who run them.
 
 Our belief: technology should bring people closer, not replace the connection between them. AI is getting smarter. We build the systems that keep people at the center of it.
 
@@ -8,7 +8,7 @@ Primary audiences:
 - Public sector prime contractors seeking a subcontract delivery partner for digital and AI components
 - Nonprofits and mission-driven organizations modernizing their digital presence
 
-Certifications: Women-Owned Business Enterprise (WBE) and Minority Business Enterprise (MBE), certified through State of Florida OSD/DMS. SBA certification in progress.
+Certifications: Women-Owned Business Enterprise (WBE) and Minority Business Enterprise (MBE), certified through State of Florida OSD/DMS. Small Business Enterprise (SBE) certified. SBA certification in progress.
 
 Contact: hello@guidingpointconsults.com — Tampa, Florida, serving clients nationwide.
 
