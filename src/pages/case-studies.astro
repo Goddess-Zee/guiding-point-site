@@ -11,16 +11,7 @@ import Layout from "../layouts/Layout.astro";
     <div class="container hero-content">
       <h1>Case Studies</h1>
       <p class="hero-text">Real work. Practical systems. Measurable outcomes.</p>
-      <p class="hero-subtext">These case studies reflect the type of work Guiding Point Consulting delivers as a subcontractor, supporting government prime contractors in providing website modernization, digital systems, and communication solutions for public sector and mission-driven organizations. Each engagement demonstrates our ability to integrate into existing teams, fill capability gaps, and build systems that hold up long after the engagement ends.</p>
-    </div>
-  </section>
-
-  <!-- Past Performance Note -->
-  <section class="past-perf-section">
-    <div class="container">
-      <div class="past-perf-block">
-        <p><strong>A note for government prime contractors:</strong> The work documented here represents past performance in digital workflow systems, content operations, AI implementation, and organizational communication — core capabilities we bring to contract delivery as a specialized subcontractor. All organizations have been anonymized per standard practice.</p>
-      </div>
+      <p class="hero-subtext">Website modernization, workflow systems, and AI work for public sector and mission-driven organizations. Every client is anonymized.</p>
     </div>
   </section>
 
@@ -614,7 +605,7 @@ import Layout from "../layouts/Layout.astro";
               <strong>Focus:</strong> Replacing a paid site builder with a custom site that earns revenue, protects search history, and runs itself
             </div>
             <div class="snapshot-item">
-              <strong>Role:</strong> Delivery lead: audit, strategy, design, development, integrations, domain migration, and handoff
+              <strong>Role:</strong> Direct engagement, delivery lead: audit, strategy, design, development, integrations, domain migration, and handoff
             </div>
           </div>
 
@@ -757,7 +748,7 @@ import Layout from "../layouts/Layout.astro";
               <strong>Focus:</strong> Credibility, lead capture, and audience-specific messaging for homeowners and property investors
             </div>
             <div class="snapshot-item">
-              <strong>Role:</strong> Delivery lead — information architecture, design, development, and deployment
+              <strong>Role:</strong> Direct engagement, delivery lead: information architecture, design, development, and deployment
             </div>
           </div>
 
@@ -876,7 +867,7 @@ import Layout from "../layouts/Layout.astro";
               <strong>Focus:</strong> Getting found in traditional search and AI answer engines, and making content easy to publish without code
             </div>
             <div class="snapshot-item">
-              <strong>Role:</strong> Strategy, technical SEO, development, content migration, and analytics
+              <strong>Role:</strong> Internal project: strategy, technical SEO, development, content migration, and analytics
             </div>
           </div>
 
@@ -996,6 +987,15 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
+  <!-- Past Performance Note -->
+  <section class="past-perf-section">
+    <div class="container">
+      <div class="past-perf-block">
+        <p><strong>A note for government prime contractors:</strong> This work represents past performance in website modernization, digital workflow systems, AI implementation, and organizational communication, the core capabilities we bring to contract delivery as a specialized subcontractor. Each case study notes whether the work was subcontract, direct, or internal.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Section -->
   <section class="cta-section">
     <div class="container">
@@ -1020,7 +1020,7 @@ import Layout from "../layouts/Layout.astro";
   /* ── Page Header ─────────────────────────────── */
   .page-header {
     background: var(--white);
-    padding: var(--space-2xl) 0 var(--space-xl);
+    padding: var(--space-xl) 0 var(--space-lg);
     border-bottom: 1px solid var(--gray-200);
   }
 
@@ -1029,12 +1029,12 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .page-header h1 {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-sm);
   }
 
   .hero-text {
     max-width: 700px;
-    margin: 0 auto var(--space-md);
+    margin: 0 auto var(--space-xs);
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--indigo);
@@ -1074,7 +1074,7 @@ import Layout from "../layouts/Layout.astro";
 
   /* ── Case Studies ────────────────────────────── */
   .case-studies {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-xl) 0 var(--space-3xl);
     background: var(--off-white);
   }
 
