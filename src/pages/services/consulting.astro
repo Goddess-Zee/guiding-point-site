@@ -32,6 +32,9 @@ import Layout from '../../layouts/Layout.astro';
     .lane-image--square {
       aspect-ratio: 1 / 1;
     }
+    .lane-image--wide {
+      aspect-ratio: 16 / 9;
+    }
 
     /* Why Guiding Point: photo beside the dark box */
     .why-grid {
@@ -168,11 +171,11 @@ import Layout from '../../layouts/Layout.astro';
       <div class="lane">
         <div class="lane-media">
           <img
-            src="/images/consulting-fractional-leadership.webp"
-            alt="A team of women talking through decisions around a conference table"
-            class="lane-image"
+            src="/images/consulting-fractional-strategy.webp"
+            alt="Colleagues discussing strategy around a laptop showing charts and performance data"
+            class="lane-image lane-image--wide"
             width="1600"
-            height="1200"
+            height="900"
             loading="lazy"
           />
         </div>
@@ -243,11 +246,11 @@ import Layout from '../../layouts/Layout.astro';
       <div class="lane">
         <div class="lane-media">
           <img
-            src="/images/ai-team-training-page.webp"
-            alt="Professional working with AI tools on a laptop"
+            src="/images/consulting-ai-training.webp"
+            alt="Team members working on laptops and tablets together around a conference table during a training session"
             class="lane-image"
-            width="2000"
-            height="1414"
+            width="1121"
+            height="841"
             loading="lazy"
           />
         </div>
