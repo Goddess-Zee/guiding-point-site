@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Workflow Automation for Nonprofits & GovCon | GPC"
+  description="Workflow automation, documented processes, and connected systems for nonprofits and government contractors. Less manual work, fewer bottlenecks, cleaner reporting."
+>
+  <style>
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 12px 40px rgba(2,30,51,0.12);
+      display: block;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .pain-card {
+      background: #f7f0e7;
+      border-top: 4px solid #b68748;
+      border-radius: 4px;
+      padding: 28px 24px;
+    }
+    .pain-card h3 {
+      margin-top: 0;
+      color: #021e33;
+    }
+    .pain-card ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+    .pain-card li {
+      margin-bottom: 8px;
+    }
+    @media (max-width: 768px) {
+      .hero-grid,
+      .pain-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .hero-image-wrap {
+        order: -1;
+      }
+    }
+  </style>
+
+  <main>
+    <!-- Hero -->
+    <section class="service-hero container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow">Workflow Automation</span>
+          <h1>Workflow Automation &amp; Process Systems</h1>
+          <p class="service-intro">
+            When processes live in someone's head, a spreadsheet, and three inboxes, work slows down.
+            Reports turn into scrambles, handoffs get dropped, and your best people spend their time
+            copying data instead of doing the work that matters.
+          </p>
+          <p class="service-intro">
+            Guiding Point Consulting <strong>documents your processes, connects your systems, and
+            automates the repetitive steps</strong> for nonprofits and government contractors, so work
+            gets done consistently, on time, and without chasing down the one person who knows how it's done.
+          </p>
+          <div class="cta-group" style="justify-content: flex-start;">
+            <a href="/contact" class="btn btn-primary">Streamline Your Workflows</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <img
+            src="/images/ai-content-operations-page.webp"
+            alt="Workflow diagram connecting strategy, planning, team, documentation, and resources"
+            class="hero-image"
+            width="2000"
+            height="1414"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Pain points -->
+    <section class="service-section container">
+      <h2>Sound Familiar?</h2>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <h3>For Government Contractors</h3>
+          <ul>
+            <li>Monthly status reports and contract deliverables pieced together by hand every cycle</li>
+            <li>Compliance documentation scattered across drives, with no clear audit trail</li>
+            <li>Key processes that break down when one team member is out or moves on</li>
+            <li>Data re-entered across systems that don't talk to each other</li>
+          </ul>
+        </div>
+        <div class="pain-card">
+          <h3>For Nonprofits</h3>
+          <ul>
+            <li>Grant reports that mean hunting for numbers across spreadsheets and inboxes</li>
+            <li>Donor acknowledgments, intake, and volunteer coordination done manually</li>
+            <li>A small team stretched thin by tasks a system could handle</li>
+            <li>No documented way of doing things, so onboarding starts from scratch every time</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="service-section container">
+      <h2>What You Get</h2>
+      <ul class="checklist">
+        <li>Process mapping that shows how work actually moves through your organization, and where it gets stuck</li>
+        <li>Documented SOPs and templates for recurring work: reports, deliverables, intake, approvals, and onboarding</li>
+        <li>Workflow automations built in the tools you already use, such as Microsoft 365, Google Workspace, Airtable, or ClickUp, to cut manual data entry and handoffs</li>
+        <li>Connected systems and reporting, so the numbers you need for grant reports or contract deliverables are ready when you need them</li>
+        <li>AI-assisted steps where they save real time, like first drafts and summaries, with clear review points so a human stays in charge</li>
+        <li>Governance and training so your team can run and maintain the system after we're gone</li>
+      </ul>
+    </section>
+
+    <!-- Who This Is For -->
+    <section class="service-section container">
+      <h2>Who This Is For</h2>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <p><strong>Government prime contractors</strong> and their subcontractors who need repeatable, documented processes for deliverables, reporting, and compliance</p>
+        </div>
+        <div class="audience-card">
+          <p><strong>Nonprofits</strong> with small teams that need to do more without adding staff hours or burning people out</p>
+        </div>
+        <div class="audience-card">
+          <p>Any mission-driven team whose operations depend on manual workarounds and institutional memory</p>
+        </div>
+      </div>
+
+      <div class="not-this-box">
+        <p><strong>What this is not:</strong> We don't automate for the sake of automation or force you onto new software. We fix the process first, then automate what makes sense, so your systems support your people instead of adding more to manage.</p>
+      </div>
+    </section>
+
+    <!-- Outcome -->
+    <section class="service-section container">
+      <div class="outcome-box">
+        <h2>The Outcome</h2>
+        <p>Work moves through your organization the same way every time. Reports come together faster, handoffs stop falling through the cracks, and your team gets hours back for the work that actually needs a human.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="service-cta container">
+      <h2>Ready to Take Work Off Your Team's Plate?</h2>
+      <p>Let's map where your time is going and build systems that keep work moving.</p>
+      <a href="/contact" class="btn btn-primary">Streamline Your Workflows</a>
+    </section>
+  </main>
+</Layout>

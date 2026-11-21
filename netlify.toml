@@ -12,3 +12,13 @@
   from = "/services/custom-ai-chatbots"
   to = "/services/consulting/"
   status = 301
+
+[[redirects]]
+  from = "/services/ai-content-operations/*"
+  to = "/services/workflow-automation/"
+  status = 301
+
+[[redirects]]
+  from = "/services/ai-content-operations"
+  to = "/services/workflow-automation/"
+  status = 301
