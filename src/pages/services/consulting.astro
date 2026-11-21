@@ -1,0 +1,326 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Digital Strategy & AI Training Consulting | GPC"
+  description="Fractional marketing leadership, website and marketing systems consulting, and AI team training for nonprofits and public sector organizations."
+>
+  <style>
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-image,
+    .lane-image {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 12px 40px rgba(2, 30, 51, 0.12);
+      display: block;
+      background: #f3f4f6;
+      object-fit: cover;
+    }
+    .hero-image {
+      min-height: 320px;
+    }
+    .lane-image {
+      aspect-ratio: 4 / 3;
+    }
+
+    /* Consulting lanes: image + text, alternating sides on desktop */
+    .lane {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .lane--reverse .lane-media {
+      order: 2;
+    }
+    .lane-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #751312;
+      margin-bottom: 8px;
+    }
+    .lane-best {
+      margin-top: 16px;
+    }
+    .lane-note {
+      margin-top: 12px;
+      font-style: italic;
+    }
+    .lane-links {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Engagement models */
+    .engage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .engage-card {
+      background: #f7f0e7;
+      border-top: 4px solid #b68748;
+      border-radius: 4px;
+      padding: 28px 24px;
+    }
+    .engage-card h3 {
+      margin-top: 0;
+      color: #021e33;
+    }
+
+    /* Training video (enable once the clip is ready) */
+    .video-wrap {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      margin-top: 24px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(2, 30, 51, 0.12);
+    }
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid,
+      .lane {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .hero-image-wrap,
+      .lane-media,
+      .lane--reverse .lane-media {
+        order: -1;
+      }
+      .engage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <main>
+    <!-- Hero -->
+    <section class="service-hero container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow">Consulting</span>
+          <h1>Strategy and guidance for teams doing important work</h1>
+          <p class="service-intro">
+            Not every challenge needs a new build. Sometimes what's missing is a clear strategy, a team
+            that knows how to use the tools it already has, or an experienced leader in the room.
+          </p>
+          <p class="service-intro">
+            Guiding Point consults with <strong>nonprofits and public sector organizations</strong> on
+            marketing and communications strategy, websites and marketing systems, and AI readiness, so
+            your people can keep the mission moving forward.
+          </p>
+          <div class="cta-group" style="justify-content: flex-start;">
+            <a href="/contact" class="btn btn-primary">Request a Consult</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <!-- PLACEHOLDER: swap with a new consulting photo -->
+          <img
+            src="/images/fractional-digital-strategy-lead-page.webp"
+            alt="Team gathered around a table working through a strategy session"
+            class="hero-image"
+            width="2000"
+            height="1414"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Lane 1: Fractional Marketing & Operations Leadership -->
+    <section class="service-section container" id="fractional-leadership">
+      <div class="lane">
+        <div class="lane-media">
+          <!-- PLACEHOLDER: swap with a new photo (e.g., you leading a planning session) -->
+          <img
+            src="/images/ai-content-operations-page.webp"
+            alt="Planning board connecting strategy, team, productivity, and workflow"
+            class="lane-image"
+            width="2000"
+            height="1414"
+            loading="lazy"
+          />
+        </div>
+        <div class="lane-text">
+          <span class="lane-eyebrow">01 · Leadership</span>
+          <h2>Fractional Marketing &amp; Operations Leadership</h2>
+          <p>
+            Experienced marketing leadership without a full-time hire. We act as part of your team, set
+            direction for your marketing and communications, and build the systems that keep it running
+            smoothly.
+          </p>
+          <ul class="checklist">
+            <li>Marketing and communications strategy tied to your mission and goals</li>
+            <li>Leadership for internal staff and outside vendors</li>
+            <li>Ongoing management and improvement of your marketing operations</li>
+            <li>A steady advisor for decisions about websites, content, and AI</li>
+          </ul>
+          <p class="lane-best">
+            <strong>Best for:</strong> Organizations that need senior marketing leadership but aren't
+            ready for, or don't need, a full-time executive.
+          </p>
+          <div class="lane-links">
+            <a href="/services/fractional-digital-strategy" class="text-link">More on fractional leadership →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lane 2: Website & Marketing Systems Consulting -->
+    <section class="service-section container" id="website-marketing-systems">
+      <div class="lane lane--reverse">
+        <div class="lane-media">
+          <!-- PLACEHOLDER: swap with a new photo -->
+          <img
+            src="/images/website-modernization-page.webp"
+            alt="Modern website displayed across desktop, laptop, and tablet screens"
+            class="lane-image"
+            width="2000"
+            height="1414"
+            loading="lazy"
+          />
+        </div>
+        <div class="lane-text">
+          <span class="lane-eyebrow">02 · Systems</span>
+          <h2>Website &amp; Marketing Systems Consulting</h2>
+          <p>
+            Your website and marketing tools should make your team's work easier, not harder. We review
+            what you have, find what's slowing you down, and give you a clear plan to fix it.
+          </p>
+          <ul class="checklist">
+            <li>Website strategy: redesign planning, platform and vendor selection, accessibility, and content structure</li>
+            <li>Audit of your marketing tech stack, CRM, and content workflows</li>
+            <li>Reporting that shows what's working</li>
+            <li>A prioritized roadmap your team can carry out, with or without us</li>
+          </ul>
+          <p class="lane-best">
+            <strong>Best for:</strong> Teams with an outdated website or a pile of tools that aren't
+            working together.
+          </p>
+          <p class="lane-note">
+            Ready to build? Our <a href="/services/website-modernization">website modernization services</a> turn the plan into a site that works.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lane 3: AI Team Training & Workforce Development -->
+    <section class="service-section container" id="ai-training-workforce">
+      <div class="lane">
+        <div class="lane-media">
+          <!-- PLACEHOLDER: swap with a photo from one of your trainings -->
+          <img
+            src="/images/ai-team-training-page.webp"
+            alt="Professional working with AI tools on a laptop"
+            class="lane-image"
+            width="2000"
+            height="1414"
+            loading="lazy"
+          />
+        </div>
+        <div class="lane-text">
+          <span class="lane-eyebrow">03 · Training</span>
+          <h2>AI Team Training &amp; Workforce Development</h2>
+          <p>
+            AI only helps if your people are confident using it. Our hands-on training builds practical
+            AI skills for real workflows, with a focus on responsible use, human judgment, and skills
+            that stay in your organization after we leave.
+          </p>
+          <ul class="checklist">
+            <li>Role-based training built around your team's day-to-day work</li>
+            <li>Guidance on responsible AI use, data privacy, and quality control</li>
+            <li>Train-the-trainer options so the knowledge stays in-house</li>
+            <li>Measurable outcomes: staff trained, skills gained, workflows improved</li>
+          </ul>
+          <p class="lane-best">
+            <strong>Best for:</strong> Agencies upskilling their staff, workforce development programs,
+            and nonprofits preparing their teams, or the communities they serve, for an AI-enabled
+            workplace.
+          </p>
+          <div class="lane-links">
+            <a href="/services/ai-team-training" class="text-link">See our full AI team training programs →</a>
+          </div>
+        </div>
+      </div>
+
+      <!--
+        TRAINING VIDEO: uncomment once the 60–90 sec clip is uploaded.
+        Use an unlisted YouTube (youtube-nocookie) or Vimeo link, with captions turned on.
+        Replace VIDEO_ID below.
+
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&cc_load_policy=1"
+          title="Guiding Point AI team training sample"
+          loading="lazy"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      -->
+    </section>
+
+    <!-- How We Work Together -->
+    <section class="service-section container">
+      <h2>How We Work Together</h2>
+      <div class="engage-grid">
+        <div class="engage-card">
+          <h3>Assessment Project</h3>
+          <p>A focused, fixed-scope engagement to evaluate where you are and give you a clear plan.</p>
+        </div>
+        <div class="engage-card">
+          <h3>Fractional Retainer</h3>
+          <p>Ongoing strategic or operational support on a predictable monthly schedule.</p>
+        </div>
+        <div class="engage-card">
+          <h3>Training Engagement</h3>
+          <p>Workshops, cohorts, or a custom curriculum for your team.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Guiding Point -->
+    <section class="service-section container">
+      <div class="outcome-box">
+        <h2>Why Guiding Point</h2>
+        <p>
+          We're a certified WBE/MBE firm based in Tampa, working with public sector prime contractors
+          and mission-driven nonprofits. We bring together hands-on technical delivery and strategic
+          guidance, so our advice holds up when it's time to put it into action. Above all, we believe
+          technology should bring people closer, not replace the connection between them.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="service-cta container">
+      <h2>Not sure where to start?</h2>
+      <p>Tell us what you're working on, or start with a free look at your website.</p>
+      <div class="cta-group">
+        <a href="/contact" class="btn btn-primary">Request a Consult</a>
+        <a href="/website-audit" class="btn btn-secondary">Get a Free Website Audit</a>
+      </div>
+    </section>
+  </main>
+</Layout>

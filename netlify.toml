@@ -2,3 +2,13 @@
   command = "npm run build"
   publish = "dist"
   functions = "netlify/functions"
+
+[[redirects]]
+  from = "/services/custom-ai-chatbots/*"
+  to = "/services/consulting/"
+  status = 301
+
+[[redirects]]
+  from = "/services/custom-ai-chatbots"
+  to = "/services/consulting/"
+  status = 301

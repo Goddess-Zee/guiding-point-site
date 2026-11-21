@@ -18,7 +18,7 @@ Contact: hello@guidingpointconsults.com — Tampa, Florida, serving clients nati
 - [Website Modernization](https://guidingpointconsults.com/services/website-modernization): Audit, roadmap, and rebuild of public-facing websites for clarity, usability, accessibility, and AI discoverability (AEO/GEO)
 - [AI Content Operations](https://guidingpointconsults.com/services/ai-content-operations): SOPs, prompt libraries, workflows, and governance for content teams
 - [AI Team Training](https://guidingpointconsults.com/services/ai-team-training): Plain-language, role-specific AI training for non-technical staff
-- [Custom AI Chatbots](https://guidingpointconsults.com/services/custom-ai-chatbots): Mission-aware assistants trained on an organization's own FAQs, programs, and documents
+- [Consulting](https://guidingpointconsults.com/services/consulting/): Fractional marketing and operations leadership, website and marketing systems consulting, and AI team training tied to workforce development
 - [Fractional Digital Strategy](https://guidingpointconsults.com/services/fractional-digital-strategy): Ongoing senior digital strategy leadership on a part-time basis
 
 ## Who We Serve
